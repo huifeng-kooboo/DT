@@ -59,20 +59,20 @@
 
 * Qt安装好后，启动QtCreator
 
-  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\qt.png">
+  <img src="images\qt.png">
 
 
 * 文件----打开文件或项目
 
-  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\open.jpg">
+  <img src="images\open.jpg">
 
 * 依次打开main.pro以及plugins.pro  （选择 MSVC2017 64bit 编译： 因为需要调用到sdk的头文件和lib文件，所以用MSVC2017编译）
 
-  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\plugins.jpg">
+  <img src="images\plugins.jpg">
 
 * 编译main.pro以及plugins.pro ,编译成功后，会在bin目录下生成相关的文件
 
-  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\success.jpg">
+  <img src="images\success.jpg">
 
 
 
