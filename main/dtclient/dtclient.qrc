@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/logo.png</file>
+        <file>resources/min.png</file>
+        <file>resources/max.png</file>
+        <file>resources/close.png</file>
+        <file>resources/close_dark.png</file>
+        <file>resources/icon.png</file>
+        <file>resources/homepage.png</file>
+        <file>resources/homepage_press.png</file>
+        <file>resources/icon.ico</file>
+        <file>resources/camera.png</file>
+        <file>resources/camera_press.png</file>
+        <file>resources/camera_config.png</file>
+        <file>resources/hmi.png</file>
+        <file>resources/out_set.png</file>
+        <file>resources/tool_task.png</file>
+        <file>resources/close_hover.png</file>
+        <file>resources/close_press.png</file>
+        <file>resources/max_hover.png</file>
+        <file>resources/max_press.png</file>
+        <file>resources/min_hover.png</file>
+        <file>resources/min_press.png</file>
+        <file>resources/homepage_hover.png</file>
+    </qresource>
+</RCC>

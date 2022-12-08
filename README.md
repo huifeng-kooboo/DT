@@ -47,7 +47,70 @@
 
 # 4. 帮助文档
 
+### （1）开发环境安装
+
+##### 依赖安装：
+
+* [Qt 5.14.2](https://download.qt.io/archive/qt/5.14/5.14.2/)  ：只需要安装Qt5.14.2即可
+* 需要配置VS2017的MSVC编译 参考[此处](https://blog.csdn.net/baiyi_2014/article/details/125424534) 进行配置环境 【假如有调用到Win相关的API的环境，需要下载】
+* Qt Creator 配置： 工具->选项->文本编辑器->行为->UTF-8 BOM设置成“如果编码是UTF-8则添加”
+
+##### 编译：
+
+* Qt安装好后，启动QtCreator
+
+  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\qt.png">
+
+
+* 文件----打开文件或项目
+
+  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\open.jpg">
+
+* 依次打开main.pro以及plugins.pro  （选择 MSVC2017 64bit 编译： 因为需要调用到sdk的头文件和lib文件，所以用MSVC2017编译）
+
+  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\plugins.jpg">
+
+* 编译main.pro以及plugins.pro ,编译成功后，会在bin目录下生成相关的文件
+
+  <img src="D:\Own\sensetime\sensetime\senseinsight-client\images\success.jpg">
+
+
+
+* dtdt.exe为编译成功的文件
+
+
+
+### （2）如何在DT框架下进行开发程序
+
 * TODO
+
+
+
+----
+
+#### 打包部署【win】
+
+* 打包需要本地先安装python3，进入```scripts```文件下
+
+* 执行 ```pip install -r requirements.txt```  安装相关依赖
+
+* 执行scripts的pack.py脚本 ```python3 pack.py```
+
+* 脚本执行成功后，会在代码目录下package文件夹生成时间命名的压缩包，并且发送文件下载地址到对应的邮箱
+
+  
+
+----
+
+#### 程序运行
+
+* 正常启动
+
+  直接双击```dtdt.exe```即可启动
+
+* 调试模式
+
+  命令行中执行```dtdt.exe -debug```，则使用调试模式启动窗体（带有输出窗口的形式启动软件）
 
 
 
