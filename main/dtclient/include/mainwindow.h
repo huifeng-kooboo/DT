@@ -21,20 +21,24 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
-  // 初始化
-  void init();
-  void addWidgetToMainWindow(QWidget *);
-  void showStatusBarInfo(const QString &qsInfo);
-
+private:
 
   /**
-   * @brief: 设置当前的Widget
+    * @brief: 程序初始化
+    */
+  void init();
+
+  /**
+    * @brief: 插件加载
    */
-  void setCurrentWidget(QWidget* pWidget);
-  QWidget* getCurrentWidget();
+  void loadPlugins();
+
 
 signals:
-  // 发送信号给对应的插件
+
+  /**
+    * @brief: 同步调用
+    */
   void sendSignalToPlugins(PluginMetaData);
 
   /**
@@ -53,52 +57,13 @@ public slots:
 
   // 与其他插件通信的槽
   void slotEventFromPlugins(const PluginMetaData& plt);
-
   void slotEventFromPluginsAsync(const PluginMetaData&);
 
-  /**
-    * @brief: 标题栏增加按钮 (1.0版本暂时没有该需求预留)
-  */
-  void slotPluginAddTitleBtn(QPushButton *pBtn);
 
-  /**
-   * @brief: tab页窗体添加控件
-  */
-  void slotPluginAddTabWidget(QString qsName, QIcon qsIcon, QWidget *pTabWidget,
-                              bool bShowTabName);
-
-  /**
-    * @brief: Tab标题栏添加新相机
-    * @param: pBtn: 按钮
-    * @param: bNeedClose: 是否需要有关闭按钮
-   */
-  void slotPluginTitleBarAddTabBtn(DTButton* pBtn, bool bNeedClose);
-
-  /**
-   * @brief: 工具栏增加工具
-   */
-  void slotPluginAddToolBtn(QPushButton *pBtn, bool bNeedSplit,
-                           Qt::Alignment align); //工具栏增加工具接口
-
-  /**
-   * @brief: 底部状态栏信息添加控件
-   */
-  void slotPluginAddStatusBarControls(QWidget *pWidget,
-                                      int strech); // 底部状态栏增加控件接口
-
-  /**
-   * @brief: 底部状态栏信息展示
-   * @param qsTabInfo: 需要展示的信息text
-   */
-  void slotPluginShowStatusBarInfo(QString qsTabInfo);
-
-  // 主程序用到的槽
+  // 标题栏
   void slotCloseEvent();
   void slotMinEvent();
   void slotMaxEvent();
-
-  // 设置主界面Widget窗体
-  void slotSetMainWidget(QWidget* pWidget);
 
   // override
   void mouseMoveEvent(QMouseEvent *event) override;
@@ -115,31 +80,16 @@ protected:
                    long *result) override;
 #endif
 
-private:
-  void addListItemToFuncListWidget(QString qsObjectName, QString qsText, QIcon qIcon);
-
-private:
-
-  QPoint m_PointMouse;
-  bool m_bShowMax = false;
-  bool m_bInitToolBar = false;  // 初始化工具栏
-  bool m_bInitTabWidget = false;
 
 private:
   Ui::MainWindow *ui;
+
   DT_PluginsManager *m_dtPluginsManager;  // 插件管理
+  DTTitleBar *m_pTitleBar;       // 标题栏控件
 
-
-  QWidget * m_pCurWidget = nullptr;      // 当前Widget
-  QWidget * m_pCurFuncWidget = nullptr;   // 功能窗体
-  QListWidget * m_pFuncListWidget = nullptr; // 左侧功能列表菜单栏
-  DTTitleBar *m_pTitleBar;       // 标题控件
-  DTToolBar *m_pToolBar;         // 工具栏控件
-
-  // 底部状态栏
-  QStatusBar *m_pStatusBar;
-  QLabel *m_pStatusBarLabel;
-
+  // 程序拖动时候需要使用的变量
+  QPoint m_PointMouse;
   int m_nCurrentWidth = 0;
+  bool m_bShowMax = false;
 };
 #endif // MAINWINDOW_H

@@ -18,7 +18,6 @@ public:
     // 所有插件均需要实现loadUI()方法，可以是空实现
     virtual void loadUI() = 0;
 
-
 Q_SIGNALS:
 
     /**
@@ -35,42 +34,6 @@ Q_SIGNALS:
       * 异步信号增加
      */
     void sendSignalToPluginsAsync(const PluginMetaData&);
-
-    /*
-     * 添加工具
-    */
-    void signalAddTitleBtn(QPushButton*);
-
-     /*
-     * 添加工具栏按钮信号
-     */
-    void signalAddToolBtn(QPushButton* ,bool, Qt::Alignment );
-
-    /*
-     * @brief: 添加TabWidget
-     *
-    */
-    void signalAddTabWidget(QString ,QIcon, QWidget*,bool);
-
-    /*
-     * @brief: 状态栏增加控件
-     * pWidget： 需要底部状态栏增加的控件句柄
-     * strech: 默认0即可
-    */
-    void signalAddStatusBarControls(QWidget* pWidget,int strech); // 底部状态栏增加控件接口
-
-    /*
-     * @brief: 显示状态栏信息
-     *
-    */
-    void signalShowStatusBarInfo(QString);
-
-    /*
-     * @brief: 设置主界面的Widget
-    */
-    void signalSetMainWidget(QWidget*);
-
-
 
 public:
 
@@ -115,7 +78,7 @@ public slots:
     virtual QVariant slotHandleMessage(const PluginMetaData& plt) = 0;
 
 
-    virtual void slotSendSignal(PluginMetaData plt)
+    virtual void slotSendSignal(const PluginMetaData& plt)
     {
         sendSignal(plt);
     }

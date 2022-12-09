@@ -85,8 +85,6 @@ void DTTitleBar::homePageClick()
 
 void DTTitleBar::addToolButton(QPushButton* pBtn)
 {
-    //todo:
-    return;
     m_vecToolBtns.append(pBtn);
     m_pToolsLayout->addWidget(pBtn);
 }
@@ -215,14 +213,6 @@ void DTTitleBar::initControls()
 
     m_pBtnsHBoxLayout->addLayout(m_pTabLayout);
 
-    /**
-      * @brief: 工具添加
-     */
-    /*
-     * 暂时不需要Tool功能 故屏蔽
-    */
-    //m_pBtnsHBoxLayout->addLayout(m_pToolsLayout);
-
     // 关闭 最小化 最大化按钮
     m_pMinBtn = new DTButton(this);
     m_pMinBtn->setObjectName("window_min");
@@ -296,5 +286,5 @@ void DTTitleBar::setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const
 
 void DTTitleBar::slotHomePageEvent()
 {
-    // m_pHomePageBtn->setBtnStateColor(E_BUTTON_STATE::BUTTON_STATE_NORMAL,"rgba(54, 52, 51, 1)");
+    //
 }

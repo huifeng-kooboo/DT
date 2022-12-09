@@ -98,15 +98,12 @@ private:
     QHBoxLayout* m_pTabLayout; // Tab布局《----
     QButtonGroup * m_btn_group;
 
-
     /**
      * @brief:当前UI不需要（预留）---
     */
     QHBoxLayout* m_pToolsLayout; //工具Layout
     QVector<QPushButton*> m_vecToolBtns; // 工具按钮集合
 };
-
-
 
 
 #endif // DTCUSTOMTITLEWIDGET_H
