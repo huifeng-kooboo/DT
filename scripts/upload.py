@@ -6,10 +6,11 @@ from qcloud_cos import CosS3Client
 
 __all__ = {'cos_upload_file'}
 
-TX_COS_BUCKET_NAME = "ytouch-1258011219"
-TX_COS_REGION = 'ap-nanjing'
-TX_COS_SECRETID = 'AKIDuiOt7BRi6LK3Ynat1sgGZrvzqqgIjv8L'
-TX_COS_SECRETKEY = 'CGsWBar6vYvpsynNCRjnbFi6HF0dgU2K'
+# 此处的配置信息 需要去申请腾讯云cos服务中获取
+TX_COS_BUCKET_NAME = "xxxxx"
+TX_COS_REGION = 'xxxx'
+TX_COS_SECRETID = 'xxx'
+TX_COS_SECRETKEY = 'xxx'
 
 secret_id = TX_COS_SECRETID  # 替换为用户的 secretId
 secret_key = TX_COS_SECRETKEY  # 替换为用户的 secretKey

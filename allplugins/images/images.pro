@@ -36,22 +36,11 @@ HEADERS += \
     include/images.h \
     ../plugins_base/pluginsmanager_base.h \
 
-LIBS += $$PWD/../../bin/libcommon.a
-LIBS += $$PWD/../../bin/libdtui.a
-#LIBS += $$PWD/../../senseinsight/lib/windows/jsoncpp.lib
-#LIBS += $$PWD/../../senseinsight/lib/windows/dllrpc_client.lib
-#LIBS += $$PWD/../../senseinsight/lib/windows/CobraImageProcess.lib
-#LIBS += $$PWD/../../senseinsight/lib/windows/dllvision_core.lib
-#LIBS += $$PWD/../../senseinsight/lib/windows/SenseCommon.lib
-#LIBS += $$PWD/../../senseinsight/lib/windows/CobraClassifyElDll.lib
 
-## 集成common组件
-#win32::LIBS += -L../../bin \
-#               -lcommon \
+# 添加依赖的静态库
+win32::LIBS += $$PWD/../../bin/libcommon.a
+win32::LIBS += $$PWD/../../bin/libdtui.a
 
-## 集成ui组件
-#win32::LIBS += -L../../bin \
-#               -ldtui \
 
 # Default rules for deployment.
 unix {

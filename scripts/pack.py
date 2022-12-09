@@ -7,11 +7,13 @@ import datetime
 import yagmail
 from upload import cos_upload_file
 
-install_path = '''C:\\Qt\\Qt5.14.2\\5.14.2\\msvc2017_64\\bin\\windeployqt.exe ..\\bin\\senseinsight.exe'''
+# 需要配置本地windeployqt.exe 以及生成文件路径
+install_path = '''C:\\Qt\\Qt5.14.2\\5.14.2\\msvc2017_64\\bin\\windeployqt.exe ..\\bin\\dtdt.exe'''
 
 
 def send_email(file_path, email_address,cc_email, str_content,str_title):
-    yag = yagmail.SMTP( user='duhuifeng@sensetime.com', password='123123dhf.', host='smtp.partner.outlook.cn',port=587, smtp_starttls=True, smtp_ssl=False)
+    # 需要自己配置user和password
+    yag = yagmail.SMTP( user='xxxx@qq.com', password='xxxxxxx', host='smtp.partner.outlook.cn',port=587, smtp_starttls=True, smtp_ssl=False)
     if file_path != "":
         yag.send(to = email_address, cc=cc_email ,subject = str_title ,contents=str_content, attachments=file_path)
     else:
@@ -76,9 +78,9 @@ if __name__ == "__main__":
     times= datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     get_zip("..\\bin",f"..\\package\\{times}.zip")
     print(f"《----当前安装包..\\package\\{times}.zip打包成功----》")
-    email_ = ["caoxinting@sensetime.com","huchao@sensetime.com","huyu@sensetime.com"] # 需要发送的url
-    cc_email = ["duhuifeng@sensetime.com"]
+    email_ = ["xxx@qq.com"] # 需要发送的邮箱地址
+    cc_email = ["xxxx@qq.com"] # 需要抄送的邮箱地址
     res_url  = cos_upload_file(f"..\\package\\{times}.zip")
     # 安装包下载链接:{res_url}
-    send_email("",email_, cc_email, f"insight-client安装包 \n 打包时间:{times}\n 安装包下载链接: {res_url}","sense-insight安装包")
+    send_email("",email_, cc_email, f"dtdt安装包 \n 打包时间:{times}\n 安装包下载链接: {res_url}","dtdt安装包")
     print(f"发送安装包到{email_}成功")

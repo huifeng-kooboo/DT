@@ -13,12 +13,12 @@
 #endif
 
 /**
+ * [支持自定义扩展]
  * @brief: 解析命令行启动传参
  * @param: qsCmd: 传入参数
 */
 void parseCmd(const QString& qsCmd)
 {
-    //ToDo
     Logger->logMsg(QtMsgType::QtInfoMsg,QString("GetCmdInput: %1").arg(qsCmd));
     if(qsCmd.contains("debug"))
     {
@@ -33,10 +33,13 @@ void parseCmd(const QString& qsCmd)
 
 int main(int argc, char *argv[])
 {
-
+    // dump文件生成
     SetUnhandledExceptionFilter(ExceptionFilter);
 
-     qRegisterMetaType<PluginMetaData>("PluginMetaData");
+    // 注册需要通信的数据类型
+    qRegisterMetaType<PluginMetaData>("PluginMetaData");
+
+    // 设置UTF-8格式
 #if (QT_VERSION <= QT_VERSION_CHECK(5,0,0))
 #if _MSC_VER
     QTextCodec *codec = QTextCodec::codecForName("gbk");
@@ -51,13 +54,11 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(codec);
 #endif
 
+    // 设置程序的基本信息
     QCoreApplication::setOrganizationName(ORGANIZATION_NAME);
     QCoreApplication::setApplicationName(APP_NAME);
 
-#ifdef LOCAL_TEST
-    QSettings settings("config.ini", QSettings::IniFormat);
-    settings.setValue("ip","192.168.0.216:20020");
-#endif
+
     /**
      * 处理命令行输入信息
      */
@@ -84,13 +85,18 @@ int main(int argc, char *argv[])
         qInstallMessageHandler(DTLog::logMsg);
     }
 
+    // 获取屏幕放大比例....
     qreal displayPer = qApp->primaryScreen()->logicalDotsPerInch();
-    Logger->logMsg(QtMsgType::QtInfoMsg,QString("...Init Window... DisplayPer: %1").arg(displayPer));
+    Logger->logMsg(QtMsgType::QtDebugMsg,QString("WindowsDisplayPer: %1...").arg(displayPer));
+
+    // 资源初始化
     Q_INIT_RESOURCE(dtclient);
 
     // 启动主窗体
     MainWindow w;
+
+    // 默认最大化显示窗体
     w.showMaximized();
-    Logger->logMsg(QtMsgType::QtInfoMsg,"App Exit");
+
     return app.exec();
 }
