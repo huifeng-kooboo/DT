@@ -87,7 +87,8 @@ void DT_PluginsManager::freePlugins()
                 // 绑定显示状态栏信息事件
                 QObject::disconnect(loader.instance(),SIGNAL(signalShowStatusBarInfo(QString)),m_parent,SLOT(slotPluginShowStatusBarInfo(QString)));
 
-                // 增加同步的方法
+                // 解除绑定
+
             }
 
             bool bUnload = loader.unload();

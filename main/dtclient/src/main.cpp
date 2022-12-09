@@ -1,9 +1,4 @@
-﻿#include <QApplication>
-#include <QSettings>
-#include <QTextCodec>
-#include <QScreen>
-#include <QHostInfo>
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "globaldefine.h"
 #include "../../common/include/dtlog.h"
 #include "../../common/include/dtregistry.h"

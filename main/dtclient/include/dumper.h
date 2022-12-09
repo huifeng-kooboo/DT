@@ -3,6 +3,8 @@
 
 /*** dump文件生成 **/
 
+#ifdef Q_OS_WIN
+
 #pragma once
 #include <tchar.h>
 #include <Windows.h>
@@ -69,5 +71,5 @@ LONG WINAPI ExceptionFilter(LPEXCEPTION_POINTERS lpExceptionInfo)
 }
 
 
-
+#endif
 #endif // DUMPER_H

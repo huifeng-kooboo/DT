@@ -1,7 +1,5 @@
 ﻿#ifndef PLUGINSMANAGER_H
 #define PLUGINSMANAGER_H
-#include <QObject>
-#include <QSet>
 
 #define PluginManager DT_PluginsManager::GetInstance()
 
@@ -19,6 +17,11 @@ struct PluginsInfo {
   E_PLUGIN_STATE ePluginState; //插件状态
 };
 
+
+/**
+ * @brief: 插件管理器
+ * 主要是用来管理已经加载的插件，以及在程序运行结束后释放插件，这个就是组件化代码的核心
+*/
 class DT_PluginsManager : public QObject {
   Q_OBJECT
   typedef QVector<PluginsInfo> VEC_PLUGININFO;
@@ -49,6 +52,9 @@ public:
    */
   void initUI(QObject *);
 
+  /**
+    * @brief: 获取以及加载成功的插件列表
+    */
   const QVector<QObject*>& getLoadedObject()
   {
       return m_vecLoadSuccessObjects;

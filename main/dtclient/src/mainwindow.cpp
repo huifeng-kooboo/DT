@@ -1,16 +1,4 @@
-﻿#include <QFlag>
-#include <QWidget>
-#include <qnamespace.h>
-#include <QMouseEvent>
-#include <QFormLayout>
-#include <QGridLayout>
-#include <QLayout>
-#include <QScreen>
-#include <QTabWidget>
-#include <QDebug>
-#include <QProcess>
-#include <QMessageBox>
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "../../dtui/include/dtgraphicsview.h"
 #include "../../common/include/dtlog.h"

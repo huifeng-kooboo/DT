@@ -1,11 +1,6 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QStatusBar>
-#include <QListWidget>
-#include <QSharedPointer>
-
 #include "../../dtui/include/dttabwidget.h"
 #include "../../dtui/include/dttitlebar.h"
 #include "../../dtui/include/dttoolbar.h"
