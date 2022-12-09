@@ -17,6 +17,8 @@ bool DTFile::createFile(const QString &qsFilePath, bool bReload)
         }
     }
     QFile file(qsFilePath);
+    if(!file.exists())
+        return false;
     return true;
 }
 

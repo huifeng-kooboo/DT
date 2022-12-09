@@ -39,9 +39,12 @@ void MainWindow::showStatusBarInfo(const QString &qsInfo)
     m_pStatusBarLabel->setText(qsInfo);
 }
 
-// 初始化
+
 void MainWindow::init() {
+
+    /************* 设置图标 *******************/
     setWindowIcon(QIcon(":/resources/icon.png"));
+
     // 1.标题栏设置
     m_pTitleBar = new DTTitleBar(this);
     m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小

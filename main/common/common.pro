@@ -1,5 +1,6 @@
 include (../main.pri)
 
+# 默认QT版本5.14.2 【原因： 开源的最新版本】
 QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

@@ -7,6 +7,7 @@ DEFINES += Images_LIBRARY
 
 # 生成文件路径
 DESTDIR = $$PWD/../../bin/plugins/
+# 生成文件名称
 TARGET = images
 
 CONFIG += c++14

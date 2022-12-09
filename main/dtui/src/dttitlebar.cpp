@@ -292,8 +292,6 @@ void DTTitleBar::setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const
     m_pHomePageBtn->setIconSize(qSize);
     m_pHomePageBtn->setBtnFixedSize(QSize(60,44));
     m_pHomePageBtn->setFlat(true);
-    /****************************ToDo 暂时不需要***********************************/
-    //m_pHomePageBtn->setStateIcon(qIcon,qHoverIcon,qPressIcon);
 }
 
 void DTTitleBar::slotHomePageEvent()

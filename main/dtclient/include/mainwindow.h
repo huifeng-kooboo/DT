@@ -110,6 +110,7 @@ public slots:
 
 #ifdef Q_OS_WIN
 protected:
+  /********* 重绘界面框，可以拖动 *********/
   bool nativeEvent(const QByteArray &eventType, void *message,
                    long *result) override;
 #endif
