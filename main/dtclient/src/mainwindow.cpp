@@ -129,7 +129,7 @@ void MainWindow::init() {
     m_pTitleBar->homePageClick();
 }
 
-void MainWindow::slotEventFromPluginsAsync(PluginMetaData plt)
+void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
 {
     emit sendSignalToPluginsAsync(plt);
 }
@@ -150,7 +150,7 @@ QVariant MainWindow::slotSendMessage(const PluginMetaData& plt)
     return QVariant("");
 }
 
-void MainWindow::slotEventFromPlugins(PluginMetaData plt)
+void MainWindow::slotEventFromPlugins(const PluginMetaData& plt)
 {
     switch (plt.enumUiMsg) {
     case MSG_UI_NONE:

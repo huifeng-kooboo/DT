@@ -48,7 +48,7 @@ QVariant Images::slotHandleMessage(const PluginMetaData &plt)
     return QVariant("");
 }
 
-void Images::slotEventFromPlugins(PluginMetaData plt)
+void Images::slotEventFromPlugins(const PluginMetaData& plt)
 {
     //sendSignal(plt);
     m_uiObject = plt.qObject;

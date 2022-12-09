@@ -40,7 +40,7 @@ public :
     void setImageWidgetIconSize(const int& width,const int& height);
 
 public:
-    void slotEventFromPlugins(PluginMetaData plt) override;
+    void slotEventFromPlugins(const PluginMetaData& plt) override;
     QVariant slotHandleMessage(const PluginMetaData &plt) override;
 
 

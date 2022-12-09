@@ -9,7 +9,6 @@
 #include <tchar.h>
 #include <Windows.h>
 #include <DbgHelp.h>
-
 #pragma comment(lib, "user32.lib")
 
 int GenerateMiniDump(PEXCEPTION_POINTERS pExceptionPointers)

@@ -3,9 +3,6 @@
 #include <QObject>
 #include <QPushButton>
 #include "../../global/define.h"
-//#include "../../main/dtui/include/dtbutton.h"
-
-
 
 // 处理中文乱码使用
 #if defined(_MSC_VER) && (_MSC_VER >= 1600)
@@ -16,6 +13,7 @@ class DTPluginBase: public QObject
 {
 
     Q_OBJECT
+
 public:
     // 所有插件均需要实现loadUI()方法，可以是空实现
     virtual void loadUI() = 0;
@@ -31,12 +29,12 @@ Q_SIGNALS:
     /*
      * @brief: 同步信号
      */
-    void sendSignalToPlugins(PluginMetaData);
+    void sendSignalToPlugins(const PluginMetaData&);
 
     /**
       * 异步信号增加
      */
-    void sendSignalToPluginsAsync(PluginMetaData);
+    void sendSignalToPluginsAsync(const PluginMetaData&);
 
     /*
      * 添加工具
@@ -76,16 +74,29 @@ Q_SIGNALS:
 
 public:
 
-    // 发送信号封装
-    virtual void sendSignal(PluginMetaData plt)
+    /**
+      * @brief: 同步发送信号
+      */
+    virtual void sendSignal(const PluginMetaData& plt)
     {
         emit sendSignalToPlugins(plt);
     }
 
+    /**
+      * @brief: 异步发送信号
+      */
+    virtual void sendSignalAsyn(const PluginMetaData& plt)
+    {
+        emit sendSignalToPluginsAsync(plt);
+    }
+
 public slots:
 
-    // 处理回调消息
-    virtual void slotEventFromPlugins(PluginMetaData plt) = 0;
+
+    /**
+      * @brief: 处理回调事件
+      */
+    virtual void slotEventFromPlugins(const PluginMetaData& plt) = 0;
 
     // 设置ui句柄
     virtual void slotSetUIHandle(QObject* uiObject)

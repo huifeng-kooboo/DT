@@ -159,14 +159,14 @@ void DT_PluginsManager::registerEventCallBacks()
                 /**
                   * 同步方法信号槽绑定
                  */
-                QObject::connect(loader.instance(),SIGNAL(sendSignalToPlugins(PluginMetaData)),m_parent,SLOT(slotEventFromPlugins(PluginMetaData)));
-                QObject::connect(m_parent,SIGNAL(sendSignalToPlugins(PluginMetaData)),loader.instance(),SLOT(slotEventFromPlugins(PluginMetaData)));
+                QObject::connect(loader.instance(),SIGNAL(sendSignalToPlugins(const PluginMetaData&)),m_parent,SLOT(slotEventFromPlugins(const PluginMetaData&)));
+                QObject::connect(m_parent,SIGNAL(sendSignalToPlugins(const PluginMetaData&)),loader.instance(),SLOT(slotEventFromPlugins(const PluginMetaData&)));
 
                 /**
                   * 异步方法信号槽绑定
                  */
-                QObject::connect(loader.instance(),SIGNAL(sendSignalToPluginsAsync(PluginMetaData)),m_parent,SLOT(slotEventFromPluginsAsync(PluginMetaData)),Qt::ConnectionType::QueuedConnection);
-                QObject::connect(m_parent,SIGNAL(sendSignalToPluginsAsync(PluginMetaData)),loader.instance(),SLOT(slotEventFromPlugins(PluginMetaData)),Qt::ConnectionType::QueuedConnection);
+                QObject::connect(loader.instance(),SIGNAL(sendSignalToPluginsAsync(const PluginMetaData&)),m_parent,SLOT(slotEventFromPluginsAsync(const PluginMetaData&)),Qt::ConnectionType::QueuedConnection);
+                QObject::connect(m_parent,SIGNAL(sendSignalToPluginsAsync(const PluginMetaData&)),loader.instance(),SLOT(slotEventFromPlugins(const PluginMetaData&)),Qt::ConnectionType::QueuedConnection);
 
                 /**
                   * @brief: 在同个线程中的同步方法
@@ -174,8 +174,12 @@ void DT_PluginsManager::registerEventCallBacks()
                 QObject::connect(loader.instance(),SIGNAL(signalSendMessage(const PluginMetaData&)),m_parent,SLOT(slotSendMessage(const PluginMetaData&)),Qt::DirectConnection);
 
 
-                // 绑定更新ui事件
+                /**
+                 * @brief: 绑定更新UI事件
+                 */
                 QObject::connect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
+
+
                 // 标题栏工具图标绑定
                 QObject::connect(loader.instance(),SIGNAL(signalAddTitleBtn(QPushButton*)),m_parent,SLOT(slotPluginAddTitleBtn(QPushButton*)));
                 // 绑定添加工具栏图标控件

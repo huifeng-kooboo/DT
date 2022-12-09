@@ -52,9 +52,9 @@ public slots:
   QVariant slotSendMessage(const PluginMetaData&);
 
   // 与其他插件通信的槽
-  void slotEventFromPlugins(PluginMetaData plt);
+  void slotEventFromPlugins(const PluginMetaData& plt);
 
-  void slotEventFromPluginsAsync(PluginMetaData);
+  void slotEventFromPluginsAsync(const PluginMetaData&);
 
   /**
     * @brief: 标题栏增加按钮 (1.0版本暂时没有该需求预留)
@@ -119,15 +119,17 @@ private:
   void addListItemToFuncListWidget(QString qsObjectName, QString qsText, QIcon qIcon);
 
 private:
+
   QPoint m_PointMouse;
   bool m_bShowMax = false;
   bool m_bInitToolBar = false;  // 初始化工具栏
   bool m_bInitTabWidget = false;
 
 private:
-
   Ui::MainWindow *ui;
   DT_PluginsManager *m_dtPluginsManager;  // 插件管理
+
+
   QWidget * m_pCurWidget = nullptr;      // 当前Widget
   QWidget * m_pCurFuncWidget = nullptr;   // 功能窗体
   QListWidget * m_pFuncListWidget = nullptr; // 左侧功能列表菜单栏
