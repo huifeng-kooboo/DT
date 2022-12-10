@@ -45,6 +45,7 @@ void Images::loadUI()
 
 QVariant Images::slotHandleMessage(const PluginMetaData &plt)
 {
+    // 同步消息处理
     return QVariant("");
 }
 

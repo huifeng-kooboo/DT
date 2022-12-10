@@ -35,7 +35,14 @@ public:
 
   ~DT_PluginsManager();
 
+  /**
+    * @brief: 加载插件
+    */
   static bool loadPlugin(const QString &dllPath, bool bFreeWhenFailed);
+
+  /**
+   * @brief: 释放指定的插件
+   */
   static void freePlugin(const QString &dllPath);
   // 加载所有的插件
   void loadPlugins();

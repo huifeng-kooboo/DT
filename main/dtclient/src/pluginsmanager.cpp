@@ -71,23 +71,12 @@ void DT_PluginsManager::freePlugins()
             QPluginLoader loader(dllPath.qsPluginsName);
             if(loader.isLoaded() || loader.load())
             {
-                // 双向绑定
+                // 解除绑定
                 QObject::disconnect(loader.instance(),SIGNAL(sendSignalToPlugins(PluginMetaData)),m_parent,SLOT(slotEventFromPlugins(PluginMetaData)));
                 QObject::disconnect(m_parent,SIGNAL(sendSignalToPlugins(PluginMetaData)),loader.instance(),SLOT(slotEventFromPlugins(PluginMetaData)));
-                // 绑定更新ui事件
-                QObject::disconnect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
-                // 标题栏工具图标绑定
-                QObject::disconnect(loader.instance(),SIGNAL(signalAddTitleBtn(QPushButton*)),m_parent,SLOT(slotPluginAddTitleBtn(QPushButton*)));
-                // 绑定添加工具栏图标控件
-                QObject::disconnect(loader.instance(),SIGNAL(signalAddToolBtn(QPushButton*,bool ,Qt::Alignment)),m_parent,SLOT(slotPluginAddToolBtn(QPushButton*,bool ,Qt::Alignment)));
-                // 添加TabWidget
-                QObject::disconnect(loader.instance(),SIGNAL(signalAddTabWidget(QString ,QIcon, QWidget*,bool)),m_parent,SLOT(slotPluginAddTabWidget(QString ,QIcon, QWidget*,bool)));
-                // 添加状态栏控件
-                QObject::disconnect(loader.instance(),SIGNAL(signalAddStatusBarControls(QWidget*,int)),m_parent,SLOT(slotPluginAddStatusBarControls(QWidget*,int)));
-                // 绑定显示状态栏信息事件
-                QObject::disconnect(loader.instance(),SIGNAL(signalShowStatusBarInfo(QString)),m_parent,SLOT(slotPluginShowStatusBarInfo(QString)));
 
-                // 解除绑定
+                // 解除绑定更新ui事件
+                QObject::disconnect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
 
             }
 
@@ -178,20 +167,6 @@ void DT_PluginsManager::registerEventCallBacks()
                  * @brief: 绑定更新UI事件
                  */
                 QObject::connect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
-
-
-                // 标题栏工具图标绑定
-                QObject::connect(loader.instance(),SIGNAL(signalAddTitleBtn(QPushButton*)),m_parent,SLOT(slotPluginAddTitleBtn(QPushButton*)));
-                // 绑定添加工具栏图标控件
-                QObject::connect(loader.instance(),SIGNAL(signalAddToolBtn(QPushButton*,bool ,Qt::Alignment)),m_parent,SLOT(slotPluginAddToolBtn(QPushButton*,bool ,Qt::Alignment)));
-                // 添加TabWidget
-                QObject::connect(loader.instance(),SIGNAL(signalAddTabWidget(QString ,QIcon, QWidget*,bool)),m_parent,SLOT(slotPluginAddTabWidget(QString ,QIcon, QWidget*,bool)));
-                // 添加状态栏控件
-                QObject::connect(loader.instance(),SIGNAL(signalAddStatusBarControls(QWidget*,int)),m_parent,SLOT(slotPluginAddStatusBarControls(QWidget*,int)));
-                // 绑定显示状态栏信息事件
-                QObject::connect(loader.instance(),SIGNAL(signalShowStatusBarInfo(QString)),m_parent,SLOT(slotPluginShowStatusBarInfo(QString)));
-                // 绑定设置当前Widget
-                QObject::connect(loader.instance(),SIGNAL(signalSetMainWidget(QWidget*)),m_parent,SLOT(slotSetMainWidget(QWidget*)));
             }
         }
     }

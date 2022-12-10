@@ -23,7 +23,7 @@ enum E_MSG_TYPE {
     MSG_NONE,      // None
     MSG_DLL_MAIN,  // 主程序
     MSG_DLL_SERVICE, // 服务dll，跟底层SDK或者HTTP请求交互的模块
-    MSG_DLL_IMAGES, // 备用使用
+    MSG_DLL_IMAGES, // IMAGES使用 DLL
 };
 
 // UI业务相关类型枚举 [可扩展]
@@ -31,7 +31,6 @@ enum E_MSG_TYPE {
 // @brief: 主程序打开事件，则为MSG_UI_MAIN_OPEN : 统一的规范 方便管理
 enum E_UI_MSG_TYPE {
     MSG_UI_NONE,  // None
-    //
     MSG_UI_MAIN_OPEN, // 打开事件
 };
 
