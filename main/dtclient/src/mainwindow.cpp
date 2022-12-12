@@ -152,16 +152,20 @@ void MainWindow::slotMaxEvent()
 {
     if(m_bShowMax == false)
     {
+        qDebug() << "fangda ...";
         m_nCurrentWidth = this->geometry().width();
         this->showMaximized();
-        m_pTitleBar->setGeometry(0,0,qApp->primaryScreen()->size().width(),44); //设置大小
+        m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
         m_pTitleBar->show();
+        this->setGeometry(this->x(),this->y(),this->geometry().width(),this->geometry().height());
         m_bShowMax = true;
     }
     else{
-        this->showNormal();
+        qDebug()<< "Small";
         m_pTitleBar->setGeometry(0,0,m_nCurrentWidth,44); //设置大小
         m_pTitleBar->show();
+        this->showNormal();
+        this->setGeometry(this->x(),this->y(),m_nCurrentWidth,this->geometry().height());
         m_bShowMax = false;
     }
 }
