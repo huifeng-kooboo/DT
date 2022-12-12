@@ -55,8 +55,10 @@ void MainWindow::init() {
                                 qMinPressIcon,qMaxPressIcon,qClosePressIcon);
     this->layout()->addWidget(m_pTitleBar);
 
-
+    // 2. 加载插件
     loadPlugins();
+
+    // 3. 显示界面
     this->showNormal();
 }
 
@@ -64,7 +66,7 @@ void MainWindow::init() {
 void MainWindow::loadPlugins()
 {
     Logger->logMsg(QtMsgType::QtInfoMsg,tr("加载所有插件开始"));
-    m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager, &QObject::deleteLater);
+    m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager(this), &QObject::deleteLater);
     m_dtPluginsManager->loadPlugins();
     m_dtPluginsManager->registerEventCallBacks();
     m_dtPluginsManager->initUI((QObject*)this);

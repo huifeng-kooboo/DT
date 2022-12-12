@@ -1,8 +1,8 @@
 {
     "plugins":[{
-            "plugins_name":"service.dll",
+            "plugins_name":"images.dll",
             "plugins_version":"1.0",
-            "plugins_desc":"服务插件",
+            "plugins_desc":"测试插件功能使用",
             "plugins_state":"0" 
         }]
 }

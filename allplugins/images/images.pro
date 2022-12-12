@@ -23,6 +23,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+# 添加预编译头文件
+CONFIG += PRECOMPILED_HEADER
+PRECOMPILED_HEADER =  $$PWD/include/stdafx.h
+
 INCLUDEPATH +=\
     include \
     src \
@@ -35,7 +39,11 @@ SOURCES += \
 HEADERS += \
     include/images_global.h \
     include/images.h \
-    ../plugins_base/pluginsmanager_base.h \
+    ../plugins_base/pluginsmanager_base.h \ \
+    include/stdafx.h
+
+
+
 
 
 # 添加依赖的静态库
