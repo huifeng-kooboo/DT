@@ -1,4 +1,23 @@
 # DT  
+
+<a href="https://github.com/huifeng-kooboo/DT/stargazers">
+    <img src="https://img.shields.io/github/stars/huifeng-kooboo/DT.svg?colorA=orange&colorB=orange&logo=github"
+         alt="GitHub stars">
+  </a>  <a href="https://github.com/huifeng-kooboo/DT/issues">
+        <img src="https://img.shields.io/github/issues/huifeng-kooboo/DT.svg"
+             alt="GitHub issues">
+  </a><a href="https://github.com/huifeng-kooboo/DT/forks">
+        <img src="https://img.shields.io/github/forks/huifeng-kooboo/DT.svg"
+             alt="GitHub forks">
+  </a><a href="https://github.com/huifeng-kooboo/DT/">
+        <img src="https://img.shields.io/github/last-commit/nghuyong/WeiboSpider.svg">
+  </a><a href="https://github.com/huifeng-kooboo/DT/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/huifeng-kooboo/DT.svg"
+             alt="GitHub license">
+  </a>
+
+
+
 ## 1. 为什么开源DT框架
 
 * DT框架，本身就是基于QT为基础搭建的开发框架，其中用到了一些许多常用的设计模式，可以助于开发者快速开发客户端系统，参考了组件化的设计思想，所以尝试开源DT框架，之前在互联网上也接触很多的开源框架，所以打算回馈于开源，为开源软件业贡献自己的一份小小力量
