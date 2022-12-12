@@ -24,6 +24,11 @@ DTTitleBar::~DTTitleBar()
 
 }
 
+void DTTitleBar::setTitleBarStyle(const QString &qsStyle)
+{
+    this->setStyleSheet(qsStyle);
+}
+
 void DTTitleBar::slotTabBtnClicked(QAbstractButton* pAbstractBtn)
 {
     pAbstractBtn->setCheckable(true);

@@ -16,7 +16,13 @@ public:
     explicit DTTitleBar(QWidget* parent = nullptr);
     ~DTTitleBar();
 
+
 public:
+
+    /**
+      * @brief: 设置标题栏的样式
+      */
+    void setTitleBarStyle(const QString& qsStyle);
 
     // 标题相关设置
     void setCurrentWindowTitle(const QString& qsTitle); // 设置标题
