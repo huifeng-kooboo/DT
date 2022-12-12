@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->setMinimumSize(1100,700);
     loadStyleSheet("../qss_res/global/global.qss");
     init();
+
+    // 注册数据类型
     qRegisterMetaType<PluginMetaData>("PluginMetaData");
 }
 
@@ -35,7 +37,7 @@ void MainWindow::init() {
     setWindowIcon(QIcon(":/resources/icon.png"));
 
     // 1.标题栏控件
-    m_pTitleBar = new DTTitleBar(this);
+    m_pTitleBar =  QSharedPointer<DTTitleBar>(new DTTitleBar(this), &QObject::deleteLater);
     m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
     m_pTitleBar->setCurrentWindowTitle(APP_NAME);  // 设置标题文字
     m_pTitleBar->setLogo(QIcon(":/resources/icon.png")); // 设置左上角Logo
@@ -52,7 +54,7 @@ void MainWindow::init() {
     QIcon qClosePressIcon = QIcon(":/resources/close_press.png");
     m_pTitleBar->setButtonsIcon(qMinIcon,qMaxIcon,qCloseIcon,qMinHoverIcon,qMaxHoverIcon,qCloseHoverIcon,
                                 qMinPressIcon,qMaxPressIcon,qClosePressIcon);
-    this->layout()->addWidget(m_pTitleBar);
+    this->layout()->addWidget(m_pTitleBar.data());
 
     // 2. 加载插件
     loadPlugins();
@@ -79,9 +81,10 @@ void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
 
 void MainWindow::loadStyleSheet(const QString& qsStyleFile)
 {
+    if (!QFile::exists(qsStyleFile))
+        return ;
     QFile qss(qsStyleFile);
     qss.open(QFile::ReadOnly);
-    // 需要去覆盖对应文件
     qApp->setStyleSheet(qApp->styleSheet() + qss.readAll());
     qss.close();
 }

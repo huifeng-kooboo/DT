@@ -87,7 +87,7 @@ private:
   Ui::MainWindow *ui;
 
   QSharedPointer<DT_PluginsManager> m_dtPluginsManager;  // 插件管理
-  DTTitleBar *m_pTitleBar;       // 标题栏控件
+  QSharedPointer<DTTitleBar> m_pTitleBar;       // 标题栏控件
 
   // 程序拖动时候需要使用的变量
   QPoint m_PointMouse;
