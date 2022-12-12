@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/github/forks/huifeng-kooboo/DT.svg"
              alt="GitHub forks">
   </a><a href="https://github.com/huifeng-kooboo/DT/">
-        <img src="https://img.shields.io/github/last-commit/nghuyong/WeiboSpider.svg">
+        <img src="https://img.shields.io/github/last-commit/huifeng-kooboo/DT.svg">
   </a><a href="https://github.com/huifeng-kooboo/DT/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/huifeng-kooboo/DT.svg"
              alt="GitHub license">
