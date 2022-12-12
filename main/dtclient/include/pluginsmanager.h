@@ -21,6 +21,7 @@ struct PluginsInfo {
 /**
  * @brief: 插件管理器
  * 主要是用来管理已经加载的插件，以及在程序运行结束后释放插件，这个就是组件化代码的核心
+ * 通过读取 plugins/plugins.json 的文件列表 进行加载插件
 */
 class DT_PluginsManager : public QObject {
   Q_OBJECT

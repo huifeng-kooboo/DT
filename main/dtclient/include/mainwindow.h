@@ -60,7 +60,7 @@ public slots:
   void slotEventFromPluginsAsync(const PluginMetaData&);
 
 
-  // 标题栏
+  // 放大 缩小 关闭事件
   void slotCloseEvent();
   void slotMinEvent();
   void slotMaxEvent();
@@ -84,7 +84,7 @@ protected:
 private:
   Ui::MainWindow *ui;
 
-  DT_PluginsManager *m_dtPluginsManager;  // 插件管理
+  QSharedPointer<DT_PluginsManager> m_dtPluginsManager;  // 插件管理
   DTTitleBar *m_pTitleBar;       // 标题栏控件
 
   // 程序拖动时候需要使用的变量

@@ -17,16 +17,15 @@ MainWindow::~MainWindow() {
 
     // 卸载所有插件
     m_dtPluginsManager->freePlugins();
-    m_dtPluginsManager = nullptr;
-    delete m_dtPluginsManager;
     delete ui;
 
     /**
       * @brief: exit current thread;
     */
+#ifdef Q_OS_WIN
     std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
     system(strExitCmd.c_str());
-
+#endif
 }
 
 
@@ -65,7 +64,7 @@ void MainWindow::init() {
 void MainWindow::loadPlugins()
 {
     Logger->logMsg(QtMsgType::QtInfoMsg,tr("加载所有插件开始"));
-    m_dtPluginsManager = new DT_PluginsManager(this);
+    m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager, &QObject::deleteLater);
     m_dtPluginsManager->loadPlugins();
     m_dtPluginsManager->registerEventCallBacks();
     m_dtPluginsManager->initUI((QObject*)this);
