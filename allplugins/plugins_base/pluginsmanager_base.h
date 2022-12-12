@@ -2,6 +2,8 @@
 #define PLUGINSMANAGER_BASE_H
 #include <QObject>
 #include <QPushButton>
+#include <QApplication>
+#include <QFile>
 #include "../../global/define.h"
 
 // 处理中文乱码使用
@@ -51,6 +53,17 @@ public:
     virtual void sendSignalAsyn(const PluginMetaData& plt)
     {
         emit sendSignalToPluginsAsync(plt);
+    }
+
+private:
+    // 加载样式表
+    void loadStyleSheet(const QString& qsStyleFile)
+    {
+        QFile qss(qsStyleFile);
+        qss.open(QFile::ReadOnly);
+        // 需要去覆盖对应文件
+        qApp->setStyleSheet(qApp->styleSheet() + qss.readAll());
+        qss.close();
     }
 
 public slots:

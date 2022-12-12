@@ -59,6 +59,8 @@ public slots:
   void slotEventFromPlugins(const PluginMetaData& plt);
   void slotEventFromPluginsAsync(const PluginMetaData&);
 
+  // 加载对应的样式表
+  void loadStyleSheet(const QString& qsStyleFile);
 
   // 放大 缩小 关闭事件
   void slotCloseEvent();

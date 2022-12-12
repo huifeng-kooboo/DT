@@ -1,0 +1,4 @@
+QWidget#MainWindow
+{ 
+    background-color: red; 
+}

@@ -6,15 +6,14 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent, Qt::FramelessWindowHint), ui(new Ui::MainWindow) {
     // 设置背景颜色[可动态调整]
-    this->setStyleSheet("QWidget { background-color: rgb(36, 33, 32); }");
     ui->setupUi(this);
     this->setMinimumSize(1100,700);
+    loadStyleSheet("../qss_res/global/global.qss");
     init();
     qRegisterMetaType<PluginMetaData>("PluginMetaData");
 }
 
 MainWindow::~MainWindow() {
-
     // 卸载所有插件
     m_dtPluginsManager->freePlugins();
     delete ui;
@@ -76,6 +75,15 @@ void MainWindow::loadPlugins()
 void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
 {
     emit sendSignalToPluginsAsync(plt);
+}
+
+void MainWindow::loadStyleSheet(const QString& qsStyleFile)
+{
+    QFile qss(qsStyleFile);
+    qss.open(QFile::ReadOnly);
+    // 需要去覆盖对应文件
+    qApp->setStyleSheet(qApp->styleSheet() + qss.readAll());
+    qss.close();
 }
 
 QVariant MainWindow::slotSendMessage(const PluginMetaData& plt)
