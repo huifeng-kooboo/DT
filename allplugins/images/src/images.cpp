@@ -22,13 +22,13 @@ void Images::loadUI()
     */
     if (m_uiObject != nullptr)
     {
-           QWidget* pMainWidget = dynamic_cast<QWidget*>(m_uiObject);
+        QWidget* pMainWidget = dynamic_cast<QWidget*>(m_uiObject);
 
-           m_pTestBtn = QSharedPointer<QPushButton>(new QPushButton(pMainWidget),&QObject::deleteLater);
-           m_pTestBtn->setText("test_ok");
-           m_pTestBtn->setStyleSheet("background-color: white; color: red;");
-           m_pTestBtn->setGeometry(100,200,100,200);
-           m_pTestBtn->show();
+        m_pTestBtn = QSharedPointer<QPushButton>(new QPushButton(pMainWidget),&QObject::deleteLater);
+        m_pTestBtn->setText("test_ok");
+        m_pTestBtn->setStyleSheet("background-color: white; color: red;");
+        m_pTestBtn->setGeometry(100,200,100,200);
+        m_pTestBtn->show();
     }
 
 }
@@ -41,6 +41,13 @@ QVariant Images::slotHandleMessage(const PluginMetaData &plt)
 
 void Images::slotEventFromPlugins(const PluginMetaData& plt)
 {
-    //sendSignal(plt);
+    // 异步事件
+
     m_uiObject = plt.qObject;
+    switch (plt.enumUiMsg) {
+    case E_UI_MSG_TYPE::MSG_UI_NONE:
+        break;
+    default:
+        break;
+    }
 }
