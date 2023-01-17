@@ -47,8 +47,8 @@ void MainWindow::init() {
     QIcon qMaxIcon = QIcon(":/resources/max.png");
     QIcon qCloseIcon = QIcon(":/resources/close.png");
     QIcon qMinHoverIcon = QIcon(":/resources/min_hover.png");
-    QIcon qMaxHoverIcon = QIcon(":/resources/maxPress.png");
-    QIcon qCloseHoverIcon = QIcon(":/resources/closePress.png");
+    QIcon qMaxHoverIcon = QIcon(":/resources/max_hover.png");
+    QIcon qCloseHoverIcon = QIcon(":/resources/close_hover.png");
     QIcon qMinPressIcon = QIcon(":/resources/min_press.png");
     QIcon qMaxPressIcon = QIcon(":/resources/max_press.png");
     QIcon qClosePressIcon = QIcon(":/resources/close_press.png");

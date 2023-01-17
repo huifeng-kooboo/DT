@@ -39,7 +39,7 @@ SOURCES += \
 HEADERS += \
     include/images_global.h \
     include/images.h \
-    ../plugins_base/pluginsmanager_base.h \ \
+    ../plugins_base/pluginsmanager_base.h \
     include/stdafx.h
 
 
@@ -47,8 +47,8 @@ HEADERS += \
 
 
 # 添加依赖的静态库
-win32::LIBS += $$PWD/../../bin/libcommon.a
-win32::LIBS += $$PWD/../../bin/libdtui.a
+win32::LIBS += $$PWD/../../bin/common.lib
+win32::LIBS += $$PWD/../../bin/dtui.lib
 
 
 # Default rules for deployment.
