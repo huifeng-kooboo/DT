@@ -34,6 +34,7 @@ INCLUDEPATH +=\
 
 SOURCES += \
     src/images.cpp \
+    src/widgets/account_widget.cpp \
     src/widgets/sidebar_widget.cpp
 
 
@@ -42,6 +43,7 @@ HEADERS += \
     include/images.h \
     ../plugins_base/pluginsmanager_base.h \
     include/stdafx.h \
+    include/widgets/account_widget.h \
     include/widgets/sidebar_widget.h
 
 

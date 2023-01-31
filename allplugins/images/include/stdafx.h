@@ -1,4 +1,4 @@
-#ifndef STDAFX_H
+﻿#ifndef STDAFX_H
 #define STDAFX_H
 
 
@@ -12,5 +12,6 @@
 #include <qabstractitemview.h>
 #include <QDebug>
 #include <QPushButton>
+#include <QLabel>
 
 #endif // STDAFX_H
