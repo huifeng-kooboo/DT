@@ -39,6 +39,7 @@ void MainWindow::init() {
     // 1.标题栏控件
     m_pTitleBar =  QSharedPointer<DTTitleBar>(new DTTitleBar(this), &QObject::deleteLater);
     m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
+    m_pTitleBar->setStyleSheet(m_pTitleBar->styleSheet() + "QWidget{font-family:'Microsoft YaHei'; font:14px;}");
     m_pTitleBar->setCurrentWindowTitle(APP_NAME);  // 设置标题文字
     m_pTitleBar->setLogo(QIcon(":/resources/icon.png")); // 设置左上角Logo
     QIcon qHomePageIcon = QIcon(":/resources/homepage.png");

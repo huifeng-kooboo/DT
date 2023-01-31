@@ -25,9 +25,12 @@ void Images::loadUI()
         QWidget* pMainWidget = dynamic_cast<QWidget*>(m_uiObject);
 
         m_pTestBtn = QSharedPointer<DTButton>(new DTButton(pMainWidget),&QObject::deleteLater);
-        m_pTestBtn->setText("test_ok");
-        m_pTestBtn->setStyleSheet("background-color: rgb(26, 26, 26); color:rgb(250, 250, 250);");
+        m_pTestBtn->setText("图文成片");
+        m_pTestBtn->setStyleSheet("QPushButton {background-color: rgb(26, 26, 26); color:rgb(250, 250, 250); font: 14px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+                                  "QPushButton:hover {background-color: rgb(38, 38, 38);}"
+                                  "");
         m_pTestBtn->setGeometry(100,200,100,200);
+        m_pTestBtn->setFixedSize(QSize(224,54));
         m_pTestBtn->show();
     }
 

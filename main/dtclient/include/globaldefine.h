@@ -7,7 +7,7 @@
 */
 
 #define ORGANIZATION_NAME "DTDT" // 注册表相关信息
-#define APP_NAME  "DtDt"  // 软件名称
+#define APP_NAME  "Dt应用程序"  // 软件名称
 #define APP_VERSION "0.0.1" // 软件版本
 
 #endif // GLOBALDEFINE_H
