@@ -8,9 +8,10 @@
 #define DEFALUT_BUTTON_STYLE ""
 
 
-DTButton::DTButton(QWidget* pWidget)
+DTButton::DTButton(QWidget* pWidget):QPushButton(pWidget)
 {
     setAttribute(Qt::WA_StyledBackground, true);
+    setWindowFlag(Qt::FramelessWindowHint);
     setStyleSheet(NORMAL_BUTTON_STYLE);
 
     Q_INIT_RESOURCE(dtui);

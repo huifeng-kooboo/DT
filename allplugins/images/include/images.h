@@ -3,8 +3,7 @@
 
 #include "pluginsmanager_base.h"
 #include "images_global.h"
-
-
+#include "../../main/dtui/include/dtbutton.h"
 
 #define PLUGIN_Images_IID "Plugin.Images"
 class Images_EXPORT Images : public DTPluginBase
@@ -21,7 +20,7 @@ public:
     QVariant slotHandleMessage(const PluginMetaData &plt) override;
 
 private:
-    QSharedPointer<QPushButton> m_pTestBtn; // 测试按钮
+    QSharedPointer<DTButton> m_pTestBtn; // 测试按钮
 };
 
 #endif // Images_H

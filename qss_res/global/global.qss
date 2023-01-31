@@ -1,4 +1,4 @@
 QWidget#MainWindow
 { 
-    background-color: red; 
+    background-color: rgb(18, 18, 18); 
 }

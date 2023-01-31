@@ -24,9 +24,9 @@ void Images::loadUI()
     {
         QWidget* pMainWidget = dynamic_cast<QWidget*>(m_uiObject);
 
-        m_pTestBtn = QSharedPointer<QPushButton>(new QPushButton(pMainWidget),&QObject::deleteLater);
+        m_pTestBtn = QSharedPointer<DTButton>(new DTButton(pMainWidget),&QObject::deleteLater);
         m_pTestBtn->setText("test_ok");
-        m_pTestBtn->setStyleSheet("background-color: white; color: red;");
+        m_pTestBtn->setStyleSheet("background-color: rgb(26, 26, 26); color:rgb(250, 250, 250);");
         m_pTestBtn->setGeometry(100,200,100,200);
         m_pTestBtn->show();
     }
