@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/">
         <file>resources/logo.png</file>
         <file>resources/min.png</file>
@@ -22,5 +22,6 @@
         <file>resources/min_hover.png</file>
         <file>resources/min_press.png</file>
         <file>resources/homepage_hover.png</file>
+        <file>resources/folder.png</file>
     </qresource>
 </RCC>

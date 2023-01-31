@@ -33,14 +33,16 @@ INCLUDEPATH +=\
     ../plugins_base \
 
 SOURCES += \
-    src/images.cpp
+    src/images.cpp \
+    src/widgets/sidebar_widget.cpp
 
 
 HEADERS += \
     include/images_global.h \
     include/images.h \
     ../plugins_base/pluginsmanager_base.h \
-    include/stdafx.h
+    include/stdafx.h \
+    include/widgets/sidebar_widget.h
 
 
 

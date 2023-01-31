@@ -33,13 +33,18 @@ MainWindow::~MainWindow() {
 
 void MainWindow::init() {
 
+    /**************************************/
+    m_pMainWidget = new QWidget(this); // 后面改指针形式
+    m_pMainWidget->setStyleSheet("QWidget{background-color: rgb(19, 19, 19);}");
+    setCentralWidget(m_pMainWidget);
+
     /************* 设置图标 *******************/
     setWindowIcon(QIcon(":/resources/icon.png"));
 
     // 1.标题栏控件
     m_pTitleBar =  QSharedPointer<DTTitleBar>(new DTTitleBar(this), &QObject::deleteLater);
     m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
-    m_pTitleBar->setStyleSheet(m_pTitleBar->styleSheet() + "QWidget{font-family:'Microsoft YaHei'; font:14px;}");
+    m_pTitleBar->setStyleSheet(m_pTitleBar->styleSheet() + "QWidget{font-family:'Microsoft YaHei'; font:12px;}");
     m_pTitleBar->setCurrentWindowTitle(APP_NAME);  // 设置标题文字
     m_pTitleBar->setLogo(QIcon(":/resources/icon.png")); // 设置左上角Logo
     QIcon qHomePageIcon = QIcon(":/resources/homepage.png");
@@ -55,7 +60,11 @@ void MainWindow::init() {
     QIcon qClosePressIcon = QIcon(":/resources/close_press.png");
     m_pTitleBar->setButtonsIcon(qMinIcon,qMaxIcon,qCloseIcon,qMinHoverIcon,qMaxHoverIcon,qCloseHoverIcon,
                                 qMinPressIcon,qMaxPressIcon,qClosePressIcon);
-    this->layout()->addWidget(m_pTitleBar.data());
+
+    m_pMainLayout = new QVBoxLayout();
+    m_pMainLayout->setSpacing(0);
+    m_pMainLayout->setMargin(0);
+    m_pMainWidget->setLayout(m_pMainLayout);
 
     // 2. 加载插件
     loadPlugins();
@@ -71,7 +80,7 @@ void MainWindow::loadPlugins()
     m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager(this), &QObject::deleteLater);
     m_dtPluginsManager->loadPlugins();
     m_dtPluginsManager->registerEventCallBacks();
-    m_dtPluginsManager->initUI((QObject*)this);
+    m_dtPluginsManager->initUI((QObject*)m_pMainWidget);
     Logger->logMsg(QtMsgType::QtInfoMsg,tr("加载所有插件结束"));
 }
 

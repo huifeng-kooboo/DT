@@ -3,7 +3,7 @@
 #include <QPalette>
 #include "dt_stylesheets.h"
 
-DTTitleBar::DTTitleBar(QWidget* parent)
+DTTitleBar::DTTitleBar(QWidget* parent):QWidget(parent)
 {
     setWindowFlag(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_StyledBackground, true);
@@ -16,7 +16,6 @@ DTTitleBar::DTTitleBar(QWidget* parent)
     m_btn_group = new QButtonGroup(this);
     connect(m_btn_group,SIGNAL(buttonClicked(QAbstractButton*)),this,SLOT(slotTabBtnClicked(QAbstractButton*)));
     initControls();
-
 }
 
 DTTitleBar::~DTTitleBar()

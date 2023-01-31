@@ -24,14 +24,35 @@ void Images::loadUI()
     {
         QWidget* pMainWidget = dynamic_cast<QWidget*>(m_uiObject);
 
-        m_pTestBtn = QSharedPointer<DTButton>(new DTButton(pMainWidget),&QObject::deleteLater);
-        m_pTestBtn->setText("图文成片");
-        m_pTestBtn->setStyleSheet("QPushButton {background-color: rgb(26, 26, 26); color:rgb(250, 250, 250); font: 14px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+        // 布局设置开始
+        m_pHboxLayout = new QHBoxLayout();
+        m_pHboxLayout->setSpacing(0);
+        m_pHboxLayout->setMargin(0);
+        QVBoxLayout* vBoxLayout = (QVBoxLayout*)pMainWidget->layout();
+        vBoxLayout->addLayout(m_pHboxLayout);
+        // 布局设置结束
+
+        m_pTestBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
+        m_pTestBtn->setText("本地草稿");
+        m_pTestBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pTestBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
                                   "QPushButton:hover {background-color: rgb(38, 38, 38);}"
                                   "");
-        m_pTestBtn->setGeometry(100,200,100,200);
-        m_pTestBtn->setFixedSize(QSize(224,54));
+        m_pTestBtn->setFixedSize(QSize(180,40));
         m_pTestBtn->show();
+
+        m_pSideBar = QSharedPointer<SideBarWidget>(new SideBarWidget(nullptr),&QObject::deleteLater);
+        m_pSideBar->setFixedWidth(250);
+        m_pSideBar->layout()->addWidget(m_pTestBtn.data());
+        m_pHboxLayout->addWidget(m_pSideBar.data());
+        m_pHboxLayout->addStretch();
+
+
+//        pMainWidget->setLayout(m_pHboxLayout);
+
+//        m_pHboxLayout->addWidget(m_pTestBtn.data(),20,Qt::AlignRight);
+
+
     }
 
 }

@@ -4,6 +4,7 @@
 #include "pluginsmanager_base.h"
 #include "images_global.h"
 #include "../../main/dtui/include/dtbutton.h"
+#include "widgets/sidebar_widget.h"
 
 #define PLUGIN_Images_IID "Plugin.Images"
 class Images_EXPORT Images : public DTPluginBase
@@ -21,6 +22,8 @@ public:
 
 private:
     QSharedPointer<DTButton> m_pTestBtn; // 测试按钮
+    QSharedPointer<SideBarWidget> m_pSideBar; // 侧边栏
+    QHBoxLayout * m_pHboxLayout;
 };
 
 #endif // Images_H
