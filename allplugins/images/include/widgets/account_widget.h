@@ -22,6 +22,7 @@ private:
     QLabel* m_pLogoLabel;
     QPushButton* m_pLoginButton;
     QPushButton* m_pInfoButton;
+
 };
 
 #endif // ACCOUNT_WIDGET_H

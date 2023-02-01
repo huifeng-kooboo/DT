@@ -43,9 +43,9 @@ void Images::loadUI()
 
 
         m_pCloudBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
-        m_pCloudBtn->setText("我的空间");
+        m_pCloudBtn->setText("我的云空间");
         m_pCloudBtn->setIcon(QIcon(":/resources/cloud.png"));
-        m_pCloudBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+        m_pCloudBtn->setStyleSheet("QPushButton { padding-left: 12px; background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
                                   "QPushButton:hover {background-color: rgb(38, 38, 38);}"
                                   "");
         m_pCloudBtn->setFixedSize(QSize(180,40));
@@ -78,15 +78,10 @@ void Images::loadUI()
         pVBoxLayout->addSpacerItem(new QSpacerItem(2,10,QSizePolicy::Fixed));
         pVBoxLayout->addWidget(m_pHotBtn.data(),0,Qt::AlignHCenter);
         pVBoxLayout->addStretch();
-        m_pHboxLayout->addWidget(m_pSideBar.data(),0,Qt::AlignHCenter);
+
+        m_pHboxLayout->addWidget(m_pSideBar.data());
+
         m_pHboxLayout->addStretch();
-
-
-//        pMainWidget->setLayout(m_pHboxLayout);
-
-//        m_pHboxLayout->addWidget(m_pTestBtn.data(),20,Qt::AlignRight);
-
-
     }
 
 }

@@ -33,6 +33,12 @@ private:
     QSharedPointer<DTButton> m_pLocalBtn; // 本地按钮
     QSharedPointer<DTButton> m_pCloudBtn; // 云空间
     QSharedPointer<DTButton> m_pHotBtn; // 热门活动
+
+    /*
+     * 云空间登录按钮
+     */
+     QSharedPointer<DTButton> m_pLoginBtn; // 登录按钮
+
 };
 
 #endif // Images_H
