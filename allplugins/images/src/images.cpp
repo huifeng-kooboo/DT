@@ -32,14 +32,33 @@ void Images::loadUI()
         vBoxLayout->addLayout(m_pHboxLayout);
         // 布局设置结束
 
-        m_pTestBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
-        m_pTestBtn->setText("本地草稿");
-        m_pTestBtn->setIcon(QIcon(":/resources/folder.png"));
-        m_pTestBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+        m_pLocalBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
+        m_pLocalBtn->setText("本地草稿");
+        m_pLocalBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pLocalBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
                                   "QPushButton:hover {background-color: rgb(38, 38, 38);}"
                                   "");
-        m_pTestBtn->setFixedSize(QSize(180,40));
-        m_pTestBtn->show();
+        m_pLocalBtn->setFixedSize(QSize(180,40));
+        m_pLocalBtn->show();
+
+
+        m_pCloudBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
+        m_pCloudBtn->setText("我的空间");
+        m_pCloudBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pCloudBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+                                  "QPushButton:hover {background-color: rgb(38, 38, 38);}"
+                                  "");
+        m_pCloudBtn->setFixedSize(QSize(180,40));
+        m_pCloudBtn->show();
+
+        m_pHotBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
+        m_pHotBtn->setText("热门活动");
+        m_pHotBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pHotBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
+                                  "QPushButton:hover {background-color: rgb(38, 38, 38);}"
+                                  "");
+        m_pHotBtn->setFixedSize(QSize(180,40));
+        m_pHotBtn->show();
 
         m_pSideBar = QSharedPointer<SideBarWidget>(new SideBarWidget(nullptr),&QObject::deleteLater);
         m_pSideBar->setFixedWidth(250);
@@ -50,7 +69,9 @@ void Images::loadUI()
         m_pAccountWidget->setFixedSize(QSize(200,100));
 
         m_pSideBar->layout()->addWidget(m_pAccountWidget.data());
-        m_pSideBar->layout()->addWidget(m_pTestBtn.data());
+        m_pSideBar->layout()->addWidget(m_pLocalBtn.data());
+        m_pSideBar->layout()->addWidget(m_pCloudBtn.data());
+        m_pSideBar->layout()->addWidget(m_pHotBtn.data());
         m_pHboxLayout->addWidget(m_pSideBar.data());
         m_pHboxLayout->addStretch();
 

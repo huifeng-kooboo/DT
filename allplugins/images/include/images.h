@@ -26,6 +26,13 @@ private:
     QSharedPointer<SideBarWidget> m_pSideBar; // 侧边栏
     QSharedPointer<AccountWidget> m_pAccountWidget; // 账户登录窗体
     QHBoxLayout * m_pHboxLayout;
+
+    /**
+      * 本地草稿、我的云空间、热门活动
+      */
+    QSharedPointer<DTButton> m_pLocalBtn; // 本地按钮
+    QSharedPointer<DTButton> m_pCloudBtn; // 云空间
+    QSharedPointer<DTButton> m_pHotBtn; // 热门活动
 };
 
 #endif // Images_H
