@@ -23,5 +23,6 @@
         <file>resources/min_press.png</file>
         <file>resources/homepage_hover.png</file>
         <file>resources/folder.png</file>
+        <file>resources/login.png</file>
     </qresource>
 </RCC>

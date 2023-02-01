@@ -43,6 +43,13 @@ void Images::loadUI()
 
         m_pSideBar = QSharedPointer<SideBarWidget>(new SideBarWidget(nullptr),&QObject::deleteLater);
         m_pSideBar->setFixedWidth(250);
+
+
+        m_pAccountWidget = QSharedPointer<AccountWidget>(new AccountWidget(nullptr),&QObject::deleteLater);
+
+        m_pAccountWidget->setFixedSize(QSize(200,100));
+
+        m_pSideBar->layout()->addWidget(m_pAccountWidget.data());
         m_pSideBar->layout()->addWidget(m_pTestBtn.data());
         m_pHboxLayout->addWidget(m_pSideBar.data());
         m_pHboxLayout->addStretch();
