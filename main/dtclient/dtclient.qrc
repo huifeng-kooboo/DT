@@ -24,5 +24,7 @@
         <file>resources/homepage_hover.png</file>
         <file>resources/folder.png</file>
         <file>resources/login.png</file>
+        <file>resources/cloud.png</file>
+        <file>resources/hot.png</file>
     </qresource>
 </RCC>

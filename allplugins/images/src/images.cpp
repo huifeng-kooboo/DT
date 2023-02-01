@@ -44,7 +44,7 @@ void Images::loadUI()
 
         m_pCloudBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
         m_pCloudBtn->setText("我的空间");
-        m_pCloudBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pCloudBtn->setIcon(QIcon(":/resources/cloud.png"));
         m_pCloudBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
                                   "QPushButton:hover {background-color: rgb(38, 38, 38);}"
                                   "");
@@ -53,7 +53,7 @@ void Images::loadUI()
 
         m_pHotBtn = QSharedPointer<DTButton>(new DTButton(nullptr),&QObject::deleteLater);
         m_pHotBtn->setText("热门活动");
-        m_pHotBtn->setIcon(QIcon(":/resources/folder.png"));
+        m_pHotBtn->setIcon(QIcon(":/resources/hot.png"));
         m_pHotBtn->setStyleSheet("QPushButton {background-color: rgb(36, 36, 37); color:rgb(250, 250, 250); font: 12px; font-family:'Microsoft YaHei'; border-radius: 14px;}"
                                   "QPushButton:hover {background-color: rgb(38, 38, 38);}"
                                   "");
@@ -68,11 +68,17 @@ void Images::loadUI()
 
         m_pAccountWidget->setFixedSize(QSize(200,100));
 
-        m_pSideBar->layout()->addWidget(m_pAccountWidget.data());
-        m_pSideBar->layout()->addWidget(m_pLocalBtn.data());
-        m_pSideBar->layout()->addWidget(m_pCloudBtn.data());
-        m_pSideBar->layout()->addWidget(m_pHotBtn.data());
-        m_pHboxLayout->addWidget(m_pSideBar.data());
+        QVBoxLayout * pVBoxLayout = (QVBoxLayout*)m_pSideBar->layout();
+        pVBoxLayout->addSpacerItem(new QSpacerItem(2,50,QSizePolicy::Fixed));
+        pVBoxLayout->addWidget(m_pAccountWidget.data(),0,Qt::AlignHCenter);
+        pVBoxLayout->addSpacerItem(new QSpacerItem(2,40,QSizePolicy::Fixed));
+        pVBoxLayout->addWidget(m_pLocalBtn.data(),0,Qt::AlignHCenter);
+        pVBoxLayout->addSpacerItem(new QSpacerItem(2,10,QSizePolicy::Fixed));
+        pVBoxLayout->addWidget(m_pCloudBtn.data(),0,Qt::AlignHCenter);
+        pVBoxLayout->addSpacerItem(new QSpacerItem(2,10,QSizePolicy::Fixed));
+        pVBoxLayout->addWidget(m_pHotBtn.data(),0,Qt::AlignHCenter);
+        pVBoxLayout->addStretch();
+        m_pHboxLayout->addWidget(m_pSideBar.data(),0,Qt::AlignHCenter);
         m_pHboxLayout->addStretch();
 
 
