@@ -26,7 +26,14 @@ void AccountWidget::init()
     m_pMainLayout->addLayout(m_pLoginLayout);
     m_pMainLayout->addLayout(m_pInfoLayout);
 
+    m_pLogoLabel->setStyleSheet("QLabel{background-color: rgb(53, 53, 54); color: rgb(128, 128, 128);}");
+    m_pInfoButton->setStyleSheet("QPushButton{background-color: rgb(53, 53, 54); color: rgb(128, 128, 128); font:12px;}");
 
+    m_pInfoButton->setText("开通会员得 100GB 云空间");
+    m_pInfoButton->setFlat(true);
+
+    m_pLoginButton->setText("点击登录账户");
+    m_pLoginButton->setFlat(true);
    // m_pLogoLabel->setPixmap();
 
 }
