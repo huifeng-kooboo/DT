@@ -161,10 +161,16 @@
 * 如果对大家产生了帮助，也可以伸伸小手 捐助一波！ 助力项目健康成长
 
 * 微信收款码
-![alt wechat](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg)
 
+---
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "150" height = "150"  />
+
+---
 * 支付宝收款码
-![alt zhifu](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/ali_shoukuan.jpg)
+
+---
+
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/ali_shoukuan.jpg" width = "150" height = "150"  />
 
 ## 7. Q&A
 
