@@ -163,7 +163,7 @@
 * 微信收款码
 
 ---
-<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "380" height = "380"  />
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "400" height = "400"  />
 
 ---
 * 支付宝收款码
