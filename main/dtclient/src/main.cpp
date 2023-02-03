@@ -14,7 +14,7 @@
 */
 void parseCmd(const QString& qsCmd)
 {
-    Logger->logMsg(QtMsgType::QtInfoMsg,QString("GetCmdInput: %1").arg(qsCmd));
+    Logger->logMsg(QtMsgType::QtInfoMsg,QString("GetCmdInput: %1").arg(qsCmd),true);
     if(qsCmd.contains("debug"))
     {
         // 开启调试模式

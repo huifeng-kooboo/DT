@@ -50,8 +50,12 @@ bool DTLog::createLogPath(const QString &qsSubPath, const QString &qsFileName) {
   return true;
 }
 
-void DTLog::logMsg(QtMsgType type, const QString &qsMsg)
+void DTLog::logMsg(QtMsgType type, const QString &qsMsg, bool isNeedDebug)
 {
+    if(isNeedDebug)
+    {
+        qDebug() << "[LOG_INFO]: " << qsMsg ;
+    }
     static QMessageLogContext qlc;
     logMsg(type,qlc,qsMsg);
 }

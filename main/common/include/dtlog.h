@@ -1,4 +1,4 @@
-#ifndef DTLOG_H
+﻿#ifndef DTLOG_H
 #define DTLOG_H
 
 // 最大日志数量，默认10，超过删除
@@ -13,7 +13,7 @@ public:
   static DTLog *getLog();
 
   // Log---Basic
-  static void logMsg(QtMsgType type,const QString&qsMsg);
+  static void logMsg(QtMsgType type,const QString&qsMsg, bool isNeedDebug = true);
   static void logMsg(QtMsgType type,const QMessageLogContext &context,const QString &qsMsg);
 
   // todo Log---Performance
