@@ -86,6 +86,10 @@ void MainWindow::loadPlugins()
 
 void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
 {
+    if(plt.enumUiMsg == E_UI_MSG_TYPE::MSG_UI_MAIN_CLOSE)
+    {
+        this->close();
+    }
     emit sendSignalToPluginsAsync(plt);
 }
 
@@ -119,6 +123,9 @@ void MainWindow::slotEventFromPlugins(const PluginMetaData& plt)
 {
     switch (plt.enumUiMsg) {
     case MSG_UI_NONE:
+        break;
+    case MSG_UI_MAIN_CLOSE:
+        this->close();
         break;
     default:
          emit sendSignalToPlugins(plt);
