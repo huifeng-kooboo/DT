@@ -157,7 +157,13 @@
 *  TODO.......
 
 
-## 6. Sponsor
+## 6. Join
+
+* if you want to join the projects to contribute the code to this project, you can email 942840260@qq.com or gisdoing@gmail.com, or connect with wechat: ytouching
+
+* 如果想加入这个工程一起贡献开源代码的话，欢迎联系邮箱: 942840260@qq.com 或者 gisdoing@gmail.com 或者微信: ytouching
+
+## 7. Sponsor
 * 如果对大家产生了帮助，也可以伸伸小手 捐助一波！ 助力项目健康成长
 
 * 微信收款码
@@ -172,5 +178,5 @@
 
 <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/ali_shoukuan.jpg" width = "380" height = "380"  />
 
-## 7. Q&A
+## 8. Q&A
 
