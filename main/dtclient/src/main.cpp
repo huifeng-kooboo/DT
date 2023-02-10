@@ -17,6 +17,7 @@ void parseCmd(const QString& qsCmd)
     Logger->logMsg(QtMsgType::QtInfoMsg,QString("GetCmdInput: %1").arg(qsCmd),true);
     if(qsCmd.contains("debug"))
     {
+        Logger->logMsg(QtMsgType::QtDebugMsg,QString("[调试]开启调试模式"));
         // 开启调试模式
 #ifdef Q_OS_WIN
         AllocConsole();
@@ -25,6 +26,18 @@ void parseCmd(const QString& qsCmd)
     }
 }
 
+
+/**
+  * @brief: 获取屏幕分辨率比例
+  *
+*/
+qreal getScreenPercent()
+{
+    // 获取屏幕放大比例....
+    qreal displayPer = qApp->primaryScreen()->logicalDotsPerInch();
+    Logger->logMsg(QtMsgType::QtDebugMsg,QString("WindowsDisplayPer: %1...").arg(displayPer));
+    return displayPer;
+}
 
 int main(int argc, char *argv[])
 {
@@ -81,8 +94,7 @@ int main(int argc, char *argv[])
     }
 
     // 获取屏幕放大比例....
-    qreal displayPer = qApp->primaryScreen()->logicalDotsPerInch();
-    Logger->logMsg(QtMsgType::QtDebugMsg,QString("WindowsDisplayPer: %1...").arg(displayPer));
+    qreal displayPer = getScreenPercent();
 
     // 资源初始化
     Q_INIT_RESOURCE(dtclient);
