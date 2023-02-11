@@ -34,9 +34,9 @@ MainWindow::~MainWindow() {
 void MainWindow::init() {
 
     /**************************************/
-    m_pMainWidget = new QWidget(this); // 后面改指针形式
+    m_pMainWidget = QSharedPointer<QWidget>(new QWidget(this), &QObject::deleteLater);
     m_pMainWidget->setStyleSheet("QWidget{background-color: rgb(19, 19, 19);}");
-    setCentralWidget(m_pMainWidget);
+    setCentralWidget(m_pMainWidget.data());
 
     /************* 设置图标 *******************/
     setWindowIcon(QIcon(":/resources/icon.png"));
@@ -80,7 +80,7 @@ void MainWindow::loadPlugins()
     m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager(this), &QObject::deleteLater);
     m_dtPluginsManager->loadPlugins();
     m_dtPluginsManager->registerEventCallBacks();
-    m_dtPluginsManager->initUI((QObject*)m_pMainWidget);
+    m_dtPluginsManager->initUI(m_pMainWidget.data());
     Logger->logMsg(QtMsgType::QtInfoMsg,tr("加载所有插件结束"));
 }
 

@@ -77,7 +77,7 @@ public slots:
 
 #ifdef Q_OS_WIN
 protected:
-  /********* 重绘界面框，可以拖动 *********/
+  /********* 重绘界面框，可以实现拖动 *********/
   bool nativeEvent(const QByteArray &eventType, void *message,
                    long *result) override;
 #endif
@@ -86,12 +86,13 @@ protected:
 private:
   Ui::MainWindow *ui;
 
+  QSharedPointer<QWidget> m_pMainWidget;  // 主窗体
   QSharedPointer<DT_PluginsManager> m_dtPluginsManager;  // 插件管理
   QSharedPointer<DTTitleBar> m_pTitleBar;       // 标题栏控件
 
   QVBoxLayout * m_pMainLayout;  // 总体布局
 
-  QWidget* m_pMainWidget;  // 主窗体
+
 
   // 程序拖动时候需要使用的变量
   QPoint m_PointMouse;
