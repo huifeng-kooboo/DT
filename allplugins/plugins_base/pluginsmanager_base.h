@@ -99,7 +99,7 @@ public slots:
 
 public:
 
-    QObject* m_uiObject;
+    QObject* m_uiObject; // 设置UI句柄
 };
 
 #endif // PLUGINSMANAGER_BASE_H

@@ -61,10 +61,10 @@ void MainWindow::init() {
     m_pTitleBar->setButtonsIcon(qMinIcon,qMaxIcon,qCloseIcon,qMinHoverIcon,qMaxHoverIcon,qCloseHoverIcon,
                                 qMinPressIcon,qMaxPressIcon,qClosePressIcon);
 
-    m_pMainLayout = new QVBoxLayout();
+    m_pMainLayout = QSharedPointer<QVBoxLayout>(new QVBoxLayout(), &QObject::deleteLater);
     m_pMainLayout->setSpacing(0);
     m_pMainLayout->setMargin(0);
-    m_pMainWidget->setLayout(m_pMainLayout);
+    m_pMainWidget->setLayout(m_pMainLayout.data());
 
     // 2. 加载插件
     loadPlugins();

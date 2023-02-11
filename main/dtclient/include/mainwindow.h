@@ -89,10 +89,7 @@ private:
   QSharedPointer<QWidget> m_pMainWidget;  // 主窗体
   QSharedPointer<DT_PluginsManager> m_dtPluginsManager;  // 插件管理
   QSharedPointer<DTTitleBar> m_pTitleBar;       // 标题栏控件
-
-  QVBoxLayout * m_pMainLayout;  // 总体布局
-
-
+  QSharedPointer<QVBoxLayout> m_pMainLayout;  // 总体布局
 
   // 程序拖动时候需要使用的变量
   QPoint m_PointMouse;
