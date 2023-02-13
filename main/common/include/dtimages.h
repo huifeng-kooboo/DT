@@ -1,6 +1,5 @@
 ﻿#ifndef IMAGES_H
 #define IMAGES_H
-#include <QImage>
 
 enum E_IMAGE_TYPE {
   IMAGE_BMP,

@@ -1,6 +1,5 @@
 ﻿#ifndef DTTIME_H
 #define DTTIME_H
-#include <QDateTime>
 
 
 class DTTime{

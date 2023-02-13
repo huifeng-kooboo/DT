@@ -1,9 +1,11 @@
-#ifndef STDAFX_H
+﻿#ifndef STDAFX_H
 #define STDAFX_H
 //   预编译头文件
 
 // QT相关
 #include <QString>
+#include <QDateTime>
+#include <QImage>
 #include <QDebug>
 #include <QDir>
 #include <QFile>

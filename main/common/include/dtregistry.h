@@ -1,4 +1,4 @@
-#ifndef DTREGISTRY_H
+﻿#ifndef DTREGISTRY_H
 #define DTREGISTRY_H
 
 // 注册表
@@ -18,7 +18,7 @@ public:
     bool setValue(const QString&qsDefaultName,const QString&qsKey,const QString&qsValue);
     bool getValue(const QString&qsDefaultName,const QString&qsKey,QString&qsValue);
 private:
-    QString m_qsDefaultName; //
+    QString m_qsDefaultName; // default_registry name 
 
 };
 
