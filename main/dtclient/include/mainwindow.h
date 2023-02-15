@@ -30,6 +30,9 @@ private:
 
   /**
     * @brief: 插件加载
+    * 1. 加载All Plugins
+    * 2. RegisterSignal
+    * 3. Invoke LoadUi
    */
   void loadPlugins();
 

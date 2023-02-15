@@ -86,9 +86,15 @@ void MainWindow::loadPlugins()
 
 void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
 {
-    if(plt.enumUiMsg == E_UI_MSG_TYPE::MSG_UI_MAIN_CLOSE)
+    switch (plt.enumUiMsg) {
+    case E_UI_MSG_TYPE::MSG_UI_MAIN_CLOSE:
     {
+        Logger->logMsg(QtMsgType::QtSystemMsg,"Close Window");
         this->close();
+    }
+        break;
+    default:
+        break;
     }
     emit sendSignalToPluginsAsync(plt);
 }
