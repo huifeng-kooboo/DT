@@ -71,6 +71,7 @@ void DTLog::logFuncTime(const QString &functionName)
 }
 
 void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QString &qsMsg) {
+  Q_UNUSED(context);
   if (g_bLog == false)
   {
       return;
@@ -117,9 +118,9 @@ void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QStrin
     QString message = QString("%1 %2 %3").arg(current_date_time).arg(text).arg(msgNew);
     // feat: 参考WeChat Log格式
     //QString message = QString("%1 %2").arg(current_date).arg(msgNew);
-#ifdef Q_OS_WIN
-    printf(message.toStdString().c_str());
-#endif
+//#ifdef Q_OS_WIN
+//    printf(message.toStdString().c_str());
+//#endif
     QTextStream txtOutput(&g_logFile);
     txtOutput << message << "\r\n";
     g_logFile.flush();
@@ -131,9 +132,11 @@ void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QStrin
 void DTLog::functionStart(const QString &qsFunctionName)
 {
     //todo
+    Q_UNUSED(qsFunctionName);
 }
 
 void DTLog::functionEnd(const QString &qsFunctionName)
 {
     //todo
+    Q_UNUSED(qsFunctionName);
 }
