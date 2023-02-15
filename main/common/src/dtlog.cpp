@@ -60,6 +60,16 @@ void DTLog::logMsg(QtMsgType type, const QString &qsMsg, bool isNeedDebug)
     logMsg(type,qlc,qsMsg);
 }
 
+void DTLog::logFuncTime(const QString &functionName)
+{
+    QDateTime current_date_time =QDateTime::currentDateTime();
+    QString qsCurrentDate =current_date_time.toString("yyyy.MM.dd.hh:mm:ss.zzz");
+    QString qsMsg = QString("[LOG_PERFORMACE]%1 FINISHED AT TIME %2.").arg(functionName).arg(qsCurrentDate);
+    qDebug() << qsMsg;
+    static QMessageLogContext qlc;
+    logMsg(QtMsgType::QtInfoMsg,qlc,qsMsg);
+}
+
 void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QString &qsMsg) {
   if (g_bLog == false)
   {

@@ -93,17 +93,24 @@ int main(int argc, char *argv[])
         qInstallMessageHandler(DTLog::logMsg);
     }
 
+    Logger->logFuncTime("BASIC_INIT");
+
     // 获取屏幕放大比例....
     qreal displayPer = getScreenPercent();
 
     // 资源初始化
     Q_INIT_RESOURCE(dtclient);
 
+    Logger->logFuncTime("RESOURCE_INIT");
+
     // 启动主窗体
     MainWindow w;
+    w.setWindowTitle(APP_NAME);
 
     // 默认最大化显示窗体
     w.showMaximized();
+
+    Logger->logFuncTime("WINDOW_INIT");
 
     return app.exec();
 }

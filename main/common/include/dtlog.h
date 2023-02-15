@@ -16,6 +16,8 @@ public:
   static void logMsg(QtMsgType type,const QString&qsMsg, bool isNeedDebug = true);
   static void logMsg(QtMsgType type,const QMessageLogContext &context,const QString &qsMsg);
 
+  static void logFuncTime(const QString& functionName);
+
   // todo Log---Performance
   void functionStart(const QString &qsFunctionName);
   void functionEnd(const QString &qsFunctionName);
