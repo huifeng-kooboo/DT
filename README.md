@@ -31,7 +31,7 @@
 
   `DT`是一套基于商业化标准的开源UI组件业务框架，不仅能提供完善的代码设计、详细的业务实现框架，框架的稳定性已在多个大型商化项目中通过验证，其中不仅限AI智能相机客户端项目
 
-* DT库有在大型项目中使用，可以稳定放心，[AI智能相机](https://baijiahao.baidu.com/s?id=1750463100165117672&wfr=spider&for=pc), [演示视频](https://www.notion.so/Resume-0794b3ec26bb4f8181c0f96729f58b9f#ddb91895b2f44fd5a46aa868916dde08)
+* DT库有在大型项目中使用，可以稳定放心，[AI智能相机](https://baijiahao.baidu.com/s?id=1750463100165117672&wfr=spider&for=pc), [演示视频](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/preview_cu.mp4)
 
 * DT库的代码统一规范，方便阅读
 
