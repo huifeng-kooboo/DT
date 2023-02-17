@@ -48,9 +48,11 @@
 * 本人微信 感兴趣也可以加入聊聊
 [person_info](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg)
 
+ <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg">
+
 * 给大家提供一个交流技术的平台，大家如果感兴趣也可以扫微信群加入，交流C++、Qt等技术信息
 [wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/group.jpg)
-
+ <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/group.jpg">
 -----
 
 
