@@ -45,6 +45,12 @@
 
 * 【重要重要重要！】目前还是需要别人一起完善维护该框架，有兴趣的加微信：ytouching
 
+* 本人微信 感兴趣也可以加入聊聊
+[person_info](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg)
+
+* 给大家提供一个交流技术的平台，大家如果感兴趣也可以扫微信群加入，交流C++、Qt等技术信息
+[wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/group.jpg)
+
 -----
 
 
