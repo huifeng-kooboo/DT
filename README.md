@@ -31,7 +31,7 @@
 
   `DT`是一套基于商业化标准的开源UI组件业务框架，不仅能提供完善的代码设计、详细的业务实现框架，框架的稳定性已在多个大型商化项目中通过验证，其中不仅限AI智能相机客户端项目
 
-* DT库有在大型项目中使用，可以稳定放心，[AI智能相机](https://baijiahao.baidu.com/s?id=1750463100165117672&wfr=spider&for=pc), [演示视频](https://www.notion.so/Resume-0794b3ec26bb4f8181c0f96729f58b9f#ddb91895b2f44fd5a46aa868916dde08)
+* DT库有在大型项目中使用，可以稳定放心，[AI智能相机](https://baijiahao.baidu.com/s?id=1750463100165117672&wfr=spider&for=pc), [演示视频](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/preview_cu.mp4)
 
 * DT库的代码统一规范，方便阅读
 
@@ -45,6 +45,14 @@
 
 * 【重要重要重要！】目前还是需要别人一起完善维护该框架，有兴趣的加微信：ytouching
 
+* 本人微信 感兴趣也可以加入聊聊
+[person_info](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg)
+
+ <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg">
+
+* 给大家提供一个交流技术的平台，大家如果感兴趣也可以扫微信群加入，交流C++、Qt等技术信息
+[wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/group.jpg)
+ <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/group.jpg">
 -----
 
 
