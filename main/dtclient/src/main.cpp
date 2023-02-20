@@ -2,7 +2,7 @@
 #include "globaldefine.h"
 #include "../../common/include/dtlog.h"
 #include "../../common/include/dtregistry.h"
-#include "dumper.h"
+#include "win/dumper.h"
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif

@@ -1,4 +1,4 @@
-#include "dtjson.h"
+﻿#include "dtjson.h"
 #include "dtlog.h"
 
 DTJson::DTJson() {}
@@ -84,6 +84,9 @@ bool DTJson::saveJsonDocumentToFile(QJsonDocument &jsonDocument, const QString &
 
 #ifdef DEBUG
 void DTJson::test() {
+    QJsonDocument qjsDocument;
 
+    // qjsDocument.setArray()
+    DTJson::getInstance().setValue(qjsDocument,"122","545454");
 }
 #endif

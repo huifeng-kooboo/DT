@@ -30,7 +30,7 @@ SOURCES += \
     src/pluginsmanager.cpp
 
 HEADERS += \
-    include/dumper.h \
+    include/win/dumper.h \
     include/globaldefine.h \
     include/mainwindow.h \
     include/pluginsmanager.h \
