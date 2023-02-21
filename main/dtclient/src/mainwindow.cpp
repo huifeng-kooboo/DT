@@ -80,7 +80,7 @@ void MainWindow::loadPlugins()
     m_dtPluginsManager = QSharedPointer<DT_PluginsManager>(new DT_PluginsManager(this), &QObject::deleteLater);
     m_dtPluginsManager->loadPlugins();
     m_dtPluginsManager->registerEventCallBacks();
-    m_dtPluginsManager->initUI(m_pMainWidget.data());
+    m_dtPluginsManager->loadPluginUi(m_pMainWidget.data());
     Logger->logMsg(QtMsgType::QtInfoMsg,tr("加载所有插件结束"));
 }
 

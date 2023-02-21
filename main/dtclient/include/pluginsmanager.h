@@ -45,9 +45,15 @@ public:
    * @brief: 释放指定的插件
    */
   static void freePlugin(const QString &dllPath);
-  // 加载所有的插件
+
+  /**
+   * @brief: 加载所有插件
+   */
   void loadPlugins();
-  // 卸载所有的插件
+
+  /**
+    * @brief: 释放插件列表
+    */
   void freePlugins();
 
   /**
@@ -56,9 +62,9 @@ public:
   void registerEventCallBacks();
 
   /**
-    * @brief: 该方法是为了调用插件中的LoadUi方法
+    * @brief: 加载插件内部的UI方法
    */
-  void initUI(QObject *);
+  void loadPluginUi(QObject *);
 
   /**
     * @brief: 获取以及加载成功的插件列表

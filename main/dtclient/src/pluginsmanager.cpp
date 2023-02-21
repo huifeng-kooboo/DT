@@ -172,7 +172,7 @@ void DT_PluginsManager::registerEventCallBacks()
     }
 }
 
-void DT_PluginsManager::initUI(QObject* qoObject)
+void DT_PluginsManager::loadPluginUi(QObject* qoObject)
 {
     emit sendSignalUI(qoObject);
 }
