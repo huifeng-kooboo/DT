@@ -15,6 +15,8 @@ class Images_EXPORT Images : public DTPluginBase
 public:
     Images(QObject* qobj=nullptr);
 
+    ~Images();
+
     void loadUI() override;
 
 public:

@@ -11,6 +11,7 @@ public:
     */
     static QString getCurrentTimeStamp();
 
+
 };
 
 #endif // DTTIME_H

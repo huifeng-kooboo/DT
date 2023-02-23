@@ -64,17 +64,22 @@ void DT_PluginsManager::freePlugin(const QString &dllPath)
 
 void DT_PluginsManager::freePlugins()
 {
+    Logger->logMsg(QtMsgType::QtInfoMsg,"....FreePluginsFirst...");
     for(auto dllPath: m_vecLoadedPluginInfo)
     {
         if(QFile::exists(dllPath.qsPluginsName))
         {
             QPluginLoader loader(dllPath.qsPluginsName);
-            if(loader.isLoaded() || loader.load())
+            if(loader.isLoaded())
             {
-                // 解除绑定
-                QObject::disconnect(loader.instance(),SIGNAL(sendSignalToPlugins(PluginMetaData)),m_parent,SLOT(slotEventFromPlugins(PluginMetaData)));
-                QObject::disconnect(m_parent,SIGNAL(sendSignalToPlugins(PluginMetaData)),loader.instance(),SLOT(slotEventFromPlugins(PluginMetaData)));
+                Logger->logMsg(QtMsgType::QtInfoMsg,QString("....FreePlugins:%1...").arg(dllPath.qsPluginsName));
+                QObject::disconnect(loader.instance(),SIGNAL(sendSignalToPlugins(const PluginMetaData&)),m_parent,SLOT(slotEventFromPlugins(const PluginMetaData&)));
+                QObject::disconnect(m_parent,SIGNAL(sendSignalToPlugins(const PluginMetaData&)),loader.instance(),SLOT(slotEventFromPlugins(const PluginMetaData&)));
 
+                QObject::disconnect(loader.instance(),SIGNAL(sendSignalToPluginsAsync(const PluginMetaData&)),m_parent,SLOT(slotEventFromPluginsAsync(const PluginMetaData&)));
+                QObject::disconnect(m_parent,SIGNAL(sendSignalToPluginsAsync(const PluginMetaData&)),loader.instance(),SLOT(slotEventFromPlugins(const PluginMetaData&)));
+
+                QObject::disconnect(loader.instance(),SIGNAL(signalSendMessage(PluginMetaData)),m_parent,SLOT(slotSendMessage(PluginMetaData)));
                 // 解除绑定更新ui事件
                 QObject::disconnect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
 
@@ -83,10 +88,13 @@ void DT_PluginsManager::freePlugins()
             bool bUnload = loader.unload();
             if(!bUnload)
             {
-                qDebug() << "unload";
+                Logger->logMsg(QtMsgType::QtInfoMsg,QString("....ThePlugin:%1 Is Error To Unload...").arg(dllPath.qsPluginsName));
+                Logger->logMsg(QtMsgType::QtFatalMsg,QString("ErrorReason:%1").arg(loader.errorString()));
             }
         }
     }
+
+     Logger->logMsg(QtMsgType::QtInfoMsg,"....FreePluginsEnd...");
     return;
 }
 

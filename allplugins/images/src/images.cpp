@@ -14,6 +14,11 @@ Images::Images(QObject*)
     Q_INIT_RESOURCE(images);
 }
 
+Images::~Images()
+{
+    // UnLoadToDo
+}
+
 void Images::loadUI()
 {
     /**

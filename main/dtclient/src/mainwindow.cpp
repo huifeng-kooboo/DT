@@ -23,10 +23,10 @@ MainWindow::~MainWindow() {
     /**
       * @brief: exit current thread;
     */
-#ifdef Q_OS_WIN
-    std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
-    system(strExitCmd.c_str());
-#endif
+//#ifdef Q_OS_WIN
+//    std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
+//    system(strExitCmd.c_str());
+//#endif
 }
 
 

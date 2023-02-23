@@ -7,7 +7,8 @@ DEFINES += Images_LIBRARY
 
 # 生成文件路径
 DESTDIR = $$PWD/../../bin/plugins/
-# 生成文件名称
+
+# 生成文件名称: ex: images: 生成文件名为:images.exe [WIN]
 TARGET = images
 
 CONFIG += c++14
@@ -26,6 +27,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # 添加预编译头文件
 CONFIG += PRECOMPILED_HEADER
 PRECOMPILED_HEADER =  $$PWD/include/stdafx.h
+
+
+# 引入文件部分
 
 INCLUDEPATH +=\
     include \
@@ -46,8 +50,10 @@ HEADERS += \
     include/widgets/account_widget.h \
     include/widgets/sidebar_widget.h
 
+# Resource部分
 
-
+RESOURCES += \
+    images.qrc
 
 
 # 添加依赖的静态库
@@ -61,5 +67,4 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    images.qrc
+

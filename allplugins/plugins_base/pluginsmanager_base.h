@@ -74,7 +74,10 @@ public slots:
       */
     virtual void slotEventFromPlugins(const PluginMetaData& plt) = 0;
 
-    // 设置ui句柄
+    /**
+      * @brief: 设置UI句柄
+      * ex: 在loadUi信号中会进行设置绑定
+      */
     virtual void slotSetUIHandle(QObject* uiObject)
     {
         if(uiObject != nullptr)
@@ -91,6 +94,9 @@ public slots:
     virtual QVariant slotHandleMessage(const PluginMetaData& plt) = 0;
 
 
+    /**
+      * @brief: 发送信号槽函数
+      */
     virtual void slotSendSignal(const PluginMetaData& plt)
     {
         sendSignal(plt);
@@ -99,7 +105,10 @@ public slots:
 
 public:
 
-    QObject* m_uiObject; // 设置UI句柄
+    /**
+     * @brief: 主窗口句柄
+     */
+    QObject* m_uiObject;
 };
 
 #endif // PLUGINSMANAGER_BASE_H
