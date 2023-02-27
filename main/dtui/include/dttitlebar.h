@@ -55,6 +55,7 @@ public:
     // 设置主页Icon，Size
     void setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const QIcon&qPressIcon,const QSize& qSize);
 
+    // 设置是否显示主页按钮【默认False】
     void setHomePageVisible(bool isShow);
 
     /**
@@ -69,14 +70,6 @@ public:
      * @param: isNeedClose: 是否需要关闭按钮
      */
     void addTabButton(DTButton * pBtn,bool isNeedClose = false);
-
-    bool isContainsTabButtons(const QString& ip);
-
-    /**
-      * @brief: 关闭Tab页
-      * @param: ip: ip地址
-     */
-    bool closeTabByIp(const QString& ip);
 
 
 public slots:

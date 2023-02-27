@@ -93,44 +93,6 @@ void DTTitleBar::addToolButton(QPushButton* pBtn)
     m_pToolsLayout->addWidget(pBtn);
 }
 
-bool DTTitleBar::closeTabByIp(const QString &ip)
-{
-    int i = -1;
-    for(auto btn: m_vecTabBtns)
-    {
-        i++;
-        if(btn->property("ip") == ip)
-        {
-            btn->setParent(NULL);
-            m_pTabLayout->removeWidget(btn);
-            m_btn_group->removeButton(btn);
-            if(m_vecTabBtns.size() > 1 && i > 0)
-            {
-                m_vecTabBtns.at(i-1)->click();
-                m_vecTabBtns.at(i-1)->clicked();
-            }
-            else{
-                homePageClick();
-            }
-            break;
-        }
-    }
-    m_vecTabBtns.removeAt(i);
-    return true;
-}
-
-bool DTTitleBar::isContainsTabButtons(const QString &ip)
-{
-    for(auto btn: m_vecTabBtns)
-    {
-        if(btn->property("ip").toString() == ip)
-        {
-            btn->clicked();
-            return true;
-        }
-    }
-    return false;
-}
 
 void DTTitleBar::addTabButton(DTButton*pBtn, bool isNeedClose)
 {
