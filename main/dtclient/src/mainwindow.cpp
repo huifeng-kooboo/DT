@@ -49,6 +49,7 @@ void MainWindow::init() {
     m_pTitleBar->setLogo(QIcon(":/resources/icon.png")); // 设置左上角Logo
     QIcon qHomePageIcon = QIcon(":/resources/homepage.png");
     m_pTitleBar->setHomePageIcon(qHomePageIcon,QIcon(":/resources/homepage_hover.png"),QIcon(":/resources/homepage_press.png"),QSize(17,17));
+    m_pTitleBar->setHomePageVisible(false); // 隐藏
     QIcon qMinIcon = QIcon(":/resources/min.png");
     QIcon qMaxIcon = QIcon(":/resources/max.png");
     QIcon qCloseIcon = QIcon(":/resources/close.png");

@@ -288,6 +288,11 @@ void DTTitleBar::setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const
     m_pHomePageBtn->setFlat(true);
 }
 
+void DTTitleBar::setHomePageVisible(bool isShow)
+{
+    m_pHomePageBtn->setVisible(isShow);
+}
+
 void DTTitleBar::slotHomePageEvent()
 {
     //

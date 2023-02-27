@@ -55,6 +55,8 @@ public:
     // 设置主页Icon，Size
     void setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const QIcon&qPressIcon,const QSize& qSize);
 
+    void setHomePageVisible(bool isShow);
+
     /**
      * @brief: 标题栏添加工具
      * @param: pBtn: 工具按钮
