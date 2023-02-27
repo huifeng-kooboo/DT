@@ -3,6 +3,7 @@ DEFINES += DEBUG  # debug模式下开启(默认开启)
 
 # 处理编译器无法识别M_PI的问题
 DEFINES += _USE_MATH_DEFINES
+DEFINES += DUMP_GENERATE  # dump文件生成标志
 
 # 设置Release版本可以调试
 QMAKE_CXXFLAGS_RELEASE = -Od -ZI -MD

@@ -10,7 +10,6 @@ DTTitleBar::DTTitleBar(QWidget* parent):QWidget(parent)
     setStyleSheet(TITLE_BAR_STYLE);
     if(parent)
     {
-        // 设置父窗体
         m_pParent = parent;
     }
     m_btn_group = new QButtonGroup(this);
@@ -257,5 +256,5 @@ void DTTitleBar::setHomePageVisible(bool isShow)
 
 void DTTitleBar::slotHomePageEvent()
 {
-    //
+    //todo
 }

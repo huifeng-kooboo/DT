@@ -41,9 +41,13 @@ qreal getScreenPercent()
 
 int main(int argc, char *argv[])
 {
-    // dump文件生成
-    SetUnhandledExceptionFilter(ExceptionFilter);
 
+#ifdef Q_OS_WIN
+    // dump文件生成
+#ifdef DUMP_GENERATE
+    SetUnhandledExceptionFilter(ExceptionFilter);
+#endif
+#endif
     // 注册需要通信的数据类型
     qRegisterMetaType<PluginMetaData>("PluginMetaData");
 

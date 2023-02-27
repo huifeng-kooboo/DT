@@ -35,11 +35,12 @@ public:
     void setBackgroundColor(const QColor& qc);
 
 
-    void homePageClick();
+    void homePageClick();   // 触发click操作
     void setCanStrech(bool bStrech) // 设置当前模式是否支持拉伸，默认支持
     {
             m_bStrech = bStrech;
     }
+
     bool getCanStrech()
     {
         return m_bStrech;
