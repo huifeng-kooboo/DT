@@ -7,12 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent, Qt::FramelessWindowHint), ui(new Ui::MainWindow) {
     // 设置背景颜色[可动态调整]
     ui->setupUi(this);
-    this->setMinimumSize(1100,700);
-    loadStyleSheet("../qss_res/global/global.qss");
     init();
-
-    // 注册数据类型
-    qRegisterMetaType<PluginMetaData>("PluginMetaData");
+    registerMetaTypes();
 }
 
 MainWindow::~MainWindow() {
@@ -20,13 +16,11 @@ MainWindow::~MainWindow() {
     m_dtPluginsManager->freePlugins();
     delete ui;
 
-    /**
-      * @brief: exit current thread;
-    */
-//#ifdef Q_OS_WIN
-//    std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
-//    system(strExitCmd.c_str());
-//#endif
+    // todo: 防止内存泄露，之后修复
+#ifdef Q_OS_WIN
+    std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
+    system(strExitCmd.c_str());
+#endif
 }
 
 
@@ -70,8 +64,18 @@ void MainWindow::init() {
     // 2. 加载插件
     loadPlugins();
 
-    // 3. 显示界面
+    // 3.UI样式设置
+    this->setMinimumSize(1100,700);
+    loadStyleSheet("../qss_res/global/global.qss");
+
+    // 4. 显示界面
     this->showNormal();
+
+}
+
+void MainWindow::registerMetaTypes()
+{
+    qRegisterMetaType<PluginMetaData>("PluginMetaData");
 }
 
 
@@ -176,8 +180,8 @@ void MainWindow::slotMaxEvent()
 {
     if(m_bShowMax == false)
     {
-        qDebug() << "fangda ...";
-        m_nCurrentWidth = this->geometry().width();
+        qDebug() << "Show Max State";
+        m_nDesktopWidth = this->geometry().width();
         this->showMaximized();
         m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
         m_pTitleBar->show();
@@ -185,11 +189,11 @@ void MainWindow::slotMaxEvent()
         m_bShowMax = true;
     }
     else{
-        qDebug()<< "Small";
-        m_pTitleBar->setGeometry(0,0,m_nCurrentWidth,44); //设置大小
+        qDebug() << "Show Normal State";
+        m_pTitleBar->setGeometry(0,0,m_nDesktopWidth,44); //设置大小
         m_pTitleBar->show();
         this->showNormal();
-        this->setGeometry(this->x(),this->y(),m_nCurrentWidth,this->geometry().height());
+        this->setGeometry(this->x(),this->y(),m_nDesktopWidth,this->geometry().height());
         m_bShowMax = false;
     }
 }

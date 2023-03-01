@@ -28,6 +28,9 @@ private:
     */
   void init();
 
+  // 注册自定义的数据类型
+  void registerMetaTypes();
+
   /**
     * @brief: 插件加载
     * 1. 加载All Plugins
@@ -52,20 +55,15 @@ signals:
 
 public slots:
 
-  /**
-   * @brief: 同步的槽函数返回
-   * 直接获取返回结果
-   */
+  // 插件通信部分
   QVariant slotSendMessage(const PluginMetaData&);
-
-  // 与其他插件通信的槽
   void slotEventFromPlugins(const PluginMetaData& plt);
   void slotEventFromPluginsAsync(const PluginMetaData&);
 
   // 加载对应的样式表
   void loadStyleSheet(const QString& qsStyleFile);
 
-  // 放大 缩小 关闭事件
+  // 最大化、最小化、关闭事件
   void slotCloseEvent();
   void slotMinEvent();
   void slotMaxEvent();
@@ -89,14 +87,17 @@ protected:
 private:
   Ui::MainWindow *ui;
 
-  QSharedPointer<QWidget> m_pMainWidget;  // 主窗体
+  // 插件管理
   QSharedPointer<DT_PluginsManager> m_dtPluginsManager;  // 插件管理
+
+  // 界面相关
+  QSharedPointer<QWidget> m_pMainWidget;  // 主窗体
   QSharedPointer<DTTitleBar> m_pTitleBar;       // 标题栏控件
   QSharedPointer<QVBoxLayout> m_pMainLayout;  // 总体布局
 
-  // 程序拖动时候需要使用的变量
+  // FrameLess Window Need
   QPoint m_PointMouse;
-  int m_nCurrentWidth = 0;
-  bool m_bShowMax = false;
+  int m_nDesktopWidth = 0;  // The Default Normal Width
+  bool m_bShowMax = false;  // The State Show whether is Max State
 };
 #endif // MAINWINDOW_H
