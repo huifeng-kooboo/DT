@@ -17,7 +17,7 @@ DTButton::DTButton(QWidget* pWidget):QPushButton(pWidget)
     Q_INIT_RESOURCE(dtui);
     QIcon closeIcon(":/resources/close_dark.png");
     QPixmap closePixmap = closeIcon.pixmap(20,21);
-    m_image = closePixmap.toImage();
+    m_closeImage = closePixmap.toImage();
 #ifdef TODO
 #endif
 }
@@ -111,7 +111,7 @@ void DTButton::paintEvent(QPaintEvent *event)
         // 需要增加关闭按钮
         QPainter painter(this);
         int nWidth = this->width() -20;
-        painter.drawImage(nWidth,11,m_image);
+        painter.drawImage(nWidth,11,m_closeImage);
     }
     return ;
 }
@@ -121,7 +121,6 @@ void DTButton::mousePressEvent(QMouseEvent *e)
     QPushButton::mousePressEvent(e);
     if(m_bNeedClose)
     {
-        //
         QPoint pClickPoint = this->mapFromGlobal(QCursor::pos());
         if(pClickPoint.x() > this->width()-20)
         {

@@ -80,6 +80,7 @@ public:
    {
        m_bNeedClose = bClose;
    }
+
    bool isNeedClose()
    {
        return m_bNeedClose;
@@ -113,7 +114,8 @@ private:
    QFont m_Font;
    int n_FontSize;
    bool m_bNeedClose = false;
-   QImage m_image ;
+
+   QImage m_closeImage ; // 关闭按钮的图标
 
    /**
      * @brief: 默认三种状态下的Icon
