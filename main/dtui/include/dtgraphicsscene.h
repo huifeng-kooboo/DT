@@ -8,10 +8,7 @@
 class DTGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
-public:
 
-signals:
-    void signalMouseMove(QMap<QString,QVariant> mapResult);
 protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
 };
