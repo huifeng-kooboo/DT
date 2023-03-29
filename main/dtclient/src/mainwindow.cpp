@@ -15,7 +15,6 @@ MainWindow::~MainWindow() {
     // 卸载所有插件
     m_dtPluginsManager->freePlugins();
     delete ui;
-
     // todo: 防止内存泄露，之后修复
 #ifdef Q_OS_WIN
     std::string strExitCmd = "taskkill /f /PID "+ std::to_string(QApplication::applicationPid());
@@ -98,6 +97,11 @@ void MainWindow::slotEventFromPluginsAsync(const PluginMetaData& plt)
         this->close();
     }
         break;
+    case E_UI_MSG_TYPE::MSG_UI_IMAGE_HOT_PINK:
+    {
+        QMessageBox::information(NULL,"HotPink","HotPink");
+    }
+        break;
     default:
         break;
     }
@@ -139,7 +143,7 @@ void MainWindow::slotEventFromPlugins(const PluginMetaData& plt)
         this->close();
         break;
     default:
-         emit sendSignalToPlugins(plt);
+        emit sendSignalToPlugins(plt);
     }
 }
 

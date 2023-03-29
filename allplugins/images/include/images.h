@@ -19,6 +19,9 @@ public:
 
     void loadUI() override;
 
+private slots:
+    void slots_HotBtnClicked();
+
 public:
     void slotEventFromPlugins(const PluginMetaData& plt) override;
     QVariant slotHandleMessage(const PluginMetaData &plt) override;

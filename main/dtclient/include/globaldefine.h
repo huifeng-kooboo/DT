@@ -2,7 +2,7 @@
 #define GLOBALDEFINE_H
 
 /**
-  * @brief: 通用的配置信息
+  * @brief:  相关配置信息
   *  包含了生成文件名称等
 */
 

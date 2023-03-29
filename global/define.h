@@ -33,6 +33,10 @@ enum E_UI_MSG_TYPE {
     MSG_UI_NONE,  // None
     MSG_UI_MAIN_OPEN, // 打开事件
     MSG_UI_MAIN_CLOSE, // 关闭程序
+
+
+    //Image
+    MSG_UI_IMAGE_HOT_PINK = 1000, // HOT
 };
 
 

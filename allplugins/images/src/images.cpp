@@ -65,6 +65,8 @@ void Images::loadUI()
         m_pHotBtn->setFixedSize(QSize(180,40));
         m_pHotBtn->show();
 
+        connect(m_pHotBtn.get(),SIGNAL(clicked()),this, SLOT(slots_HotBtnClicked()));
+
         m_pSideBar = QSharedPointer<SideBarWidget>(new SideBarWidget(nullptr),&QObject::deleteLater);
         m_pSideBar->setFixedWidth(250);
 
@@ -95,6 +97,15 @@ QVariant Images::slotHandleMessage(const PluginMetaData &plt)
 {
     // 同步消息处理
     return QVariant("");
+}
+
+void Images::slots_HotBtnClicked()
+{
+    PluginMetaData plt;
+    plt.enumMsg = E_MSG_TYPE::MSG_DLL_MAIN;
+    plt.enumUiMsg = E_UI_MSG_TYPE::MSG_UI_IMAGE_HOT_PINK;
+    // 异步--
+    sendSignalAsyn(plt);
 }
 
 void Images::slotEventFromPlugins(const PluginMetaData& plt)
