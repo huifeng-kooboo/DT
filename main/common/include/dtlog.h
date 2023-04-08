@@ -25,6 +25,11 @@ public:
   // LogPath
   static bool createLogPath(const QString &qsSubPath,
                             const QString &qsFileName);
+
+  static void setLoggerState(bool isOpen);
+
+private:
+  static bool isOpenLog;
 };
 
 #endif // DTLOG_H
