@@ -5,19 +5,6 @@
 #include <QObject>
 #include <QVariant>
 
-/*
- * @brief: 弹窗类型
- *
-*/
-enum E_POPUP_TYPE
-{
-    E_WARNING = 0, // 警告弹窗
-    E_ERROR,  // 错误
-    E_INFO,   // 消息
-    E_SUCCESS, // 成功
-};
-
-
 // DLL名称类型 [可扩展]
 enum E_MSG_TYPE {
     MSG_NONE,      // None

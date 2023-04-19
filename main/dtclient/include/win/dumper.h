@@ -1,7 +1,7 @@
 ﻿#ifndef DUMPER_H
 #define DUMPER_H
 
-/*** dump文件生成 **/
+/*** dump文件生成【针对于WIN】 **/
 
 #ifdef Q_OS_WIN
 

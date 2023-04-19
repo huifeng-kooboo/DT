@@ -5,7 +5,6 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent, Qt::FramelessWindowHint), ui(new Ui::MainWindow) {
-    // 设置背景颜色[可动态调整]
     ui->setupUi(this);
     init();
     registerMetaTypes();
@@ -72,6 +71,7 @@ void MainWindow::init() {
 
 }
 
+// 需要设置该类型，使得能被其他的插件正确引用
 void MainWindow::registerMetaTypes()
 {
     qRegisterMetaType<PluginMetaData>("PluginMetaData");
