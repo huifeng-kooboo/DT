@@ -77,6 +77,24 @@
     微信：ytouching
 
     QQ: 942840260
+    
+* 个人技术栈 ：欢迎交流
+
+---
+
+- 个人技术栈
+
+| 方向 | 技能/框架 |  涉及的编程语言 | 掌握的程度 | 个人项目地址 | 备注 |
+| --- | --- | --- | --- | --- | --- |
+| 后端 | Django-RestFramework | Python | 熟练 | https://github.com/huifeng-kooboo/Fire-backend | 可以独立开发后台项目，并且部署上线。 |
+| 客户端 | Qt | C++ | 熟练 | https://github.com/huifeng-kooboo/DT | 能熟练掌握，并且可以独立开发客户端项目，并且优化性能占用等问题 |
+| 客户端 | PyQt5 | Python | 熟悉 | https://github.com/huifeng-kooboo/PyQtTemplate | 独立开发程序，调试性能，内存 |
+| 前端 | Vue | TypeScript 、Javascript | 了解 | https://github.com/huifeng-kooboo/color-front-mobile | 可以完整的实现前端项目的开发，性能优化部分还不会。 |
+| 爬虫 | Requests | Python | 熟悉 | https://github.com/huifeng-kooboo/weibo_keyword_crawl | 能较好的掌握爬虫的基本原理，可以实现多平台的爬取，数据的整理入库 |
+|  |  |  |  |  |  |
+
+
+---
 
     
 
