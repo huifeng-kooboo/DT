@@ -18,7 +18,11 @@ bool DTFile::createFile(const QString &qsFilePath, bool bReload)
     }
     QFile file(qsFilePath);
     if(!file.exists())
+    {
+        Logger->logMsg(QtMsgType::QtFatalMsg, QString("%1 file is create error").arg(qsFilePath));
         return false;
+    }
+
     return true;
 }
 

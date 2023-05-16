@@ -5,53 +5,53 @@ DTJson::DTJson() {}
 
 bool DTJson::readJsonByFile(const QString &qsFilePath,
                             QJsonDocument &qsJsonDocument) {
-  if (QFile::exists(qsFilePath)) {
-    QFile file(qsFilePath);
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    if (!file.isOpen()) {
-      Logger->logMsg(QtMsgType::QtSystemMsg, "Json文件打开失败");
-      return false;
+    if (QFile::exists(qsFilePath)) {
+        QFile file(qsFilePath);
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        if (!file.isOpen()) {
+            Logger->logMsg(QtMsgType::QtSystemMsg, "Json文件打开失败");
+            return false;
+        }
+        QString value = file.readAll();
+        file.close();
+        QJsonParseError parseJsonErr;
+        qsJsonDocument = QJsonDocument::fromJson(value.toUtf8(), &parseJsonErr);
+        if (parseJsonErr.error != QJsonParseError::NoError) {
+            return false;
+        }
+        return true;
+    } else {
+        return false;
     }
-    QString value = file.readAll();
-    file.close();
-    QJsonParseError parseJsonErr;
-    qsJsonDocument = QJsonDocument::fromJson(value.toUtf8(), &parseJsonErr);
-    if (parseJsonErr.error != QJsonParseError::NoError) {
-      return false;
-    }
-    return true;
-  } else {
     return false;
-  }
-  return false;
 }
 
 bool DTJson::readJsonStr(const QString &qsJsonStr,
                          QJsonDocument &qsJsonDocument) {
-  QJsonParseError jsonError;
-  QJsonDocument jsonDoc(
-      QJsonDocument::fromJson(qsJsonStr.toStdString().data(), &jsonError));
-  if (jsonError.error != QJsonParseError::NoError) {
-    return false;
-  } else {
-    qsJsonDocument = jsonDoc;
-    return true;
-  }
+    QJsonParseError jsonError;
+    QJsonDocument jsonDoc(
+                QJsonDocument::fromJson(qsJsonStr.toStdString().data(), &jsonError));
+    if (jsonError.error != QJsonParseError::NoError) {
+        return false;
+    } else {
+        qsJsonDocument = jsonDoc;
+        return true;
+    }
 }
 
 bool DTJson::writeJsonToFile(const QString &qsJsonStr,
                              const QString &qsFilePath) {
-  QFile file;
-  file.setFileName(qsFilePath);
-  //只写 追加写入
-  if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+    QFile file;
+    file.setFileName(qsFilePath);
+    //只写 追加写入
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
 
-  {
-    QTextStream in(&file);
-    in << qsJsonStr << endl;
-  }
-  file.close();
-  return true;
+    {
+        QTextStream in(&file);
+        in << qsJsonStr << endl;
+    }
+    file.close();
+    return true;
 }
 
 bool DTJson::setValue(QJsonDocument &jsonDocument, const QString &qsKey, const QString &qsValue)

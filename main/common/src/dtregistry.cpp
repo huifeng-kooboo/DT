@@ -18,15 +18,15 @@ DTRegistry& DTRegistry::getInstance() {
 }
 
 bool DTRegistry::setDefaultName(const QString &qsDefaultName) {
-  m_qsDefaultName = qsDefaultName;
-  return true;
+    m_qsDefaultName = qsDefaultName;
+    return true;
 }
 
 bool DTRegistry::getValue(const QString &qsKey, QString &qsValue) {
     QSettings appSettings(m_qsDefaultName);
     QVariant qvValue = appSettings.value(qsKey,"");
     qsValue = qvValue.toString();
-   return true;
+    return true;
 }
 
 bool DTRegistry::getValue(const QString &qsDefaultName, const QString &qsKey,
@@ -34,7 +34,7 @@ bool DTRegistry::getValue(const QString &qsDefaultName, const QString &qsKey,
     QSettings appSettings(qsDefaultName);
     QVariant qvValue = appSettings.value(qsKey,"");
     qsValue = qvValue.toString();
-  return true;
+    return true;
 }
 
 bool DTRegistry::setValue(const QString &qsKey, const QString &qsValue) {
@@ -47,6 +47,10 @@ bool DTRegistry::setValue(const QString &qsDefaultName, const QString &qsKey,
                           const QString &qsValue) {
     QSettings appSettings(qsDefaultName);
     appSettings.setValue(qsKey,qsValue);
-  // todo
-  return true;
+    // todo
+    if (appSettings.value(qsKey,"None")!= qsValue)
+    {
+        return false;
+    }
+    return true;
 }
