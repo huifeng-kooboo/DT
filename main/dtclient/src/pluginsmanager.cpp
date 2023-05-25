@@ -113,7 +113,7 @@ DT_PluginsManager::DT_PluginsManager(QObject *parent)
             QJsonValue qjsValue =qJson.toObject().value("plugins_name");
             QString qsPluginsVersion = qJson.toObject().value("plugins_version").toString();
             QString qsPluginsDesc = qJson.toObject().value("plugins_desc").toString();
-            // 之后使用
+            // ToDo: 完善对应的业务
             QString qsPluginsState = qJson.toObject().value("plugins_state").toString();
             pluginInfo.qsPluginsName = QString(PLUGINS).append(qjsValue.toString());
             pluginInfo.qsPluginsDesc = qsPluginsDesc;
@@ -151,6 +151,11 @@ void DT_PluginsManager::registerEventCallBacks()
             QPluginLoader loader(pluginPath.qsPluginsName);
             if(loader.load() || loader.isLoaded())
             {
+                if (loader.instance()== nullptr)
+                {
+                    Logger->logMsg(QtMsgType::QtCriticalMsg, "当前实例为空");
+                    return ;
+                }
                 m_vecLoadSuccessObjects.append(loader.instance());
 
                 /**
