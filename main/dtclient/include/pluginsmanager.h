@@ -3,7 +3,7 @@
 
 #define PluginManager DT_PluginsManager::GetInstance()
 
-// 插件状态【分两种，一种是动态加载:即启动后不立即加载的，一种是直接加载】
+// 插件状态【分两种，一种是动态加载:即启动后不立即加载的，一种是直接加载:软件一启动默认加载】
 enum E_PLUGIN_STATE {
   PLUGIN_DIRECT = 0, // 直接加载
   PLUGIN_DYNAMIC,    //动态加载
@@ -75,6 +75,9 @@ public:
   }
 
 signals:
+  /**
+    * 加载UI事件信号
+    */
   void sendSignalUI(QObject *);
 
 private:

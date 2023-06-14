@@ -12,8 +12,6 @@ DEFINES += COMMON_LIBRARY
 
 CONFIG += c++14
 CONFIG += staticlib
-
-# 添加预编译头文件
 CONFIG += PRECOMPILED_HEADER
 PRECOMPILED_HEADER =  $$PWD/include/stdafx.h
 

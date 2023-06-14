@@ -78,7 +78,7 @@ public slots:
 
 #ifdef Q_OS_WIN
 protected:
-  /********* 重绘界面框，可以实现拖动 *********/
+  /********* 重绘界面框，可以实现拖动【基于Windows平台适配】 *********/
   bool nativeEvent(const QByteArray &eventType, void *message,
                    long *result) override;
 #endif
