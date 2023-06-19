@@ -43,7 +43,6 @@ bool DTJson::writeJsonToFile(const QString &qsJsonStr,
                              const QString &qsFilePath) {
     QFile file;
     file.setFileName(qsFilePath);
-    //只写 追加写入
     if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
 
     {
@@ -81,12 +80,3 @@ bool DTJson::saveJsonDocumentToFile(QJsonDocument &jsonDocument, const QString &
     file.close();
     return true;
 }
-
-#ifdef DEBUG
-void DTJson::test() {
-    QJsonDocument qjsDocument;
-
-    // qjsDocument.setArray()
-    DTJson::getInstance().setValue(qjsDocument,"122","545454");
-}
-#endif

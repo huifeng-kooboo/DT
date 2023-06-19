@@ -132,14 +132,7 @@ void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QStrin
     if (bOpenSuccess) {
         bfirstOpen = false;
         QString current_date_time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
-        //QString current_date = QString("%1").arg(current_date_time);
-        //QString message = QString("%3 %1 %2").arg(text).arg(msgNew).arg(current_date);
         QString message = QString("%1 %2 %3").arg(current_date_time).arg(text).arg(msgNew);
-        // feat: 参考WeChat Log格式
-        //QString message = QString("%1 %2").arg(current_date).arg(msgNew);
-        //#ifdef Q_OS_WIN
-        //    printf(message.toStdString().c_str());
-        //#endif
         QTextStream txtOutput(&g_logFile);
         txtOutput << message << "\r\n";
         g_logFile.flush();

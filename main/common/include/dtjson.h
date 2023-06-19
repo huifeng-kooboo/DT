@@ -19,11 +19,6 @@ public:
     static DTJson dtJson;
     return dtJson;
   };
-
-#ifdef DEBUG
-  void test();
-#endif
-
 private:
   DTJson();
 };
