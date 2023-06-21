@@ -18,6 +18,12 @@ enum E_BUTTON_STATE{
     BUTTON_STATE_UNCHECKED,
 };
 
+enum E_BUTTON_SHAPE {
+    DEFAULT,
+    CIRCLE,
+    TRIANGLE
+};
+
 class DTButton: public QPushButton
 {
     Q_OBJECT
@@ -133,6 +139,7 @@ private:
      * @brief: Pressed时候的窗体
     */
    QWidget* m_pPressedWidget = nullptr;
+
 };
 
 #endif // DTBUTTON_H
