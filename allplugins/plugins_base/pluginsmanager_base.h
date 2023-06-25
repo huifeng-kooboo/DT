@@ -71,6 +71,7 @@ public slots:
 
     /**
       * @brief: 处理回调事件
+      * 处理事件当中的名称
       */
     virtual void slotEventFromPlugins(const PluginMetaData& plt) = 0;
 
@@ -83,6 +84,7 @@ public slots:
         if(uiObject != nullptr)
         {
             m_uiObject = uiObject;
+            // 加载UI事件
             loadUI();
         }
     }

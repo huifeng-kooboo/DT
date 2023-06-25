@@ -8,6 +8,7 @@
 #include "widgets/account_widget.h"
 
 #define PLUGIN_Images_IID "Plugin.Images"
+
 class Images_EXPORT Images : public DTPluginBase
 {
     Q_OBJECT
