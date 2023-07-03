@@ -15,9 +15,11 @@
 void parseCmd(const QString& qsCmd)
 {
     Logger->logMsg(QtMsgType::QtInfoMsg,QString("GetCmdInput: %1").arg(qsCmd),true);
+
+    // check debug mode
     if(qsCmd.contains("debug"))
     {
-        Logger->logMsg(QtMsgType::QtDebugMsg,QString("[调试]开启调试模式"));
+        Logger->logMsg(QtMsgType::QtInfoMsg,QString("[调试]开启调试模式"));
         // 开启调试模式
 #ifdef Q_OS_WIN
         AllocConsole();
@@ -42,8 +44,8 @@ qreal getScreenPercent()
 int main(int argc, char *argv[])
 {
 
+    // 绑定dump
 #ifdef Q_OS_WIN
-    // dump文件生成
 #ifdef DUMP_GENERATE
     SetUnhandledExceptionFilter(ExceptionFilter);
 #endif
