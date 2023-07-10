@@ -4,9 +4,11 @@
 #include "dt_stylesheets.h"
 
 enum E_BUTTON_TYPE{
-   BUTTON_NORMAL,
+   BUTTON_NORMAL, // 正常大小
    BUTTON_MINI,
-   BUTTON_BIG
+   BUTTON_BIG,
+   BUTTON_CIRCLE, // 原型
+   BUTTON_TRIANGLE, // 椭圆
 };
 
 enum E_BUTTON_STATE{
