@@ -6,11 +6,16 @@
 #include <QFile>
 #include "../../global/define.h"
 
+
+#define PRIVATE_METHOD private
+#define PUBLIC_METHOD public
+
 // 处理中文乱码使用
 #if defined(_MSC_VER) && (_MSC_VER >= 1600)
 # pragma execution_character_set("utf-8")
 #endif
 
+// 子插件通用的基类模块
 class DTPluginBase: public QObject
 {
 
@@ -37,7 +42,7 @@ Q_SIGNALS:
      */
     void sendSignalToPluginsAsync(const PluginMetaData&);
 
-public:
+PUBLIC_METHOD:
 
     /**
       * @brief: 同步发送信号

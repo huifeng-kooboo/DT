@@ -7,10 +7,12 @@
 #include <windows.h>
 #endif
 
+
 /**
  * [支持自定义扩展]
- * @brief: 解析命令行启动传参
+ * @brief: 解析命令行启动传参[todo] 可以添加自己解析的相关需求
  * @param: qsCmd: 传入参数
+ * @return: NONE
 */
 void parseCmd(const QString& qsCmd)
 {

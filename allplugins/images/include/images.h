@@ -9,6 +9,9 @@
 
 #define PLUGIN_Images_IID "Plugin.Images"
 
+/**
+  Image插件主类
+*/
 class Images_EXPORT Images : public DTPluginBase
 {
     Q_OBJECT
