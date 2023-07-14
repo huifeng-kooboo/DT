@@ -27,6 +27,9 @@
 <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "300" height = "300"  />
 
 
+* 如果有需要在上海找大厂工作的同学，也可以扫码加入
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_sh.jpg" width = "300" height = "300"  />
+
 ----
 
 ## 1. 为什么开源DT框架
@@ -62,8 +65,8 @@
  <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg">
 
 * 给大家提供一个交流技术的平台，大家如果感兴趣也可以扫微信群加入，交流C++、Qt等技术信息
-[wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group.jpg)
- <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group.jpg">
+[wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_dt.jpg)
+ <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_dt.jpg">
 -----
 
 
@@ -101,7 +104,7 @@
 
 ---
 
-    
+​    
 
 * DT框架的git路径：
     https://github.com/huifeng-kooboo/DT
