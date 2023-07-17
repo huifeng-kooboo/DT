@@ -100,22 +100,22 @@ void DTLog::logMsg(QtMsgType type,const QMessageLogContext &context,const QStrin
     QString text;
     switch (type) {
     case QtDebugMsg:
-        text = QString("level:DEBUG");
+        text = QString("[DEBUG]");
         break;
     case QtInfoMsg:
-        text = QString("level:INFO");
+        text = QString("[INFO]");
         break;
 
     case QtWarningMsg:
-        text = QString("level:WARN");
+        text = QString("[WARNING]");
         break;
 
     case QtCriticalMsg:
-        text = QString("level:CRITICAL");
+        text = QString("[CRITICAL]");
         break;
 
     case QtFatalMsg:
-        text = QString("level:FATAL");
+        text = QString("[FATAL]");
     default:
         break;
     }
