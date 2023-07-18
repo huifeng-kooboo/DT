@@ -181,6 +181,9 @@ void DT_PluginsManager::registerEventCallBacks()
                  */
                 QObject::connect(this,SIGNAL(sendSignalUI(QObject*)),loader.instance(),SLOT(slotSetUIHandle(QObject*)));
             }
+            else {
+                Logger->logMsg(QtMsgType::QtWarningMsg, "Dll加载失败......");
+            }
         }
     }
 }
