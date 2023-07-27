@@ -25,6 +25,7 @@ private:
 
   /**
     * @brief: 程序初始化
+    * UI初始化
     */
   void init();
 

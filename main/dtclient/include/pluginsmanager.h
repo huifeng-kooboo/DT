@@ -74,6 +74,15 @@ public:
       return m_vecLoadSuccessObjects;
   }
 
+  /*\
+   * 移除指定的插件
+   */
+  bool removePluginObject(const QString& qsPluginName)
+  {
+      //TODO
+      return true;
+  }
+
 signals:
   /**
     * 加载UI事件信号
