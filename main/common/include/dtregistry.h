@@ -4,7 +4,9 @@
 // 注册表
 #define REG DTRegistry::getInstance()
 
-// 注册表相关的操作
+/**
+  * @brief: 注册表相关的操作
+*/
 class DTRegistry{
 public:
     DTRegistry();

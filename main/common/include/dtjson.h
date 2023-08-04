@@ -3,12 +3,15 @@
 
 #define JSON DTJson::getInstance()
 
+/**
+  * @brief: Json结构体的封装
+  *
+*/
 class DTJson {
 public:
   bool readJsonByFile(const QString &qsFilePath, QJsonDocument &qsJsonDocument);
   bool readJsonStr(const QString &qsJsonStr, QJsonDocument &qsJsonDocument);
   bool writeJsonToFile(const QString &qsJsonStr, const QString &qsFilePath);
-  // 设置getValue
   bool setValue(QJsonDocument &jsonDocument, const QString &qsKey,
                 const QString &qsValue);
   bool getValue(QJsonDocument &jsonDocument, const QString &qsKey,

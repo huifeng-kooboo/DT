@@ -9,6 +9,10 @@ enum DTErrorCode{
     ERR_SERVER,  // 服务端错误
     ERR_CLIENT,  // 客户端错误
     ERR_OTHERS ,// 其他错误
+
+    //  业务相关的错误码定义
+    ERR_LOGIN_PASSWORD = 100, // 登录相关的错误码
+
 };
 
 #endif // DTERRORCODE_H
