@@ -12,6 +12,7 @@ enum DTErrorCode{
 
     //  业务相关的错误码定义
     ERR_LOGIN_PASSWORD = 100, // 登录相关的错误码
+    ERR_REGISTER_PASSWORD = 101, //注册错误
 
 };
 

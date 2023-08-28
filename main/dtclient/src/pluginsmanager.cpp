@@ -58,6 +58,13 @@ void DT_PluginsManager::freePlugin(const QString &dllPath)
     {
         QPluginLoader qlLibrary(dllPath);
         qlLibrary.unload();
+        if (qlLibrary.isLoaded())
+        {
+            Logger->logMsg(QtMsgType::QtCriticalMsg, tr("%1卸载失败").arg(dllPath));
+        }
+        else{
+            Logger->logMsg(QtMsgType::QtInfoMsg,tr("卸载成功"));
+        }
     }
     return ;
 }
