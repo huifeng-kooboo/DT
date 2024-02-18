@@ -8,13 +8,16 @@
 #include <QToolButton>
 #include "dtbutton.h"
 
-// 标题栏
+/**
+  * @brief: 标题栏基类
+*/
 class DTTitleBar: public QWidget
 {
     Q_OBJECT
 public:
     explicit DTTitleBar(QWidget* parent = nullptr);
     ~DTTitleBar();
+
 
 
 public:
@@ -24,87 +27,32 @@ public:
       */
     void setTitleBarStyle(const QString& qsStyle);
 
-    // 标题相关设置
-    void setCurrentWindowTitle(const QString& qsTitle); // 设置标题
+    void setTitle(const QString& qsTitle); // 设置标题
+    void setRegion(const QString& qsRegion); // 设置区域
 
-    /**
-      * @brief: 预留设置标题接口 但是由于目前使用统一的StyleSheet 故不调用
-    */
-    void setTitleColor(const QColor& qc);  // 设置标题颜色
-    void setTitleFont(const QFont& qFont); // 设置标题字体
-    void setBackgroundColor(const QColor& qc);
-
-
-    void homePageClick();   // 触发click操作
-    void setCanStrech(bool bStrech) // 设置当前模式是否支持拉伸，默认支持
-    {
-            m_bStrech = bStrech;
-    }
-
-    bool getCanStrech()
-    {
-        return m_bStrech;
-    }
-
-    // 左侧Logo
-    void setLogo(const QIcon& qIcon);
-
-    // 设置最小化、最大化、关闭按钮的Icon
-    void setButtonsIcon(const QIcon& qMinIcon,const QIcon& qMaxIcon,const QIcon& qCloseIcon,const QIcon& qMinHoverIcon,const QIcon& qMaxHoverIcon,const QIcon& qCloseHoverIcon,
-                        const QIcon& qMinPressIcon,const QIcon& qMaxPressIcon,const QIcon& qClosePressIcon);
-
-    // 设置主页Icon，Size
-    void setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const QIcon&qPressIcon,const QSize& qSize);
-
-    // 设置是否显示主页按钮【默认False】
-    void setHomePageVisible(bool isShow);
-
-    /**
-     * @brief: 标题栏添加工具
-     * @param: pBtn: 工具按钮
-     */
-    void addToolButton(QPushButton * pBtn);
-
-    /**
-     * @brief: 添加标题栏TabButton工具
-     * @param: pBtn
-     * @param: isNeedClose: 是否需要关闭按钮
-     */
-    void addTabButton(DTButton * pBtn,bool isNeedClose = false);
+    void addTextLabel(QLabel* qsText, int nPos=0); // 添加文本 nPos: 0:左边 1:右边
 
 
 public slots:
     void resizeEvent(QResizeEvent *event) override;
-    void slotHomePageEvent();
-    void slotCloseTab(QString);
-    void slotTabBtnClicked(QAbstractButton* pBtn);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     void initControls(); // 初始化控件
 
 
 private:
-    QPoint m_PointMouse; // 鼠标移动的位置
-    QWidget * m_pParent;
-    QLabel * m_pTitle; // 标题
-    bool m_bStrech = true; //
-    QToolButton * m_pLogoBtn; // Logo
-    DTButton * m_pMinBtn; // 最小化按钮
-    DTButton * m_pMaxBtn; // 最大化按钮
-    DTButton * m_pCloseBtn; // 关闭按钮
-    DTButton * m_pHomePageBtn; // 首页按钮
+    QWidget * m_pParent;  // 父窗体
+    QPushButton * m_pCloseBtn; // 关闭按钮
+    QHBoxLayout* m_pBtnsHBoxLayout; // 按钮集合
+    QWidget* m_pTitleWidget; // 内嵌titleWidget
+    QLabel* pTitleLabel; // 标题字段
+    QLabel* pRegionLabel; // 区域字段
 
-    QHBoxLayout* m_pBtnsHBoxLayout; // 关闭最小化按钮集合
-
-    QVector<DTButton*> m_vecTabBtns; // tab按钮集合
-    QHBoxLayout* m_pTabLayout; // Tab布局《----
-    QButtonGroup * m_btn_group;
-
-    /**
-     * @brief:当前UI不需要（预留）---
-    */
-    QHBoxLayout* m_pToolsLayout; //工具Layout
-    QVector<QPushButton*> m_vecToolBtns; // 工具按钮集合
+    QHBoxLayout* m_pLeftHBoxLayout; // Left Layout
+    QHBoxLayout* m_pRightHBoxLayout; // 按钮集合
 };
 
 

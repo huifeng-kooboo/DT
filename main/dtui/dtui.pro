@@ -33,6 +33,7 @@ SOURCES += \
     src/dtgraphicsscene.cpp \
     src/dtgraphicstool.cpp \
     src/dtgraphicsview.cpp \
+    src/dtgroupbox.cpp \
     src/dtlabel.cpp \
     src/dtpainter.cpp \
     src/dtprogressbar.cpp \
@@ -41,6 +42,7 @@ SOURCES += \
     src/dttabwidget.cpp \
     src/dttitlebar.cpp \
     src/dttoolbar.cpp \
+    src/dttoolset.cpp \
     src/dtui.cpp \
     src/sizehandle.cpp
 
@@ -48,10 +50,12 @@ HEADERS += \
     include/dt_stylesheets.h \
     include/dtbutton.h \
     include/dtcheckbox.h \
+    include/dtframelesswidget.h \
     include/dtgraphicsitem.h \
     include/dtgraphicsscene.h \
     include/dtgraphicstool.h \
     include/dtgraphicsview.h \
+    include/dtgroupbox.h \
     include/dtlabel.h \
     include/dtpainter.h \
     include/dtprogressbar.h \
@@ -60,6 +64,7 @@ HEADERS += \
     include/dttabwidget.h \
     include/dttitlebar.h \
     include/dttoolbar.h \
+    include/dttoolset.h \
     include/dtui.h \
     include/dtundocommand.h \
     include/sizehandle.h \

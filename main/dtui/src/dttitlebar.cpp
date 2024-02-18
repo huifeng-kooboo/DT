@@ -3,17 +3,19 @@
 #include <QPalette>
 #include "dt_stylesheets.h"
 
+// 处理中文乱码使用
+#if defined(_MSC_VER) && (_MSC_VER >= 1600)
+# pragma execution_character_set("utf-8")
+#endif
+
 DTTitleBar::DTTitleBar(QWidget* parent):QWidget(parent)
 {
     setWindowFlag(Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_StyledBackground, true);
-    setStyleSheet(TITLE_BAR_STYLE);
+    setAttribute(Qt::WA_StyledBackground,true);
     if(parent)
     {
         m_pParent = parent;
     }
-    m_btn_group = new QButtonGroup(this);
-    connect(m_btn_group,SIGNAL(buttonClicked(QAbstractButton*)),this,SLOT(slotTabBtnClicked(QAbstractButton*)));
     initControls();
 }
 
@@ -27,111 +29,26 @@ void DTTitleBar::setTitleBarStyle(const QString &qsStyle)
     this->setStyleSheet(qsStyle);
 }
 
-void DTTitleBar::slotTabBtnClicked(QAbstractButton* pAbstractBtn)
+void DTTitleBar::setTitle(const QString &qsTitle)
 {
-    pAbstractBtn->setCheckable(true);
-    pAbstractBtn->setChecked(true);
-    if(pAbstractBtn!=m_pHomePageBtn)
+    pTitleLabel->setText(qsTitle);
+}
+
+void DTTitleBar::addTextLabel(QLabel *qsText, int nPos)
+{
+    if(nPos ==0)
     {
-        pAbstractBtn->setIcon(QIcon(":/resources/camera_press.png"));
-        m_pHomePageBtn->setIcon(QIcon(":/resources/homepage.png"));
+        m_pLeftHBoxLayout->addWidget(qsText);
     }
     else{
-        m_pHomePageBtn->setIcon(QIcon(":/resources/homepage_press.png"));
+        m_pRightHBoxLayout->addWidget(qsText);
     }
-    for(auto btn: m_btn_group->buttons())
-    {
-        if(btn!=pAbstractBtn)
-        {
-            btn->setCheckable(true);
-            btn->setChecked(false);
-            if(btn!=m_pHomePageBtn)
-            {
-                btn->setIcon(QIcon(":/resources/camera.png"));
-            }
-        }
-    }
+    m_pRightHBoxLayout->addSpacing(2);
 }
 
-void DTTitleBar::setCurrentWindowTitle(const QString& qsTitle)
+void DTTitleBar::setRegion(const QString &qsRegion)
 {
-    // 设置标题
-    m_pTitle->setText(qsTitle);
-}
-
-void DTTitleBar::setBackgroundColor(const QColor& qc)
-{
-    QPalette qpa(this->palette());
-    qpa.setColor(QPalette::Background,qc);
-    this->setAutoFillBackground(true);
-    this->setPalette(qpa);
-    this->show();
-}
-
-void DTTitleBar::setTitleColor(const QColor& qc)
-{
-    QPalette pe;
-    pe.setColor(QPalette::WindowText, qc);
-    m_pTitle->setPalette(pe);
-}
-
-void DTTitleBar::setTitleFont(const QFont& qFont)
-{
-    m_pTitle->setFont(qFont);
-}
-
-void DTTitleBar::homePageClick()
-{
-    m_pHomePageBtn->click();
-    m_pHomePageBtn->clicked();
-}
-
-void DTTitleBar::addToolButton(QPushButton* pBtn)
-{
-    m_vecToolBtns.append(pBtn);
-    m_pToolsLayout->addWidget(pBtn);
-}
-
-
-void DTTitleBar::addTabButton(DTButton*pBtn, bool isNeedClose)
-{
-    if(m_vecTabBtns.contains(pBtn))
-        return;
-    pBtn->setAttribute(Qt::WA_StyledBackground, true);
-    pBtn->setStyleSheet(TITLE_BAR_BUTTON_STYLE);
-    pBtn->setCloseBtn(isNeedClose);
-    pBtn->setFixedWidth(200);
-    pBtn->setFixedHeight(44);
-    pBtn->setFlat(0);
-    connect(pBtn,SIGNAL(signalCloseTab(QString)),this,SLOT(slotCloseTab(QString)));
-    m_vecTabBtns.append(pBtn);
-    m_btn_group->addButton(pBtn);
-    m_pTabLayout->addWidget(pBtn);
-}
-
-void DTTitleBar::slotCloseTab(QString qsTabName)
-{
-    int i = -1;
-    for(auto btn: m_vecTabBtns)
-    {
-        i++;
-        if(btn->objectName() == qsTabName)
-        {
-            btn->setParent(NULL);
-            m_pTabLayout->removeWidget(btn);
-            m_btn_group->removeButton(btn);
-            if(m_vecTabBtns.size() > 1 && i > 0)
-            {
-                m_vecTabBtns.at(i-1)->click();
-                m_vecTabBtns.at(i-1)->clicked();
-            }
-            else{
-                homePageClick();
-            }
-            break;
-        }
-    }
-    m_vecTabBtns.removeAt(i);
+    pRegionLabel->setText(qsRegion);
 }
 
 void DTTitleBar::resizeEvent(QResizeEvent *event)
@@ -139,122 +56,52 @@ void DTTitleBar::resizeEvent(QResizeEvent *event)
 
 }
 
+void DTTitleBar::paintEvent(QPaintEvent *event)
+{
+    QWidget::paintEvent(event);
+}
+
 void DTTitleBar::initControls()
 {
+    m_pLeftHBoxLayout = new QHBoxLayout();
+    m_pLeftHBoxLayout->setMargin(0);
+    m_pLeftHBoxLayout->setContentsMargins(0,0,0,0);
+    m_pRightHBoxLayout = new QHBoxLayout();
+    m_pRightHBoxLayout->setMargin(0);
+    m_pRightHBoxLayout->setContentsMargins(0,0,0,0);
     m_pBtnsHBoxLayout = new QHBoxLayout(this);
     m_pBtnsHBoxLayout->setMargin(0);
     m_pBtnsHBoxLayout->setContentsMargins(0,0,0,0);
     this->setLayout(m_pBtnsHBoxLayout);
-    /*
-     * 暂时不需要Tool功能 故屏蔽
-    */
-    // m_pToolsLayout = new QHBoxLayout(this);
-    m_pTabLayout = new QHBoxLayout(this);
-    m_pTabLayout->setMargin(0);
-    m_pTabLayout->setContentsMargins(0,0,0,0);
-    m_pTitle = new QLabel(this);
-    m_pTitle->setMinimumWidth(130);
-    m_pTitle->setObjectName("window_title");
 
-    // Logo按钮
-    m_pLogoBtn = new QToolButton(this);
-    m_pLogoBtn->setObjectName("window_logo");
-    m_pLogoBtn->setAttribute(Qt::WA_StyledBackground, true);
+    m_pTitleWidget = new QWidget(this);
+    m_pTitleWidget->setObjectName("window_title_widget");
+    m_pTitleWidget->setFixedSize(636,98);
+    pTitleLabel = new QLabel(m_pTitleWidget);
+    pTitleLabel->setObjectName("win_title");
+    pTitleLabel->setGeometry(250,-10,400,68);
 
-    /**
-      * @brief: Logo和标题添加
-    */
-    m_pBtnsHBoxLayout->addWidget(m_pLogoBtn,0,Qt::AlignLeft);
-    m_pBtnsHBoxLayout->addWidget(m_pTitle,0,Qt::AlignLeft);
-
-    /**
-      * @brief: 首页按钮
-    */
-    m_pHomePageBtn = new DTButton(this);
-    m_pHomePageBtn->setObjectName("win_homepage");
-    m_pHomePageBtn->setStyleSheet(TITLE_BAR_BUTTON_STYLE);
-    m_btn_group->addButton(m_pHomePageBtn);
-    m_pBtnsHBoxLayout->addWidget(m_pHomePageBtn,0,Qt::AlignLeft);
-
-    m_pBtnsHBoxLayout->addLayout(m_pTabLayout);
-
-    // 关闭 最小化 最大化按钮
-    m_pMinBtn = new DTButton(this);
-    m_pMinBtn->setObjectName("window_min");
-    m_pMinBtn->setFlat(true);
-    m_pMinBtn->setStyleSheet(TITLE_BAR_BUTTON_STYLE);
-
-    m_pMaxBtn = new DTButton(this);
-    m_pMaxBtn->setObjectName("window_max");
-    m_pMaxBtn->setFlat(true);
-    m_pMaxBtn->setStyleSheet(TITLE_BAR_BUTTON_STYLE);
-
-    m_pCloseBtn = new DTButton(this);
-    m_pCloseBtn->setObjectName("window_close");
-    m_pCloseBtn->setFlat(true);
-    m_pCloseBtn->setStyleSheet(TITLE_BAR_BUTTON_STYLE);
-
-    // 绑定相关的事件
-    connect(m_pMinBtn,SIGNAL(clicked()),m_pParent,SLOT(slotMinEvent()));
-    connect(m_pMaxBtn,SIGNAL(clicked()),m_pParent,SLOT(slotMaxEvent()));
-    connect(m_pCloseBtn,SIGNAL(clicked()),m_pParent,SLOT(slotCloseEvent()));
-    connect(m_pHomePageBtn,SIGNAL(clicked()),m_pParent,SLOT(slotHomePageEvent()));
-    connect(m_pHomePageBtn,SIGNAL(clicked()),this,SLOT(slotHomePageEvent()));
-
+    pRegionLabel = new QLabel(m_pTitleWidget);
+    pRegionLabel->setObjectName("win_region");
+    pRegionLabel->setGeometry(296,53,400,30);
     m_pBtnsHBoxLayout->addStretch();
+    m_pBtnsHBoxLayout->addLayout(m_pLeftHBoxLayout);
+    m_pBtnsHBoxLayout->addWidget(m_pTitleWidget);
+    m_pBtnsHBoxLayout->addLayout(m_pRightHBoxLayout);
 
-    /**
-      * @brief: 添加最大化、最小化、正常按钮
-    */
-    m_pBtnsHBoxLayout->addWidget(m_pMinBtn,0,Qt::AlignRight);
-    m_pBtnsHBoxLayout->addWidget(m_pMaxBtn,0,Qt::AlignRight);
-    m_pBtnsHBoxLayout->addWidget(m_pCloseBtn,0,Qt::AlignRight);
-    m_pBtnsHBoxLayout->addSpacing(5);
+    m_pCloseBtn = new QPushButton(this);
+    m_pCloseBtn->setFixedSize(36,32);
+    m_pCloseBtn->setObjectName("window_close");
+    m_pCloseBtn->setFocusPolicy(Qt::NoFocus);
+    m_pCloseBtn->setToolTip(tr("关闭"));
+
+    connect(m_pCloseBtn,SIGNAL(clicked()),m_pParent,SLOT(slotCloseEvent()));
+    m_pBtnsHBoxLayout->addStretch();
+    QVBoxLayout *pCloseLayout = new QVBoxLayout(this);
+    pCloseLayout->addSpacing(14);
+    pCloseLayout->addWidget(m_pCloseBtn);
+    pCloseLayout->addStretch();
+    m_pBtnsHBoxLayout->addLayout(pCloseLayout);
+    m_pBtnsHBoxLayout->addSpacing(7);
 }
 
-void DTTitleBar::setLogo(const QIcon& qIcon)
-{
-    m_pLogoBtn->setIcon(qIcon);
-    m_pLogoBtn->setIconSize(QSize(32,18));
-    m_pLogoBtn->setFixedSize(QSize(56,44));
-    m_pLogoBtn->setGeometry(0,0,56,44);
-}
-
-void DTTitleBar::setButtonsIcon(const QIcon &qMinIcon, const QIcon &qMaxIcon, const QIcon &qCloseIcon, const QIcon &qMinHoverIcon, const QIcon &qMaxHoverIcon, const QIcon &qCloseHoverIcon, const QIcon &qMinPressIcon, const QIcon &qMaxPressIcon, const QIcon &qClosePressIcon)
-{
-    m_pMinBtn->setFixedHeight(44);
-    m_pMaxBtn->setFixedHeight(44);
-    m_pCloseBtn->setFixedHeight(44);
-    m_pMinBtn->setFixedWidth(36);
-    m_pMaxBtn->setFixedWidth(36);
-    m_pCloseBtn->setFixedWidth(36);
-    m_pMinBtn->setIcon(qMinIcon);
-    m_pMaxBtn->setIcon(qMaxIcon);
-    m_pCloseBtn->setIcon(qCloseIcon);
-
-    m_pMinBtn->setStateIcon(qMinIcon,qMinHoverIcon,qMinPressIcon);
-    m_pMaxBtn->setStateIcon(qMaxIcon,qMaxHoverIcon,qMaxPressIcon);
-    m_pCloseBtn->setStateIcon(qCloseIcon,qCloseHoverIcon,qClosePressIcon);
-
-    m_pMinBtn->setIconSize(QSize(16,16));
-    m_pMaxBtn->setIconSize(QSize(16,16));
-    m_pCloseBtn->setIconSize(QSize(16,16));
-}
-
-void DTTitleBar::setHomePageIcon(const QIcon& qIcon,const QIcon&qHoverIcon,const QIcon&qPressIcon,const QSize& qSize)
-{
-    m_pHomePageBtn->setIcon(qIcon);
-    m_pHomePageBtn->setIconSize(qSize);
-    m_pHomePageBtn->setBtnFixedSize(QSize(60,44));
-    m_pHomePageBtn->setFlat(true);
-}
-
-void DTTitleBar::setHomePageVisible(bool isShow)
-{
-    m_pHomePageBtn->setVisible(isShow);
-}
-
-void DTTitleBar::slotHomePageEvent()
-{
-    //todo
-}

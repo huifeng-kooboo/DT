@@ -1,30 +1,270 @@
 ﻿<RCC>
     <qresource prefix="/">
-        <file>resources/logo.png</file>
-        <file>resources/min.png</file>
-        <file>resources/max.png</file>
-        <file>resources/close.png</file>
-        <file>resources/close_dark.png</file>
-        <file>resources/icon.png</file>
-        <file>resources/homepage.png</file>
-        <file>resources/homepage_press.png</file>
+        <file>resources/background.jpg</file>
         <file>resources/icon.ico</file>
-        <file>resources/camera.png</file>
-        <file>resources/camera_press.png</file>
-        <file>resources/camera_config.png</file>
-        <file>resources/hmi.png</file>
-        <file>resources/out_set.png</file>
-        <file>resources/tool_task.png</file>
-        <file>resources/close_hover.png</file>
-        <file>resources/close_press.png</file>
-        <file>resources/max_hover.png</file>
-        <file>resources/max_press.png</file>
-        <file>resources/min_hover.png</file>
-        <file>resources/min_press.png</file>
-        <file>resources/homepage_hover.png</file>
-        <file>resources/folder.png</file>
-        <file>resources/login.png</file>
-        <file>resources/cloud.png</file>
-        <file>resources/hot.png</file>
+        <file>resources/icon.png</file>
+        <file>resources/images/Icon/cance.png</file>
+        <file>resources/images/Icon/category_hover.png</file>
+        <file>resources/images/Icon/category_nor.png</file>
+        <file>resources/images/Icon/category_pass on.png</file>
+        <file>resources/images/Icon/collaborative group.png</file>
+        <file>resources/images/Icon/command link.png</file>
+        <file>resources/images/Icon/Cooperative group.png</file>
+        <file>resources/images/Icon/determine.png</file>
+        <file>resources/images/Icon/drop down arrow.png</file>
+        <file>resources/images/Icon/first class_company.png</file>
+        <file>resources/images/Icon/first class_grade.png</file>
+        <file>resources/images/Icon/map tools.png</file>
+        <file>resources/images/Icon/mune.png</file>
+        <file>resources/images/Icon/system settings.png</file>
+        <file>resources/images/Icon/Three level unit_company.png</file>
+        <file>resources/images/Icon/three level unit_grade.png</file>
+        <file>resources/images/Icon/two level unit_company.png</file>
+        <file>resources/images/Icon/two level unit_grade.png</file>
+        <file>resources/images/Others/arrow_before.png</file>
+        <file>resources/images/Others/arrow_rear.png</file>
+        <file>resources/images/Others/change parameters_bg.png</file>
+        <file>resources/images/Others/default unit_bg_hover.png</file>
+        <file>resources/images/Others/default unit_bg_nor.png</file>
+        <file>resources/images/Others/First class unit_bg_hover.png</file>
+        <file>resources/images/Others/First class unit_bg_nor.png</file>
+        <file>resources/images/Others/First class_hover弹窗_bg.png</file>
+        <file>resources/images/Others/information_type four.png</file>
+        <file>resources/images/Others/information_type one.png</file>
+        <file>resources/images/Others/information_type three.png</file>
+        <file>resources/images/Others/information_type two.png</file>
+        <file>resources/images/Others/Instruction information_bg.png</file>
+        <file>resources/images/Others/Three level unit_bg_hover.png</file>
+        <file>resources/images/Others/Three level unit_bg_nor.png</file>
+        <file>resources/images/Others/Three level unit_hover弹窗_bg.png</file>
+        <file>resources/images/Others/Two level unit_bg_hover.png</file>
+        <file>resources/images/Others/Two level unit_bg_nor.png</file>
+        <file>resources/images/Others/Two level unit_hover弹窗_bg.png</file>
+        <file>resources/images/Others/type eight.png</file>
+        <file>resources/images/Others/type five.png</file>
+        <file>resources/images/Others/type four.png</file>
+        <file>resources/images/Others/type one.png</file>
+        <file>resources/images/Others/type seven.png</file>
+        <file>resources/images/Others/type six.png</file>
+        <file>resources/images/Others/type three.png</file>
+        <file>resources/images/Others/type two.png</file>
+        <file>resources/images/Others/Uncommunicated_uncommunicated.png</file>
+        <file>resources/images/QCheckBox/checked_disabled.png</file>
+        <file>resources/images/QCheckBox/checked_hover.png</file>
+        <file>resources/images/QCheckBox/checked_nor.png</file>
+        <file>resources/images/QCheckBox/checked_pressed.png</file>
+        <file>resources/images/QCheckBox/indeteminate_disabled.png</file>
+        <file>resources/images/QCheckBox/indeteminate_hover.png</file>
+        <file>resources/images/QCheckBox/indeteminate_nor.png</file>
+        <file>resources/images/QCheckBox/indeteminate_pressed.png</file>
+        <file>resources/images/QCheckBox/unchecked_disabled.png</file>
+        <file>resources/images/QCheckBox/unchecked_hover.png</file>
+        <file>resources/images/QCheckBox/unchecked_nor.png</file>
+        <file>resources/images/QCheckBox/unchecked_pressed.png</file>
+        <file>resources/images/QComboBox/disable.png</file>
+        <file>resources/images/QComboBox/editable_hover.png</file>
+        <file>resources/images/QComboBox/editable_nor.png</file>
+        <file>resources/images/QComboBox/editable_pressed.png</file>
+        <file>resources/images/QComboBox/list_bg.png</file>
+        <file>resources/images/QComboBox/list_hover.png</file>
+        <file>resources/images/QComboBox/list_pressed.png</file>
+        <file>resources/images/QComboBox/list_selected.png</file>
+        <file>resources/images/QComboBox/upArrow_hover.png</file>
+        <file>resources/images/QComboBox/upArrow_nor.png</file>
+        <file>resources/images/QComboBox/upArrow_pressed.png</file>
+        <file>resources/images/QComboBox/upArrow_selected.png</file>
+        <file>resources/images/QDialog/bg.png</file>
+        <file>resources/images/QDialog/cancel_hover.png</file>
+        <file>resources/images/QDialog/cancel_nor.png</file>
+        <file>resources/images/QDialog/cancel_pressed.png</file>
+        <file>resources/images/QDialog/determine_hover.png</file>
+        <file>resources/images/QDialog/determine_nor.png</file>
+        <file>resources/images/QDialog/determine_pressed.png</file>
+        <file>resources/images/QFrame/hline.png</file>
+        <file>resources/images/QFrame/vline.png</file>
+        <file>resources/images/QGroupBox/window_left_central.png</file>
+        <file>resources/images/QGroupBox/window_left_header.png</file>
+        <file>resources/images/QGroupBox/window_left_open.png</file>
+        <file>resources/images/QGroupBox/window_right.png</file>
+        <file>resources/images/QHeaderView/h_hover.png</file>
+        <file>resources/images/QHeaderView/h_nor.png</file>
+        <file>resources/images/QHeaderView/h_pressed.png</file>
+        <file>resources/images/QHeaderView/h_secelecd.png</file>
+        <file>resources/images/QHeaderView/v_hover.png</file>
+        <file>resources/images/QHeaderView/v_nor.png</file>
+        <file>resources/images/QHeaderView/v_pressed.png</file>
+        <file>resources/images/QHeaderView/v_selected.png</file>
+        <file>resources/images/QLineEdit/hover.png</file>
+        <file>resources/images/QLineEdit/nor.png</file>
+        <file>resources/images/QLineEdit/pressed.png</file>
+        <file>resources/images/QListView/add_hover.png</file>
+        <file>resources/images/QListView/add_nor.png</file>
+        <file>resources/images/QListView/add_pressed.png</file>
+        <file>resources/images/QListView/header.png</file>
+        <file>resources/images/QListView/list_checked.png</file>
+        <file>resources/images/QMainWindow/button .png</file>
+        <file>resources/images/QMainWindow/title.png</file>
+        <file>resources/images/QMenu/bg.png</file>
+        <file>resources/images/QMenu/hover.png</file>
+        <file>resources/images/QMenu/pressed.png</file>
+        <file>resources/images/QMenuBar/arrow_hover.png</file>
+        <file>resources/images/QMenuBar/arrow_nor.png</file>
+        <file>resources/images/QMenuBar/arrow_pressed.png</file>
+        <file>resources/images/QMenuBar/bg.png</file>
+        <file>resources/images/QMenuBar/collaborative group_hover.png</file>
+        <file>resources/images/QMenuBar/collaborative group_nor.png</file>
+        <file>resources/images/QMenuBar/command link_hover.png</file>
+        <file>resources/images/QMenuBar/command link_nor.png</file>
+        <file>resources/images/QMenuBar/down_hover.png</file>
+        <file>resources/images/QMenuBar/down_nor.png</file>
+        <file>resources/images/QMenuBar/down_pressed.png</file>
+        <file>resources/images/QMenuBar/Instruction access_hover.png</file>
+        <file>resources/images/QMenuBar/Instruction access_nor.png</file>
+        <file>resources/images/QMenuBar/map tools_hover.png</file>
+        <file>resources/images/QMenuBar/map tools_nor.png</file>
+        <file>resources/images/QMenuBar/menubar_hover.png</file>
+        <file>resources/images/QMenuBar/menubar_nor.png</file>
+        <file>resources/images/QMenuBar/menubar_pressed.png</file>
+        <file>resources/images/QMenuBar/system settings_hover.png</file>
+        <file>resources/images/QMenuBar/system settings_nor.png</file>
+        <file>resources/images/QMenuBar/up_hover.png</file>
+        <file>resources/images/QMenuBar/up_nor.png</file>
+        <file>resources/images/QMenuBar/up_pressed.png</file>
+        <file>resources/images/QProgressBar/bg.png</file>
+        <file>resources/images/QProgressBar/progress_bar.png</file>
+        <file>resources/images/QPushButton/2_3D_disabled.png</file>
+        <file>resources/images/QPushButton/2_3D_hover.png</file>
+        <file>resources/images/QPushButton/2_3D_nor.png</file>
+        <file>resources/images/QPushButton/2_3D_pressed.png</file>
+        <file>resources/images/QPushButton/2D_disabled.png</file>
+        <file>resources/images/QPushButton/2D_hover.png</file>
+        <file>resources/images/QPushButton/2D_nor.png</file>
+        <file>resources/images/QPushButton/2D_pressed.png</file>
+        <file>resources/images/QPushButton/3D_disabled.png</file>
+        <file>resources/images/QPushButton/3D_hover.png</file>
+        <file>resources/images/QPushButton/3D_nor.png</file>
+        <file>resources/images/QPushButton/3D_pressed.png</file>
+        <file>resources/images/QPushButton/arrow_disabled.png</file>
+        <file>resources/images/QPushButton/arrow_hover.png</file>
+        <file>resources/images/QPushButton/arrow_nor.png</file>
+        <file>resources/images/QPushButton/arrow_pressed.png</file>
+        <file>resources/images/QPushButton/close_hover .png</file>
+        <file>resources/images/QPushButton/close_hover.png</file>
+        <file>resources/images/QPushButton/close_nor .png</file>
+        <file>resources/images/QPushButton/close_nor.png</file>
+        <file>resources/images/QPushButton/close_pressed .png</file>
+        <file>resources/images/QPushButton/close_pressed.png</file>
+        <file>resources/images/QPushButton/determine_hover.png</file>
+        <file>resources/images/QPushButton/determine_nor.png</file>
+        <file>resources/images/QPushButton/determine_pressed.png</file>
+        <file>resources/images/QPushButton/eliminate_hover.png</file>
+        <file>resources/images/QPushButton/eliminate_nor.png</file>
+        <file>resources/images/QPushButton/eliminate_pressed.png</file>
+        <file>resources/images/QPushButton/legend_bg_hover.png</file>
+        <file>resources/images/QPushButton/legend_bg_nor.png</file>
+        <file>resources/images/QPushButton/legend_pressed.png</file>
+        <file>resources/images/QPushButton/menu expansion_botton.png</file>
+        <file>resources/images/QPushButton/menu expansion_hover_bg.png</file>
+        <file>resources/images/QPushButton/menu expansion_pressed_bg.png</file>
+        <file>resources/images/QPushButton/menu_bottom_hover.png</file>
+        <file>resources/images/QPushButton/menu_bottom_nor.png</file>
+        <file>resources/images/QPushButton/menu_bottom_pressed.png</file>
+        <file>resources/images/QPushButton/modify_nor .png</file>
+        <file>resources/images/QPushButton/modify_pressed.png</file>
+        <file>resources/images/QPushButton/reduction_disabled.png</file>
+        <file>resources/images/QPushButton/reduction_hover.png</file>
+        <file>resources/images/QPushButton/reduction_nor.png</file>
+        <file>resources/images/QPushButton/reduction_pressed.png</file>
+        <file>resources/images/QPushButton/scale_hover.png</file>
+        <file>resources/images/QPushButton/scale_nor.png</file>
+        <file>resources/images/QPushButton/scale_pressed.png</file>
+        <file>resources/images/QPushButton/window_close_hover.png</file>
+        <file>resources/images/QPushButton/window_close_nor.png</file>
+        <file>resources/images/QPushButton/window_close_pressed.png</file>
+        <file>resources/images/QRadioButton/checked_disabled.png</file>
+        <file>resources/images/QRadioButton/checked_hover.png</file>
+        <file>resources/images/QRadioButton/checked_normal.png</file>
+        <file>resources/images/QRadioButton/checked_pressed.png</file>
+        <file>resources/images/QRadioButton/unchecked_disabled.png</file>
+        <file>resources/images/QRadioButton/unchecked_hover.png</file>
+        <file>resources/images/QRadioButton/unchecked_normal.png</file>
+        <file>resources/images/QRadioButton/unchecked_pressed.png</file>
+        <file>resources/images/QScrollBar/downarrow_hover.png</file>
+        <file>resources/images/QScrollBar/downarrow_nor.png</file>
+        <file>resources/images/QScrollBar/downarrow_pressed.png</file>
+        <file>resources/images/QScrollBar/groove_nor.png</file>
+        <file>resources/images/QScrollBar/handle_hover.png</file>
+        <file>resources/images/QScrollBar/handle_nor.png</file>
+        <file>resources/images/QScrollBar/handle_pressed.png</file>
+        <file>resources/images/QScrollBar/hGroove_nor.png</file>
+        <file>resources/images/QScrollBar/hHandle_hover.png</file>
+        <file>resources/images/QScrollBar/hHandle_nor.png</file>
+        <file>resources/images/QScrollBar/hHandle_pressed.png</file>
+        <file>resources/images/QScrollBar/leftarrow_hover.png</file>
+        <file>resources/images/QScrollBar/leftarrow_nor.png</file>
+        <file>resources/images/QScrollBar/leftarrow_pressed.png</file>
+        <file>resources/images/QScrollBar/rightarrow_hover.png</file>
+        <file>resources/images/QScrollBar/rightarrow_nor.png</file>
+        <file>resources/images/QScrollBar/rightarrow_pressed.png</file>
+        <file>resources/images/QScrollBar/uparrow_hover.png</file>
+        <file>resources/images/QScrollBar/uparrow_nor.png</file>
+        <file>resources/images/QScrollBar/uparrow_pressed.png</file>
+        <file>resources/images/QSizeGrip/nor.png</file>
+        <file>resources/images/QSizeGrip/SizeGrip_hover.png</file>
+        <file>resources/images/QSizeGrip/SizeGrip_pressed.png</file>
+        <file>resources/images/QSlider/h_slider_disabled.png</file>
+        <file>resources/images/QSlider/h_slider_hover.png</file>
+        <file>resources/images/QSlider/h_slider_nor.png</file>
+        <file>resources/images/QSlider/h_slider_pressed.png</file>
+        <file>resources/images/QSlider/vslider_disabled.png</file>
+        <file>resources/images/QSlider/vslider_hover.png</file>
+        <file>resources/images/QSlider/vslider_nor.png</file>
+        <file>resources/images/QSlider/vslider_pressed.png</file>
+        <file>resources/images/QSpinBox/arrow_disabled.png</file>
+        <file>resources/images/QSpinBox/arrow_hover-01.png</file>
+        <file>resources/images/QSpinBox/arrow_hover-02.png</file>
+        <file>resources/images/QSpinBox/arrow_nor.png</file>
+        <file>resources/images/QSpinBox/arrow_pressed.png</file>
+        <file>resources/images/QSpinBox/disable.png</file>
+        <file>resources/images/QSpinBox/downarrow_disabled.png</file>
+        <file>resources/images/QSpinBox/downarrow_hover-01.png</file>
+        <file>resources/images/QSpinBox/downarrow_hover-02.png</file>
+        <file>resources/images/QSpinBox/downarrow_nor.png</file>
+        <file>resources/images/QSpinBox/downarrow_pressed.png</file>
+        <file>resources/images/QSpinBox/editable_hover.png</file>
+        <file>resources/images/QSpinBox/editable_nor.png</file>
+        <file>resources/images/QSpinBox/editable_pressed.png</file>
+        <file>resources/images/QSpinBox/uneditable_hover.png</file>
+        <file>resources/images/QSpinBox/uneditable_nor.png</file>
+        <file>resources/images/QSpinBox/uneditable_pressed.png</file>
+        <file>resources/images/QTabBar/disabled.png</file>
+        <file>resources/images/QTabBar/hover.png</file>
+        <file>resources/images/QTabBar/nor.png</file>
+        <file>resources/images/QTabBar/pressed.png</file>
+        <file>resources/images/QTabBar/seled.png</file>
+        <file>resources/images/QTableView/form_hover.png</file>
+        <file>resources/images/QTableView/form_pressed.png</file>
+        <file>resources/images/QTableView/form_selecyed.png</file>
+        <file>resources/images/QTableView/hline.png</file>
+        <file>resources/images/QTableView/sidebar_hover.png</file>
+        <file>resources/images/QTableView/sidebar_nor.png</file>
+        <file>resources/images/QTableView/sidebar_pressed.png</file>
+        <file>resources/images/QTableView/sidebar_selected.png</file>
+        <file>resources/images/QTableView/title_hover.png</file>
+        <file>resources/images/QTableView/title_nor.png</file>
+        <file>resources/images/QTableView/title_pressed.png</file>
+        <file>resources/images/QTableView/title_secelecd.png</file>
+        <file>resources/images/QTableView/vline.png</file>
+        <file>resources/images/QTreeView/bg.png</file>
+        <file>resources/images/QTreeView/branch_bg_hover.png</file>
+        <file>resources/images/QTreeView/branch_bg_nor.png</file>
+        <file>resources/images/QTreeView/branch_bg_pass on.png</file>
+        <file>resources/images/QTreeView/branch_close.png</file>
+        <file>resources/images/QTreeView/branch_end.png</file>
+        <file>resources/images/QTreeView/branch_more.png</file>
+        <file>resources/images/QTreeView/branch_open.png</file>
+        <file>resources/images/QTreeView/branch_vline.png</file>
+        <file>resources/images/QTreeView/header.png</file>
+        <file>resources/css/common.css</file>
     </qresource>
 </RCC>

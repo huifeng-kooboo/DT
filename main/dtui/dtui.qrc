@@ -1,11 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/close.png</file>
-        <file>resources/camera.png</file>
-        <file>resources/camera_press.png</file>
-        <file>resources/newproject.png</file>
-        <file>resources/open.png</file>
-        <file>resources/save.png</file>
-        <file>resources/saveas.png</file>
+
     </qresource>
 </RCC>

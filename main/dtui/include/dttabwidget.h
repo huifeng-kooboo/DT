@@ -1,13 +1,15 @@
 #ifndef DTTABWIDGET_H
 #define DTTABWIDGET_H
 #include <QTabWidget>
+#include <QToolButton>
+#include <QHBoxLayout>
 
 /*
  * TabWidget界面重写
 */
 
 
-class DTTabWidget: public QTabWidget
+class DTTabWidget: public QWidget
 {
     Q_OBJECT
 public:
@@ -22,7 +24,18 @@ public:
      * pWidget: 窗体
      * bShowTabName:是否展示Tab名称？展示tab名称：只展示图标
     */
-    void addTabByName(const QString& qsTabName, QIcon qIcon, QWidget* pWidget,bool bShowTabName=true);
+    void addTabByName(const QString& qsTitle, QIcon qIcon, QString qsObjectName,bool bShowTabName=true);
+
+    /*
+     * @brief: 设置中间的窗体
+     */
+    void setCenterWidget(QWidget* widget);
+
+    QVector<QToolButton*> getToolButtonVec();
+
+private:
+    QVector<QToolButton*> m_vecToolBtns; // 工具集合
+    QHBoxLayout * m_pLayout;
 
 };
 

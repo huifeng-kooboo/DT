@@ -10,11 +10,6 @@
 #include "../../common/include/dtjson.h"
 #include "../../common/include/dtlog.h"
 
-// 处理中文乱码使用
-#if defined(_MSC_VER) && (_MSC_VER >= 1600)
-# pragma execution_character_set("utf-8")
-#endif
-
 
 #define PLUGINS  "plugins/"
 
@@ -60,7 +55,7 @@ void DT_PluginsManager::freePlugin(const QString &dllPath)
         qlLibrary.unload();
         if (qlLibrary.isLoaded())
         {
-            Logger->logMsg(QtMsgType::QtCriticalMsg, tr("%1卸载失败").arg(dllPath));
+            Logger->logMsg(QtMsgType::QtCriticalMsg, tr("%1卸载失败,错误原因:%2").arg(dllPath).arg(qlLibrary.errorString()));
         }
         else{
             Logger->logMsg(QtMsgType::QtInfoMsg,tr("卸载成功"));
@@ -120,7 +115,6 @@ DT_PluginsManager::DT_PluginsManager(QObject *parent)
             QJsonValue qjsValue =qJson.toObject().value("plugins_name");
             QString qsPluginsVersion = qJson.toObject().value("plugins_version").toString();
             QString qsPluginsDesc = qJson.toObject().value("plugins_desc").toString();
-            // ToDo: 完善对应的业务
             QString qsPluginsState = qJson.toObject().value("plugins_state").toString();
             pluginInfo.qsPluginsName = QString(PLUGINS).append(qjsValue.toString());
             pluginInfo.qsPluginsDesc = qsPluginsDesc;

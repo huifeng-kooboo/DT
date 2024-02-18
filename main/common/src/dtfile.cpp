@@ -48,9 +48,7 @@ bool DTFile::createFolder(const QString &qsFolder, bool bReload)
     return true;
 }
 
-//删除文件夹
-bool DTFile::deleleFolder(const QString &qsFolder)
-{
+bool DTFile::deleleFolder(const QString &qsFolder){
     if (qsFolder.isEmpty()){
         return false;
     }
@@ -58,14 +56,14 @@ bool DTFile::deleleFolder(const QString &qsFolder)
     if(!dir.exists()){
         return true;
     }
-    dir.setFilter(QDir::AllEntries | QDir::NoDotAndDotDot); //设置过滤
-    QFileInfoList fileList = dir.entryInfoList(); // 获取所有的文件信息
-    foreach (QFileInfo file, fileList){ //遍历文件信息
-        if (file.isFile()){ // 是文件，删除
+    dir.setFilter(QDir::AllEntries | QDir::NoDotAndDotDot);
+    QFileInfoList fileList = dir.entryInfoList();
+    foreach (QFileInfo file, fileList){
+        if (file.isFile()){
             file.dir().remove(file.fileName());
-        }else{ // 递归删除
+        }else{
             deleleFolder(file.absoluteFilePath());
         }
     }
-    return dir.rmdir(dir.absolutePath()); // 删除文件夹
+    return dir.rmdir(dir.absolutePath());
 }

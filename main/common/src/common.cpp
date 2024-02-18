@@ -8,3 +8,4 @@ QMainWindow* CCommon::getMainWindow()
                return mainWin;
        return nullptr;
 }
+

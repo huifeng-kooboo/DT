@@ -4,6 +4,8 @@
 #include "../../dtui/include/dttabwidget.h"
 #include "../../dtui/include/dttitlebar.h"
 #include "../../dtui/include/dttoolbar.h"
+#include "../../dtui/include/dtgroupbox.h"
+#include "../../dtui/include/dttabwidget.h"
 #include "globaldefine.h"
 #include "pluginsmanager.h"
 
@@ -29,6 +31,8 @@ private:
     */
   void init();
 
+  void loadStyle();
+
   // 注册自定义的数据类型
   void registerMetaTypes();
 
@@ -53,6 +57,8 @@ signals:
    */
   void sendSignalToPluginsAsync(PluginMetaData);
 
+private slots:
+  void showGroupBox();
 
 public slots:
 
@@ -94,11 +100,19 @@ private:
   // 界面相关
   QSharedPointer<QWidget> m_pMainWidget;  // 主窗体
   QSharedPointer<DTTitleBar> m_pTitleBar;       // 标题栏控件
-  QSharedPointer<QVBoxLayout> m_pMainLayout;  // 总体布局
+  QSharedPointer<QVBoxLayout> m_pMainLayout;  // 总体布局VBox布局
+
+  // 测试功能按钮 SET_FALSE 即可
+  DTButton* m_pTestGroupBoxBtn; // 测试GroupBox功能
+  DTGroupBox * m_pTestBox = nullptr;
+  DTTabWidget* m_pTabWidget; // tab栏工具条
+
+
 
   // FrameLess Window Need
   QPoint m_PointMouse;
   int m_nDesktopWidth = 0;  // The Default Normal Width
   bool m_bShowMax = false;  // The State Show whether is Max State
+  int m_nDefaultTitleBarHeight = 98;
 };
 #endif // MAINWINDOW_H

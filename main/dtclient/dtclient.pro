@@ -27,9 +27,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/pluginsmanager.cpp
+    src/pluginsmanager.cpp \
+    src/util.cpp
 
 HEADERS += \
+    include/util.h \
     include/win/dumper.h \
     include/globaldefine.h \
     include/mainwindow.h \

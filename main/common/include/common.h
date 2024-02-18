@@ -11,6 +11,8 @@ public:
      *
      */
     static  QMainWindow*  getMainWindow();
+
+    static void setDefaultCode();
 };
 
 

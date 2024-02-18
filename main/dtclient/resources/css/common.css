@@ -1,0 +1,154 @@
+QWidget#MainWindow
+{
+border-image: url(:/resources/background.jpg) 2;
+border-width: 2px;
+}
+
+/***************************************通用界面样式********************************************/
+/*
+* QLabel：样式
+*/
+QLabel#title_info{
+    background-color: white;
+    color: black;
+    margin-left: 30px;
+}
+
+/*
+* PushButton: 样式
+*/
+QPushButton {
+color: white;
+border-radius: 4px;
+background-color: #533a93;
+font-weight: bold;
+font-size: 14px;
+}
+
+QPushButton:hover {
+background-color:  #5f479b;
+}
+
+QPushButton:pressed {
+background-color: #654e9f;
+}
+
+/*
+* GroupBox: 样式
+*/
+DTGroupBox {
+background-color:transparent;
+border-image: url(:/resources/images/QGroupBox/window_left_open.png)0  0  0  0;
+border-width: 0 0 0  0;
+min-width:10;
+}
+
+QWidget#window_tab_widget {
+background-color:transparent;
+}
+
+QToolButton {
+color: rgb(202, 252, 255);
+border-radius: 4px;
+background-color:transparent;
+font-weight: bold;
+font-size: 14px;
+border-image: url(:/resources/images/QPushButton/legend_bg_nor.png)0  0  0  0;
+border-width: 0 0 0  0;
+}
+
+QToolButton:hover {
+border-image: url(:/resources/images/QPushButton/legend_bg_hover.png)0  0  0  0;
+border-width: 0 0 0  0;
+}
+
+QToolButton:pressed {
+border-image: url(:/resources/images/QPushButton/legend_pressed.png)0  0  0  0;
+border-width: 0 0 0  0;
+}
+
+
+/***************************************专用界面样式********************************************/
+
+/* 标题栏 */
+QWidget#window_title_bar
+{
+color: rgb(155, 243, 247);
+font: 22px;
+}
+
+QWidget#window_title_widget
+{
+border-image: url(:/resources/images/QMainWindow/title.png)0 274 0 274;
+border-width: 0 274 0 274;
+}
+
+/*标题*/
+QLabel#win_title
+{
+color: rgb(155, 243, 247);
+font: 22px;
+}
+
+/*区域*/
+QLabel#win_region
+{
+color: rgb(247, 192, 187);
+font: 12px;
+}
+
+/*标题控件*/
+QLabel#win_control_title
+{
+color: rgb(252, 159, 118);
+}
+
+
+/* 关闭按钮 3种状态 */
+QPushButton#window_close{
+background-color: transparent;
+border-image: url(:/resources/images/QPushButton/window_close_nor.png);
+}
+
+QPushButton#window_close:hover{
+border-image: url(:/resources/images/QPushButton/window_close_hover.png);
+}
+
+QPushButton#window_close:pressed{
+border-image: url(:/resources/images/QPushButton/window_close_pressed.png);
+}
+
+QPushButton#window_nor_close{
+background-color: transparent;
+border-image: url(:/resources/images/QPushButton/close_nor.png);
+}
+
+QPushButton#window_nor_close:hover{
+border-image: url(:/resources/images/QPushButton/close_hover.png);
+}
+
+QPushButton#window_nor_close:pressed{
+border-image: url(:/resources/images/QPushButton/close_pressed.png);
+}
+
+
+DTButton#dt_info {
+color: rgb(202, 252, 255);
+border-radius: 4px;
+background-color:transparent;
+font-weight: bold;
+font-size: 14px;
+min-height: 40px;
+border-image: url(:/resources/images/QPushButton/legend_bg_nor.png)0  0  0  0;
+border-width: 0 0 0  0;
+}
+
+QToolButton:hover#dt_info {
+border-image: url(:/resources/images/QPushButton/legend_bg_hover.png)0  0  0  0;
+border-width: 0 0 0  0;
+}
+
+QToolButton:pressed#dt_info {
+border-image: url(:/resources/images/QPushButton/legend_pressed.png)0  0  0  0;
+border-width: 0 0 0  0;
+}

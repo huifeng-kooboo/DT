@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "../../dtui/include/dtgraphicsview.h"
+#include "../../dtui/include/dtgroupbox.h"
 #include "../../common/include/dtlog.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -27,7 +28,6 @@ void MainWindow::init() {
 
     /**************************************/
     m_pMainWidget = QSharedPointer<QWidget>(new QWidget(this), &QObject::deleteLater);
-    m_pMainWidget->setStyleSheet("QWidget{background-color: rgb(19, 19, 19);}");
     setCentralWidget(m_pMainWidget.data());
 
     /************* 设置图标 *******************/
@@ -35,40 +35,63 @@ void MainWindow::init() {
 
     // 1.标题栏控件
     m_pTitleBar =  QSharedPointer<DTTitleBar>(new DTTitleBar(this), &QObject::deleteLater);
-    m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
-    m_pTitleBar->setStyleSheet(m_pTitleBar->styleSheet() + "QWidget{font-family:'Microsoft YaHei'; font:12px;}");
-    m_pTitleBar->setCurrentWindowTitle(APP_NAME);  // 设置标题文字
-    m_pTitleBar->setLogo(QIcon(":/resources/icon.png")); // 设置左上角Logo
-    QIcon qHomePageIcon = QIcon(":/resources/homepage.png");
-    m_pTitleBar->setHomePageIcon(qHomePageIcon,QIcon(":/resources/homepage_hover.png"),QIcon(":/resources/homepage_press.png"),QSize(17,17));
-    m_pTitleBar->setHomePageVisible(false); // 隐藏
-    QIcon qMinIcon = QIcon(":/resources/min.png");
-    QIcon qMaxIcon = QIcon(":/resources/max.png");
-    QIcon qCloseIcon = QIcon(":/resources/close.png");
-    QIcon qMinHoverIcon = QIcon(":/resources/min_hover.png");
-    QIcon qMaxHoverIcon = QIcon(":/resources/max_hover.png");
-    QIcon qCloseHoverIcon = QIcon(":/resources/close_hover.png");
-    QIcon qMinPressIcon = QIcon(":/resources/min_press.png");
-    QIcon qMaxPressIcon = QIcon(":/resources/max_press.png");
-    QIcon qClosePressIcon = QIcon(":/resources/close_press.png");
-    m_pTitleBar->setButtonsIcon(qMinIcon,qMaxIcon,qCloseIcon,qMinHoverIcon,qMaxHoverIcon,qCloseHoverIcon,
-                                qMinPressIcon,qMaxPressIcon,qClosePressIcon);
+    m_pTitleBar->setObjectName("window_title_bar");
+    m_pTitleBar->setGeometry(0,0,this->geometry().width(),m_nDefaultTitleBarHeight); //设置大小
+    m_pTitleBar->setTitle("数学研究院系统");
+    m_pTitleBar->setRegion("华东地区");
 
-    m_pMainLayout = QSharedPointer<QVBoxLayout>(new QVBoxLayout(), &QObject::deleteLater);
+    // 添加文本按钮
+    for (int i = 0; i < 6; i++)
+    {
+        QLabel* label = new QLabel();
+        label->setObjectName("title_info");
+        label->setFixedSize(160,30);
+        label->setText(QString("文本%1").arg(i));
+        if(i % 2 ==0)
+        {
+            m_pTitleBar->addTextLabel(label,1);
+        }
+        else{
+            m_pTitleBar->addTextLabel(label,0);
+        }
+    }
+
+
+    m_pMainLayout = QSharedPointer<QVBoxLayout>(new QVBoxLayout(this), &QObject::deleteLater);
     m_pMainLayout->setSpacing(0);
     m_pMainLayout->setMargin(0);
     m_pMainWidget->setLayout(m_pMainLayout.data());
 
+    // Tab工具栏
+    m_pTabWidget = new DTTabWidget(this);
+    m_pTabWidget->setObjectName("window_tab_widget");
+    m_pMainLayout->addStretch();
+    m_pMainLayout->addWidget(m_pTabWidget); // 放置最下层
+    QIcon myIcon(":/resources/icon.png");
+    for(int i =0; i < 6; i++)
+    {
+        m_pTabWidget->addTabByName(QString("功能按钮%1").arg(i+1),myIcon,QString("test").arg(i+1));
+    }
+
+    auto vecButtons = m_pTabWidget->getToolButtonVec();
+    for (auto btn: vecButtons)
+    {
+        connect(btn,SIGNAL(clicked()),this,SLOT(showGroupBox()));
+    }
     // 2. 加载插件
     loadPlugins();
 
     // 3.UI样式设置
-    this->setMinimumSize(1100,700);
-    loadStyleSheet("../qss_res/global/global.qss");
+    loadStyle();
 
     // 4. 显示界面
     this->showNormal();
 
+}
+
+void MainWindow::loadStyle()
+{
+    this->loadStyleSheet(":/resources/css/common.css");
 }
 
 // 需要设置该类型，使得能被其他的插件正确引用
@@ -184,17 +207,15 @@ void MainWindow::slotMaxEvent()
 {
     if(m_bShowMax == false)
     {
-        qDebug() << "Show Max State";
         m_nDesktopWidth = this->geometry().width();
         this->showMaximized();
-        m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
+        m_pTitleBar->setGeometry(0,0,this->geometry().width(),m_nDefaultTitleBarHeight); //设置大小
         m_pTitleBar->show();
         this->setGeometry(this->x(),this->y(),this->geometry().width(),this->geometry().height());
         m_bShowMax = true;
     }
     else{
-        qDebug() << "Show Normal State";
-        m_pTitleBar->setGeometry(0,0,m_nDesktopWidth,44); //设置大小
+        m_pTitleBar->setGeometry(0,0,m_nDesktopWidth,m_nDefaultTitleBarHeight); //设置大小
         m_pTitleBar->show();
         this->showNormal();
         this->setGeometry(this->x(),this->y(),m_nDesktopWidth,this->geometry().height());
@@ -216,7 +237,7 @@ void MainWindow::slotCloseEvent()
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    m_pTitleBar->setGeometry(0,0,this->geometry().width(),44); //设置大小
+    m_pTitleBar->setGeometry(0,0,this->geometry().width(),m_nDefaultTitleBarHeight); //设置大小
     m_pTitleBar->show();
     QMainWindow::resizeEvent(event);
 }
@@ -280,3 +301,32 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
     return true;
 }
 #endif
+
+void MainWindow::showGroupBox()
+{
+    if(m_pTestBox == nullptr)
+    {
+        m_pTestBox = new DTGroupBox();
+    }
+    QString title = "采购合同";
+    m_pTestBox->setTitle(title);
+    m_pTestBox->setGeometry(70,300,390,364);
+    //
+    QWidget* pWidget = new QWidget();
+    QVBoxLayout* pLayout = new QVBoxLayout();
+    pWidget->setLayout(pLayout);
+    QHBoxLayout* pHLayout = new QHBoxLayout();
+    pLayout->addLayout(pHLayout);
+    pLayout->addStretch();
+    for (auto i = 0; i <3; i++)
+    {
+        DTButton * dtButton = new DTButton();
+        dtButton->setText(QString("text_ok_%1").arg(i));
+        dtButton->setObjectName("dt_info");
+        pHLayout->addWidget(dtButton);
+    }
+    //
+    m_pTestBox->setContentWidget(pWidget);
+    m_pTestBox->show();
+    // QMessageBox::warning(NULL,"ShowNone","Show Text");
+}
