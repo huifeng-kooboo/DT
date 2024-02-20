@@ -8,6 +8,7 @@
 #include "../../dtui/include/dttabwidget.h"
 #include "globaldefine.h"
 #include "pluginsmanager.h"
+#include "component/playwidget.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -106,6 +107,7 @@ private:
   DTButton* m_pTestGroupBoxBtn; // 测试GroupBox功能
   DTGroupBox * m_pTestBox = nullptr;
   DTTabWidget* m_pTabWidget; // tab栏工具条
+  PlayWidget* m_pPlayWidget;
 
 
 

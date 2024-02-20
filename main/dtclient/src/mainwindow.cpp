@@ -70,8 +70,35 @@ void MainWindow::init() {
     QIcon myIcon(":/resources/icon.png");
     for(int i =0; i < 6; i++)
     {
+        if(i==3)
+        {
+            m_pPlayWidget = new PlayWidget();
+            m_pPlayWidget->setFixedWidth(200);
+            QPushButton * push = new QPushButton();
+            push->setObjectName("play_ui");
+            push->setIcon(QIcon(":/resources/pause.png"));
+            push->setFixedSize(30,30);
+            QPushButton * pushStop = new QPushButton();
+            pushStop->setObjectName("play_ui");
+            pushStop->setIcon(QIcon(":/resources/stop.png"));
+            pushStop->setFixedSize(30,30);
+            QPushButton * pushRestart = new QPushButton();
+            pushRestart->setObjectName("play_ui");
+            pushRestart->setIcon(QIcon(":/resources/restart.png"));
+            pushRestart->setFixedSize(30,30);
+            QPushButton * pushQuick = new QPushButton();
+            pushQuick->setObjectName("play_ui");
+            pushQuick->setIcon(QIcon(":/resources/quick.png"));
+            pushQuick->setFixedSize(30,30);
+            m_pPlayWidget->addPlayButton(push);
+            m_pPlayWidget->addPlayButton(pushStop);
+            m_pPlayWidget->addPlayButton(pushRestart);
+            m_pPlayWidget->addPlayButton(pushQuick);
+            m_pTabWidget->setCenterWidget(m_pPlayWidget);
+        }
         m_pTabWidget->addTabByName(QString("功能按钮%1").arg(i+1),myIcon,QString("test").arg(i+1));
     }
+
 
     auto vecButtons = m_pTabWidget->getToolButtonVec();
     for (auto btn: vecButtons)

@@ -3,24 +3,6 @@
         <file>resources/background.jpg</file>
         <file>resources/icon.ico</file>
         <file>resources/icon.png</file>
-        <file>resources/images/Icon/cance.png</file>
-        <file>resources/images/Icon/category_hover.png</file>
-        <file>resources/images/Icon/category_nor.png</file>
-        <file>resources/images/Icon/category_pass on.png</file>
-        <file>resources/images/Icon/collaborative group.png</file>
-        <file>resources/images/Icon/command link.png</file>
-        <file>resources/images/Icon/Cooperative group.png</file>
-        <file>resources/images/Icon/determine.png</file>
-        <file>resources/images/Icon/drop down arrow.png</file>
-        <file>resources/images/Icon/first class_company.png</file>
-        <file>resources/images/Icon/first class_grade.png</file>
-        <file>resources/images/Icon/map tools.png</file>
-        <file>resources/images/Icon/mune.png</file>
-        <file>resources/images/Icon/system settings.png</file>
-        <file>resources/images/Icon/Three level unit_company.png</file>
-        <file>resources/images/Icon/three level unit_grade.png</file>
-        <file>resources/images/Icon/two level unit_company.png</file>
-        <file>resources/images/Icon/two level unit_grade.png</file>
         <file>resources/images/Others/arrow_before.png</file>
         <file>resources/images/Others/arrow_rear.png</file>
         <file>resources/images/Others/change parameters_bg.png</file>
@@ -266,5 +248,9 @@
         <file>resources/images/QTreeView/branch_vline.png</file>
         <file>resources/images/QTreeView/header.png</file>
         <file>resources/css/common.css</file>
+        <file>resources/pause.png</file>
+        <file>resources/quick.png</file>
+        <file>resources/restart.png</file>
+        <file>resources/stop.png</file>
     </qresource>
 </RCC>

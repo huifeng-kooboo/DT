@@ -48,7 +48,7 @@ bool DTFile::createFolder(const QString &qsFolder, bool bReload)
     return true;
 }
 
-bool DTFile::deleleFolder(const QString &qsFolder){
+bool DTFile::deleteFolder(const QString &qsFolder){
     if (qsFolder.isEmpty()){
         return false;
     }
@@ -62,7 +62,7 @@ bool DTFile::deleleFolder(const QString &qsFolder){
         if (file.isFile()){
             file.dir().remove(file.fileName());
         }else{
-            deleleFolder(file.absoluteFilePath());
+            deleteFolder(file.absoluteFilePath());
         }
     }
     return dir.rmdir(dir.absolutePath());

@@ -5,10 +5,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++14
 
-# 生成目标程序名称： 例如dtdt.exe
-TARGET = dtdt
-
-
 # 添加预编译头文件
 CONFIG += PRECOMPILED_HEADER
 PRECOMPILED_HEADER =  $$PWD/include/stdafx.h
@@ -25,12 +21,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/component/playwidget.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/pluginsmanager.cpp \
     src/util.cpp
 
 HEADERS += \
+    include/component/playslider.h \
+    include/component/playwidget.h \
     include/util.h \
     include/win/dumper.h \
     include/globaldefine.h \
@@ -77,7 +76,7 @@ PLUGIN_INFO_FILES += \
     $$PWD/../../allplugins/plugins.json
 
 
-copyToDestDir($$PLUGIN_INFO_FILES, $$PWD/../../bin/plugins)
+copyToDestDir($$PLUGIN_INFO_FILES, $$PWD/../../bin/plugins/)
 
 # 复制编译打包的相关依赖
 DEPEND_CORE_FILES += \

@@ -33,6 +33,10 @@ QPushButton:pressed {
 background-color: #654e9f;
 }
 
+/*************/
+QPushButton#play_ui {
+    background-color: aqua;
+}
 /*
 * GroupBox: 样式
 */

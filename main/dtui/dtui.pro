@@ -80,5 +80,4 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    dtui.qrc
+RESOURCES +=

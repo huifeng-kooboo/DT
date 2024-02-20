@@ -5,7 +5,7 @@ CONFIG += ordered
 
 
 SUBDIRS +=\
+   dtclient \
    common \
-   dtui \
-   dtclient
+   dtui 
 
