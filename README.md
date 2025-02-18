@@ -23,6 +23,9 @@
 ----
 * Demo效果可以下载[DTDemo](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/DTDemo.zip) 查看使用Dt框架开发的Demo效果
 
+- wechat: 有远程办公需求可扫码微信联系：
+  <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/person_wechat_own.jpg" width="200" height="300" />
+  
 * 接定制开发Qt项目的需求，需要+V: ytouching
 * 对大家有帮助的话，可以扫码支持 
 <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "300" height = "300"  />
