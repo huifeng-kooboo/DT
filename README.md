@@ -21,6 +21,7 @@
 
 
 ----
+* 有远程开发需求可联系，有需要合作加微信: ytouching
 * Demo效果可以下载[DTDemo](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/DTDemo.zip) 查看使用Dt框架开发的Demo效果
 
 - wechat: 有远程办公需求可扫码微信联系：
