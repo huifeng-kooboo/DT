@@ -1,225 +1,112 @@
-# DT  
+# DT Framework - 现代化的Qt客户端开发框架
 
-<a href="https://github.com/huifeng-kooboo/DT/stargazers">
-    <img src="https://img.shields.io/github/stars/huifeng-kooboo/DT.svg?colorA=orange&colorB=orange&logo=github"
-         alt="GitHub stars">
-  </a>  <a href="https://github.com/huifeng-kooboo/DT/issues">
-        <img src="https://img.shields.io/github/issues/huifeng-kooboo/DT.svg"
-             alt="GitHub issues">
-  </a><a href="https://github.com/huifeng-kooboo/DT/forks">
-        <img src="https://img.shields.io/github/forks/huifeng-kooboo/DT.svg"
-             alt="GitHub forks">
-  </a><a href="https://github.com/huifeng-kooboo/DT/">
-        <img src="https://img.shields.io/github/last-commit/huifeng-kooboo/DT.svg">
-  </a><a href="https://github.com/huifeng-kooboo/DT/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/huifeng-kooboo/DT.svg"
-             alt="GitHub license">
-  </a>
+<div align="center">
 
+[![GitHub stars](https://img.shields.io/github/stars/huifeng-kooboo/DT.svg?colorA=orange&colorB=orange&logo=github)](https://github.com/huifeng-kooboo/DT/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/huifeng-kooboo/DT.svg)](https://github.com/huifeng-kooboo/DT/issues)
+[![GitHub forks](https://img.shields.io/github/forks/huifeng-kooboo/DT.svg)](https://github.com/huifeng-kooboo/DT/forks)
+[![GitHub last commit](https://img.shields.io/github/last-commit/huifeng-kooboo/DT.svg)](https://github.com/huifeng-kooboo/DT/)
+[![GitHub license](https://img.shields.io/github/license/huifeng-kooboo/DT.svg)](https://github.com/huifeng-kooboo/DT/blob/master/LICENSE)
 
+</div>
 
+## 📚 项目介绍
 
+DT Framework 是一个基于 Qt 的现代化客户端开发框架，采用组件化设计思想，致力于提供高效、灵活的桌面应用开发解决方案。该框架已在多个商业项目中得到验证，包括 AI 智能相机等大型应用。
 
-----
-* 有远程开发需求可联系，有需要合作加微信: ytouching
-* Demo效果可以下载[DTDemo](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/DTDemo.zip) 查看使用Dt框架开发的Demo效果
+### 🌟 核心特性
 
-- wechat: 有远程办公需求可扫码微信联系：
-  <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/person_wechat_own.jpg" width="200" height="300" />
-  
-* 接定制开发Qt项目的需求，需要+V: ytouching
-* 对大家有帮助的话，可以扫码支持 
-<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "300" height = "300"  />
+- **组件化架构**: 采用"all function is a tool"的设计理念，实现高度模块化
+- **Vue 式开发体验**: UI 与业务逻辑紧密绑定，提供类似 Vue 的开发体验
+- **丰富的 Qt 生态**: 充分利用 Qt 框架的强大功能和丰富文档
+- **高扩展性**: 基于插件化设计，支持灵活的功能扩展
+- **商业验证**: 已在多个大型商业项目中稳定运行
 
+### 🔨 技术架构
 
-* 如果有需要在上海找大厂工作的同学，也可以扫码加入
-<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_sh.jpg" width = "300" height = "300"  />
+- **核心框架**: Qt 5.14.2
+- **编译工具**: MSVC 2017 64bit
+- **插件系统**: 自研插件化架构
+- **UI 框架**: 自定义 UI 组件库
+- **开发模式**: 组件化、插件化
 
-----
+### 📦 项目结构
 
-## 1. 为什么开源DT框架
+\`\`\`
+├── allplugins/    # 插件模块目录
+├── bin/           # 可执行文件目录
+├── depends/       # 依赖文件
+├── global/        # 全局配置
+├── main/          # 主程序模块
+├── qss_res/       # 样式资源
+└── scripts/       # 部署脚本
+\`\`\`
 
-* DT框架，本身就是基于QT为基础搭建的开发框架，其中用到了一些许多常用的设计模式，可以助于开发者快速开发客户端系统，参考了组件化的设计思想，所以尝试开源DT框架，之前在互联网上也接触很多的开源框架，所以打算回馈于开源，为开源软件业贡献自己的一份小小力量
-* 就目前所有开源的客户端开发框架来看，个人认为DT框架最大的优势在于：
-  1. 借助于QT丰富的API文档，可以极其方便用户进行掌握，使用该框架
-  2. 组件化的设计思想，可以很方便的复用各类的组件，all function is a tool
-  3. UI+业务的绑定，不需要用户去写完UI再去写业务，设计思想承接自Vue
-  4. 极简的框架代码，提供极大的可扩展性，不写冗余代码
+## 🚀 快速开始
 
-​    当然，目前该框架肯定还存在很多的缺陷，因为目前主要是我一个人在开发和维护这套框架，也希望其他的对开源感兴趣的用户能一起贡献代码，提高DT框架的健壮性！
+### 环境要求
 
-  `DT`是一套基于商业化标准的开源UI组件业务框架，不仅能提供完善的代码设计、详细的业务实现框架，框架的稳定性已在多个大型商化项目中通过验证，其中不仅限AI智能相机客户端项目
+- Qt 5.14.2
+- Visual Studio 2017 (MSVC)
+- Windows 操作系统
 
-* DT库有在大型项目中使用，可以稳定放心，[AI智能相机](https://baijiahao.baidu.com/s?id=1750463100165117672&wfr=spider&for=pc), [演示视频](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/preview_cu.mp4)
+### 安装步骤
 
-* DT库的代码统一规范，方便阅读
+1. 安装 Qt 5.14.2
+2. 配置 MSVC 2017 环境
+3. 克隆项目代码
+4. 使用 Qt Creator 打开并编译
 
-* DT库拥有拥有扩展性：基于基类，可以扩展各个插件通信
+详细安装说明请参考[官方文档](https://www.notion.so/DT-Framework-7496c923274d4deaace5d22f4ad69080?pvs=4)
 
-* DT框架完全开源
-  
+## 💼 商业合作
 
+本人专注于 Qt/C++ 开发，提供专业的远程开发服务：
 
------
+- **专业领域**: Qt 客户端开发、框架设计
+- **项目经验**: AI 智能相机等大型商业项目
+- **服务方式**: 远程开发、技术咨询
 
-* 【重要重要重要！】目前还是需要别人一起完善维护该框架，有兴趣的加微信：ytouching
+### 联系方式
 
-* 本人微信 感兴趣也可以加入聊聊
-[person_info](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg)
+- 💬 微信: ytouching
+- 📧 邮箱: gisdoing@gmail.com
+- 🔗 QQ: 942840260
 
- <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/prtss.jpg">
+<div align="center">
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/person_wechat_own.jpg" width="200" height="300" />
+</div>
 
-* 给大家提供一个交流技术的平台，大家如果感兴趣也可以扫微信群加入，交流C++、Qt等技术信息
-[wechat_group](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_dt.jpg)
- <img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_dt.jpg">
------
+## 🤝 技术交流
 
+欢迎加入我们的技术交流群，讨论 Qt/C++ 相关技术：
 
-## 2. 开源协议
+<div align="center">
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_group_dt.jpg" width="200" />
+</div>
 
-* 可以随意使用修改源码
-* 您在使用过程中觉得好的话可以加个star！
+## 📋 开发路线图
 
+- [ ] UI 控件功能完善
+- [ ] 单元测试覆盖
+- [ ] 技术文档完善
+- [ ] 自动更新功能
+- [ ] 框架性能优化
 
+## 🎯 项目演示
 
-## 3. 关于  
-* 技术支持： 
+- [AI智能相机演示视频](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/preview_cu.mp4)
+- [下载Demo](https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/DTDemo.zip)
 
-    邮箱： gisdoing@gmail.com
+## 💖 支持项目
 
-    微信：ytouching
+如果您觉得项目对您有帮助，欢迎打赏支持：
 
-    QQ: 942840260
+<div align="center">
+<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width="200" />
+</div>
 
----
+## 📄 开源协议
 
-​    
-
-* DT框架的git路径：
-    https://github.com/huifeng-kooboo/DT
-
-
-​     
-
-## 4. 帮助文档
-
-### （1）开发环境安装
-
-##### 依赖安装：
-
-* [Qt 5.14.2](https://download.qt.io/archive/qt/5.14/5.14.2/)  ：只需要安装Qt5.14.2即可
-* 需要配置VS2017的MSVC编译 参考[此处](https://blog.csdn.net/baiyi_2014/article/details/125424534) 进行配置环境 【假如有调用到Win相关的API的环境，需要下载】
-* Qt Creator 配置： 工具->选项->文本编辑器->行为->UTF-8 BOM设置成“如果编码是UTF-8则添加”
-
-##### 编译：
-
-* Qt安装好后，启动QtCreator
-
-  <img src="images\qt.png">
-
-
-* 文件----打开文件或项目
-
-  <img src="images\open.jpg">
-
-* 依次打开main.pro以及plugins.pro  （选择 MSVC2017 64bit 编译： 因为需要调用到sdk的头文件和lib文件，所以用MSVC2017编译）
-
-  <img src="images\plugins.jpg">
-
-* 编译main.pro以及plugins.pro ,编译成功后，会在bin目录下生成相关的文件
-
-  <img src="images\success.jpg">
-
-
-
-* dtdt.exe为编译成功的文件
-
-
-
-### （2）如何在DT框架下进行开发程序
-
-*  目录结构
-
-  ```
-  allplugins   : 插件目录文件夹：存放各类插件模块的代码
-  bin: 最终生成可执行程序的文件夹
-  depends:  存放相关运行程序的依赖
-  global:  存在全局的一些配置信息
-  images:  存在ReadMe文档中所需的图片资源
-  main: 主程序模块的文件夹
-  qss_res: qss样式资源
-  scripts: 脚本包括上传部署等脚本文件
-  ```
-
-  
-
-
-
-----
-
-#### 打包部署【win】
-
-* 打包需要本地先安装python3，进入```scripts```文件下
-
-* 执行 ```pip install -r requirements.txt```  安装相关依赖
-
-* 执行scripts的pack.py脚本 ```python3 pack.py```
-
-* 脚本执行成功后，会在代码目录下package文件夹生成时间命名的压缩包，并且发送文件下载地址到对应的邮箱
-
-  
-
-----
-
-#### 程序运行
-
-* 正常启动
-
-  直接双击```dtdt.exe```即可启动
-
-* 调试模式
-
-  命令行中执行```dtdt.exe -debug```，则使用调试模式启动窗体（带有输出窗口的形式启动软件）
-
-
-
-## 5. 排期计划
-
-*  UI控件功能完善
-*  测试用例编写
-*  技术文档完善
-*  DT软件更新功能开发
-*  框架总体优化
-*  TODO.......
-
-
-## 6. Join
-
-* if you want to join the projects to contribute the code to this project, you can email 942840260@qq.com or gisdoing@gmail.com, or connect with wechat: ytouching
-
-* 如果想加入这个工程一起贡献开源代码的话，欢迎联系邮箱: 942840260@qq.com 或者 gisdoing@gmail.com 或者微信: ytouching
-
------
-
-* [官方文档地址](https://www.notion.so/DT-Framework-7496c923274d4deaace5d22f4ad69080?pvs=4)： ```https://www.notion.so/DT-Framework-7496c923274d4deaace5d22f4ad69080?pvs=4```
-
-
------
-
-## 7. Sponsor
-* 如果对大家产生了帮助，也可以伸伸小手 捐助一波！ 助力项目健康成长
-
-* 微信收款码
-
----
-<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/wechat_shoukuan.jpg" width = "400" height = "400"  />
-
----
-* 支付宝收款码
-
----
-
-<img src="https://ytouch-1258011219.cos.ap-nanjing.myqcloud.com/ali_shoukuan.jpg" width = "380" height = "380"  />
-
-## 8. Q&A
+本项目采用 MIT 协议开源，欢迎自由使用和贡献代码。
 
